@@ -24,10 +24,15 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onClick(View view) {
-        Intent intent = new Intent(WelcomeActivity.this, LoginActivity.class);
-        startActivity(intent);
-
-        //Intent intent2 = new Intent(WelcomeActivity.this, RegisterActivity.class);
-        //startActivity(intent2);
+        switch (view.getId()) {
+            case R.id.btnLogin:
+                Intent intent = new Intent(WelcomeActivity.this, LoginActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btnRegister:
+                Intent intent2 = new Intent(WelcomeActivity.this, RegisterActivity.class);
+                startActivity(intent2);
+                break;
+        }
     }
 }

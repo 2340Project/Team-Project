@@ -8,16 +8,16 @@ import android.content.Intent;
 
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
 
-public class RegisterActivity extends AppCompatActivity implements View
-        .OnClickListener {
+public class RegisterActivity extends AppCompatActivity
+        implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        Button btnCancel = (Button) findViewById(R.id.btnCancel);
-        btnCancel.setOnClickListener(this);
+        Button btnRCancel = (Button) findViewById(R.id.btnRCancel);
+        btnRCancel.setOnClickListener(this);
     }
 
     @Override

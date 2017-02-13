@@ -15,6 +15,7 @@ import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     EditText txtUser;
     EditText txtPass;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,14 +31,20 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     @Override
-    public void onClick(View v) {
-        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-        if (Model.verify(txtUser.getText().toString(), txtPass.getText().toString())) {
-            startActivity(intent);
-        }
-        //Intent intent2 = new Intent(LoginActivity.this, WelcomeActivity
-        // .class);
-        //startActivity(intent2);
-    }
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.btnEnter:
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                if (Model.verify(txtUser.getText().toString(), txtPass.getText().toString())) {
+                    startActivity(intent);
+                }
+                break;
 
+            case R.id.btnCancel:
+                Intent intent2 = new Intent(LoginActivity.this,
+                        WelcomeActivity.class);
+                startActivity(intent2);
+                break;
+        }
+    }
 }
