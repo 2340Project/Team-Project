@@ -27,8 +27,7 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
         Intent intent = new Intent(WelcomeActivity.this, LoginActivity.class);
         startActivity(intent);
 
-        Intent intent2 = new Intent(WelcomeActivity.this, RegisterActivity
-                .class);
-        startActivity(intent2);
+        //Intent intent2 = new Intent(WelcomeActivity.this, RegisterActivity.class);
+        //startActivity(intent2);
     }
 }
