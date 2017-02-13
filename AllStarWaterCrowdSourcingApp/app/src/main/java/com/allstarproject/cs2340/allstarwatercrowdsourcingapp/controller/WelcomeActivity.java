@@ -17,11 +17,18 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
 
         Button btnAction = (Button) findViewById(R.id.btnLogin);
         btnAction.setOnClickListener(this);
+
+        Button btnRegister = (Button) findViewById(R.id.btnRegister);
+        btnRegister.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
         Intent intent = new Intent(WelcomeActivity.this, LoginActivity.class);
         startActivity(intent);
+
+        Intent intent2 = new Intent(WelcomeActivity.this, RegisterActivity
+                .class);
+        startActivity(intent2);
     }
 }
