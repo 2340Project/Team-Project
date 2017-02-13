@@ -35,8 +35,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         switch (view.getId()) {
             case R.id.btnEnter:
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                Intent stay = new Intent(LoginActivity.this, LoginActivity.class);
                 if (Model.verify(txtUser.getText().toString(), txtPass.getText().toString())) {
                     startActivity(intent);
+                } else {
+                    startActivity(stay);
                 }
                 break;
 

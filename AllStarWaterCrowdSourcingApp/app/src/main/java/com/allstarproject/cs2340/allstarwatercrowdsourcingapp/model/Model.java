@@ -37,7 +37,8 @@ public class Model {
      */
     public static boolean verify(String username, String password) {
         boolean valid = false;
-        if (map.containsKey(username) && password == map.get(username)) {
+        System.out.println(map.get(username) + " password in map");
+        if (map.containsKey(username) && password.equals(map.get(username))) {
             valid = true;
             return valid;
         } else {
