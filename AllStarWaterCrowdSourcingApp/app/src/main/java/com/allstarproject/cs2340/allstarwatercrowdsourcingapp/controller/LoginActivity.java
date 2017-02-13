@@ -32,7 +32,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View v) {
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-        Intent intent2 = new Intent(LoginActivity.this, LoginActivity.class);
         if (Model.verify(txtUser.getText().toString(), txtPass.getText().toString())) {
             startActivity(intent);
         }
