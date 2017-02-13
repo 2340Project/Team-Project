@@ -35,8 +35,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if (Model.verify(txtUser.getText().toString(), txtPass.getText().toString())) {
             startActivity(intent);
         }
-        Intent intent2 = new Intent(LoginActivity.this, WelcomeActivity.class);
-        startActivity(intent2);
+        //Intent intent2 = new Intent(LoginActivity.this, WelcomeActivity
+        // .class);
+        //startActivity(intent2);
     }
 
 }
