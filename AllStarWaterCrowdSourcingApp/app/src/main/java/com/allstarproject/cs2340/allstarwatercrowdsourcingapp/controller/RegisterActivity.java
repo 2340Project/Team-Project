@@ -6,23 +6,23 @@ import android.view.View;
 import android.widget.Button;
 import android.content.Intent;
 
-
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class RegisterActivity extends AppCompatActivity implements View
+        .OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_register);
 
-        Button btnLogout = (Button) findViewById(R.id.btnLogout);
-        btnLogout.setOnClickListener(this);
-
+        Button btnCancel = (Button) findViewById(R.id.btnCancel);
+        btnCancel.setOnClickListener(this);
     }
+
     @Override
     public void onClick(View v) {
-        Intent intent = new Intent(MainActivity.this, WelcomeActivity.class);
+        Intent intent = new Intent(RegisterActivity.this, WelcomeActivity.class);
         startActivity(intent);
     }
 }

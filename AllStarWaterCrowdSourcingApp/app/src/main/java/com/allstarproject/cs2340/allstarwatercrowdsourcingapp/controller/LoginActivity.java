@@ -24,21 +24,23 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         txtUser = (EditText) findViewById(R.id.txtUserName);
         txtPass = (EditText) findViewById(R.id.txtPassword);
         btnEnter.setOnClickListener(this);
+
+        Button btnCancel = (Button) findViewById(R.id.btnCancel);
+        btnCancel.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
         Intent stay = new Intent(LoginActivity.this, LoginActivity.class);
-        System.out.println(txtUser.getText().toString());
-        System.out.println(txtPass.getText().toString());
-        //startActivity(intent);
-        System.out.println(Model.verify(txtUser.getText().toString(), txtPass.getText().toString()));
         if (Model.verify(txtUser.getText().toString(), txtPass.getText().toString())) {
             startActivity(intent);
         } else {
             startActivity(stay);
         }
+        //Intent intent2 = new Intent(LoginActivity.this, WelcomeActivity
+        // .class);
+        //startActivity(intent2);
     }
 
 }
