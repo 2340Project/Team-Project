@@ -24,6 +24,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         txtUser = (EditText) findViewById(R.id.txtUserName);
         txtPass = (EditText) findViewById(R.id.txtPassword);
         btnEnter.setOnClickListener(this);
+
+        Button btnCancel = (Button) findViewById(R.id.btnCancel);
+        btnCancel.setOnClickListener(this);
     }
 
     @Override
@@ -35,6 +38,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         } else {
             startActivity(stay);
         }
+        //Intent intent2 = new Intent(LoginActivity.this, WelcomeActivity
+        // .class);
+        //startActivity(intent2);
     }
 
 }
