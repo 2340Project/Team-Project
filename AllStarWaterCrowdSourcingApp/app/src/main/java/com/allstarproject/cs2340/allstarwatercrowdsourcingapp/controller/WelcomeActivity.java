@@ -9,7 +9,10 @@ import android.content.Intent;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
 
 public class WelcomeActivity extends AppCompatActivity implements View.OnClickListener {
-
+    /**
+     * onCreate method for initial setup
+     * @param savedInstanceState bundled data that contains info necessary or setting up buttons
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +25,11 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
         btnRegister.setOnClickListener(this);
     }
 
+    /**
+     * onClick method that handles action when Login or Register buttons are clicked from
+     * WelcomeActivity
+     * @param view current view
+     */
     @Override
     public void onClick(View view) {
         switch (view.getId()) {

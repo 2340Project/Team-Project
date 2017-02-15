@@ -18,6 +18,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     EditText txtUser;
     EditText txtPass;
 
+    /**
+     * this is the onCreate for LoginActiviy
+     * @param savedInstanceState is the Bundle to be used for creation
+     */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +37,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         btnCancel.setOnClickListener(this);
     }
 
+    /**
+     * onClick method that will manage the login or cancel button as well as notifying of invalid
+     * password if necessary
+     *
+     * @param view is the current view
+     */
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
