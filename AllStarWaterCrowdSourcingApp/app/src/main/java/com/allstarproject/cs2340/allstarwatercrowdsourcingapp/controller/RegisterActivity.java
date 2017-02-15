@@ -10,7 +10,10 @@ import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
 
 public class RegisterActivity extends AppCompatActivity
         implements View.OnClickListener {
-
+    /**
+     * onCreate used to setup RegisterActivity on creation
+     * @param savedInstanceState is bundled data passed in to use at creation
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +23,10 @@ public class RegisterActivity extends AppCompatActivity
         btnRCancel.setOnClickListener(this);
     }
 
+    /**
+     * onClick method to handle the cancel button being clicked by returning you to Welcome
+     * @param v the current view
+     */
     @Override
     public void onClick(View v) {
         Intent intent = new Intent(RegisterActivity.this, WelcomeActivity.class);
