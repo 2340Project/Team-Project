@@ -56,9 +56,15 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
                 //set new user data
                 Intent intent1 = new Intent(EditProfileActivity.this, EditProfileActivity.class);
                 if (txtConfPassword.getText().toString().equals(txtPassword.getText().toString())) {
-                    currentUser.setEmail(txtEmail.getText().toString());
-                    currentUser.setName(txtName.getText().toString());
-                    currentUser.setPassword(txtPassword.getText().toString());
+                    if (!(txtEmail.getText().toString().equals(""))) {
+                        currentUser.setEmail(txtEmail.getText().toString());
+                    }
+                    if (!(txtName.getText().toString().equals(""))) {
+                        currentUser.setName(txtName.getText().toString());
+                    }
+                    if (!(txtPassword.getText().toString().equals(""))) {
+                        currentUser.setPassword(txtPassword.getText().toString());
+                    }
                     startActivity(intent1);
                 } else {
                     TextView textView = (TextView) findViewById(R.id.txtlbl);
