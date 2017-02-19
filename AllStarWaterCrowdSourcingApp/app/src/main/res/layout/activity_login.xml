@@ -13,6 +13,20 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/txtCurrentName"
+        android:hint="enter username"
+        android:layout_below="@+id/txtLogin"
+        android:layout_alignLeft="@+id/txtPassword"
+        android:layout_alignStart="@+id/txtPassword"
+        android:layout_marginTop="21dp"
+        android:singleLine="false"
+        android:background="@drawable/my_border"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
         android:layout_alignParentTop="true"
@@ -25,19 +39,6 @@
         android:hint="enter password"
         android:background="@drawable/my_border"/>
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/txtUserName"
-        android:hint="enter username"
-        android:layout_below="@+id/txtLogin"
-        android:layout_alignLeft="@+id/txtPassword"
-        android:layout_alignStart="@+id/txtPassword"
-        android:layout_marginTop="21dp"
-        android:singleLine="false"
-        android:background="@drawable/my_border"/>
 
     <TextView
         android:text="Login"
@@ -47,30 +48,8 @@
         android:id="@+id/txtLogin"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/txtUserName"
-        android:layout_alignStart="@+id/txtUserName" />
-
-    <Button
-        android:text="Enter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/btnSubmitRegister"
-        android:layout_toRightOf="@+id/btnSubmitRegister"
-        android:layout_toEndOf="@+id/btnSubmitRegister"
-        android:layout_marginLeft="54dp"
-        android:layout_marginStart="54dp"
-        android:id="@+id/btnEnter" />
-
-    <Button
-        android:text="Cancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:id="@+id/btnSubmitRegister"
-        android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/txtPassword"
-        android:layout_alignStart="@+id/txtPassword" />
+        android:layout_alignLeft="@+id/txtCurrentName"
+        android:layout_alignStart="@+id/txtCurrentName" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -84,5 +63,28 @@
         android:layout_alignRight="@+id/txtPassword"
         android:layout_alignEnd="@+id/txtPassword"
         android:textColor="@android:color/holo_red_dark" />
+
+    <Button
+        android:text="Cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:id="@+id/btnCancel"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/txtPassword"
+        android:layout_alignStart="@+id/txtPassword" />
+
+    <Button
+        android:text="Enter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginStart="50dp"
+        android:id="@+id/btnEnter"
+        android:layout_alignBaseline="@+id/btnCancel"
+        android:layout_alignBottom="@+id/btnCancel"
+        android:layout_toRightOf="@+id/btnCancel"
+        android:layout_toEndOf="@+id/btnCancel" />
 
 </RelativeLayout>

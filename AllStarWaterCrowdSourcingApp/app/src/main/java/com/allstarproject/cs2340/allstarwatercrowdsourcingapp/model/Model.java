@@ -11,7 +11,7 @@ public class Model {
     private static final Model model = new Model();
     private static Map<String, RegisteredUser> map;
 
-    private RegisteredUser registeredUser;
+    private RegisteredUser user;
 
     /**
      * Singleton
@@ -49,14 +49,17 @@ public class Model {
     /**
      * method to create new user
      */
-    public void createUser() {
-    }
 
     /**
      * method to add user to Map
      */
     public void addUser(String username, RegisteredUser user) {
         map.put(username, user);
+        this.user = user;
+    }
+    //getter for user
+    public RegisteredUser getUser( ) {
+        return user;
     }
 
 
