@@ -33,7 +33,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         txtPass = (EditText) findViewById(R.id.txtPassword);
         btnEnter.setOnClickListener(this);
 
-        Button btnCancel = (Button) findViewById(R.id.btnCancel);
+        Button btnCancel = (Button) findViewById(R.id.btnSubmitRegister);
         btnCancel.setOnClickListener(this);
     }
 
@@ -56,7 +56,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 }
                 break;
 
-            case R.id.btnCancel:
+            case R.id.btnSubmitRegister:
                 Intent intent2 = new Intent(LoginActivity.this,
                         WelcomeActivity.class);
                 startActivity(intent2);
