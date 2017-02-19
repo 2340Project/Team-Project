@@ -21,7 +21,7 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
         Button btnAction = (Button) findViewById(R.id.btnLogin);
         btnAction.setOnClickListener(this);
 
-        Button btnRegister = (Button) findViewById(R.id.btnRegister);
+        Button btnRegister = (Button) findViewById(R.id.btnCancelRegister);
         btnRegister.setOnClickListener(this);
     }
 
@@ -37,7 +37,7 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
                 Intent intent = new Intent(WelcomeActivity.this, LoginActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.btnRegister:
+            case R.id.btnCancelRegister:
                 Intent intent2 = new Intent(WelcomeActivity.this, RegisterActivity.class);
                 startActivity(intent2);
                 break;

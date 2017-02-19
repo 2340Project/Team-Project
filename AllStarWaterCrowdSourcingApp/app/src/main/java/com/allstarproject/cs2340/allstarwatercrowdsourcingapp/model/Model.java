@@ -9,16 +9,16 @@ import java.util.Map;
 
 public class Model {
     private static final Model model = new Model();
-    private static Map<String, String> map;
+    private static Map<String, RegisteredUser> map;
 
-    private RegisteredUser registeredUser;
+    private RegisteredUser user;
 
     /**
      * Singleton
      */
     private Model() {
-        map = new HashMap<String, String>();
-        map.put("user", "pass");
+        map = new HashMap<String, RegisteredUser>();
+        //map.put("user", "pass");
     }
 
     /**
@@ -38,7 +38,7 @@ public class Model {
     public static boolean verify(String username, String password) {
         boolean valid = false;
         System.out.println(map.get(username) + " password in map");
-        if (map.containsKey(username) && password.equals(map.get(username))) {
+        if (map.containsKey(username) && password.equals(map.get(username).getPassword())) {
             valid = true;
             return valid;
         } else {
@@ -49,13 +49,17 @@ public class Model {
     /**
      * method to create new user
      */
-    public void createUser() {
-    }
 
     /**
      * method to add user to Map
      */
-    public void addUser(String user, String password) {
+    public void addUser(String username, RegisteredUser user) {
+        map.put(username, user);
+        this.user = user;
+    }
+    //getter for user
+    public RegisteredUser getUser( ) {
+        return user;
     }
 
 
