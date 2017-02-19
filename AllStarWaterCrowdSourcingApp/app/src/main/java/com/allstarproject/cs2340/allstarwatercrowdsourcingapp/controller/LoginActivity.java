@@ -29,11 +29,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_login);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         Button btnEnter = (Button) findViewById(R.id.btnEnter);
-        txtUser = (EditText) findViewById(R.id.txtUserName);
+        txtUser = (EditText) findViewById(R.id.txtCurrentName);
         txtPass = (EditText) findViewById(R.id.txtPassword);
         btnEnter.setOnClickListener(this);
 
-        Button btnCancel = (Button) findViewById(R.id.btnSubmitRegister);
+        Button btnCancel = (Button) findViewById(R.id.btnCancel);
         btnCancel.setOnClickListener(this);
     }
 
@@ -56,7 +56,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 }
                 break;
 
-            case R.id.btnSubmitRegister:
+            case R.id.btnCancel:
                 Intent intent2 = new Intent(LoginActivity.this,
                         WelcomeActivity.class);
                 startActivity(intent2);

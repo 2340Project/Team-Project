@@ -8,7 +8,6 @@ import android.widget.Spinner;
 import android.widget.EditText;
 import android.content.Intent;
 import android.widget.TextView;
-import android.util.Log;
 
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Model;
@@ -34,7 +33,7 @@ public class RegisterActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        txtUserName = (EditText) findViewById(R.id.txtUserName);
+        txtUserName = (EditText) findViewById(R.id.txtCurrentName);
         txtName = (EditText) findViewById(R.id.txtName);
         txtEmail = (EditText) findViewById(R.id.txtEmail);
         txtPassword = (EditText) findViewById(R.id.txtPassword);
@@ -62,9 +61,6 @@ public class RegisterActivity extends AppCompatActivity
 
             case R.id.btnSubmitRegister:
                 Intent intent2 = new Intent(RegisterActivity.this, LoginActivity.class);
-                System.out.println(txtConfPassword.getText().toString());
-                System.out.println(txtPassword.getText().toString());
-                System.out.println(spinner.getSelectedItem());
                 if (txtConfPassword.getText().toString().equals(txtPassword.getText().toString())) {
                     if (spinner.getSelectedItem() == "User") {
                         new RegisteredUser(txtUserName.getText().toString()

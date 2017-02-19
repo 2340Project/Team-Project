@@ -24,6 +24,21 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
+        android:id="@+id/txtName"
+        android:hint="Enter Last Name"
+        android:singleLine="false"
+        android:background="@drawable/my_border"
+        android:textColorLink="?android:attr/colorForeground"
+        android:textSize="24sp"
+        android:layout_marginTop="31dp"
+        android:layout_below="@+id/txtLogin"
+        />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
         android:id="@+id/txtEmail"
         android:hint="Enter Email"
         android:singleLine="false"
@@ -33,20 +48,7 @@
         android:layout_marginTop="13dp"
         android:layout_below="@+id/txtName" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/txtName"
-        android:hint="Enter Last Name"
-        android:singleLine="false"
-        android:background="@drawable/my_border"
-        android:textColorLink="?android:attr/colorForeground"
-        android:textSize="24sp"
-        android:layout_marginTop="31dp"
-        android:layout_below="@+id/txtLogin"
-         />
+
 
     <Spinner
         android:layout_width="match_parent"
@@ -137,7 +139,7 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/txtUserName"
+        android:id="@+id/txtCurrentName"
         android:hint="Enter Username"
         android:singleLine="false"
         android:background="@drawable/my_border"

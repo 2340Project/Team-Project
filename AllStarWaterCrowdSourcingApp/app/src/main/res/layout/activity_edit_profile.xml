@@ -18,6 +18,21 @@
         android:layout_below="@+id/txtPassword"
         android:layout_alignLeft="@+id/txtPassword"
         android:layout_alignStart="@+id/txtPassword" />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/txtName"
+        android:hint="Enter Last Name"
+        android:singleLine="false"
+        android:background="@drawable/my_border"
+        android:textColorLink="?android:attr/colorForeground"
+        android:textSize="24sp"
+        android:layout_below="@+id/txtCurrentEmail"
+        android:layout_alignLeft="@+id/txtEmail"
+        android:layout_alignStart="@+id/txtEmail"
+        android:layout_marginTop="24dp" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -30,10 +45,10 @@
         android:background="@drawable/my_border"
         android:textColorLink="?android:attr/colorForeground"
         android:textSize="24sp"
-        android:layout_marginTop="13dp"
+        android:layout_marginTop="22dp"
         android:layout_below="@+id/txtName"
-        android:layout_toRightOf="@+id/txtlbl"
-        android:layout_toEndOf="@+id/txtlbl" />
+        android:layout_alignLeft="@+id/txtPassword"
+        android:layout_alignStart="@+id/txtPassword" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -47,22 +62,6 @@
         android:textSize="24sp"
         android:layout_below="@+id/txtlbl"
         android:layout_centerHorizontal="true" />
-
-    <Button
-        android:text="Cancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnCancelRegister"
-        android:textStyle="normal|bold"
-        android:textSize="14sp"
-        style="@android:style/Widget.Button.Small"
-        android:layout_marginBottom="12dp"
-        android:background="@android:drawable/checkbox_off_background"
-        android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@+id/btnSubmitRegister"
-        android:layout_toStartOf="@+id/btnSubmitRegister"
-        android:layout_marginRight="12dp"
-        android:layout_marginEnd="12dp" />
 
     <TextView
         android:text="Edit Profile"
@@ -90,56 +89,57 @@
         android:layout_alignStart="@+id/txtConfPassword"
         android:layout_marginTop="35dp" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:id="@+id/txtCurrentEmail"
+        android:layout_below="@+id/txtCurrentName"
+        android:layout_alignLeft="@+id/txtCurrentName"
+        android:layout_alignStart="@+id/txtCurrentName" />
+
+    <Button
+        android:text="Cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnCancelEdit"
+        android:textStyle="normal|bold"
+        android:textSize="14sp"
+        style="@android:style/Widget.Button.Small"
+        android:layout_marginBottom="12dp"
+        android:background="@android:drawable/checkbox_off_background"
+        android:layout_marginRight="38dp"
+        android:layout_marginEnd="38dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/btnSubmitEdit"
+        android:layout_toStartOf="@+id/btnSubmitEdit" />
+
     <Button
         android:text="Submit"
         android:layout_width="wrap_content"
         android:textStyle="normal|bold"
         android:textSize="14sp"
         android:layout_height="wrap_content"
-        android:id="@+id/btnSubmitRegister"
+        android:id="@+id/btnSubmitEdit"
         style="@android:style/Widget.Button.Small"
         android:background="@android:drawable/checkbox_off_background"
-        android:layout_marginRight="38dp"
-        android:layout_marginEnd="38dp"
+        android:layout_marginRight="28dp"
+        android:layout_marginEnd="28dp"
         android:soundEffectsEnabled="?attr/windowActionBar"
-        android:layout_alignBottom="@+id/btnCancelRegister"
+        android:layout_alignBaseline="@+id/btnCancelEdit"
+        android:layout_alignBottom="@+id/btnCancelEdit"
         android:layout_alignRight="@+id/txtConfPassword"
         android:layout_alignEnd="@+id/txtConfPassword" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/txtName"
-        android:hint="Enter Last Name"
-        android:singleLine="false"
-        android:background="@drawable/my_border"
-        android:textColorLink="?android:attr/colorForeground"
-        android:textSize="24sp"
-        android:layout_marginTop="109dp"
-        android:layout_below="@+id/txtLogin"
-        android:layout_toRightOf="@+id/txtlbl"
-        android:layout_toEndOf="@+id/txtlbl" />
+
 
     <TextView
-        android:text="Current Name: "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtLogin"
-        android:layout_toRightOf="@+id/txtlbl"
-        android:layout_toEndOf="@+id/txtlbl"
         android:layout_marginTop="15dp"
-        android:id="@+id/txtUserName" />
-
-    <TextView
-        android:text="Current Email: "
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="11dp"
-        android:id="@+id/textView6"
-        android:layout_below="@+id/txtUserName"
-        android:layout_alignLeft="@+id/txtUserName"
-        android:layout_alignStart="@+id/txtUserName" />
+        android:id="@+id/txtCurrentName"
+        android:layout_below="@+id/txtLogin"
+        android:layout_alignLeft="@+id/txtName"
+        android:layout_alignStart="@+id/txtName" />
 
 </RelativeLayout>
