@@ -14,8 +14,7 @@ import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Model;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.RegisteredUser;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.*;
 
-public class RegisterActivity extends AppCompatActivity
-        implements View.OnClickListener {
+public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
     Model model = Model.getInstance();
     Spinner spinner;
     EditText txtUserName;
