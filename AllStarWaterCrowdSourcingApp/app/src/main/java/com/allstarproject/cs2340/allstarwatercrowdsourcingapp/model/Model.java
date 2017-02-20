@@ -8,9 +8,17 @@ import java.util.Map;
  */
 
 public class Model {
+    /**
+     * instance of singleton Model
+     */
     private static final Model model = new Model();
+    /**
+     * map to store user object in current run of app
+     */
     private static Map<String, RegisteredUser> map;
-
+    /**
+     * current user (could be a RegisteredUser or any subtype)
+     */
     private RegisteredUser user;
 
     /**
@@ -47,17 +55,15 @@ public class Model {
     }
 
     /**
-     * method to create new user
-     */
-
-    /**
      * method to add user to Map
      */
     public void addUser(String username, RegisteredUser user) {
         map.put(username, user);
         this.user = user;
     }
-    //getter for user
+    /**
+     * getter method for current user instance
+     */
     public RegisteredUser getUser( ) {
         return user;
     }

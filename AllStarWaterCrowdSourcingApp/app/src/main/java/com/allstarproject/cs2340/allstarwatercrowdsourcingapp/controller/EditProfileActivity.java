@@ -3,18 +3,23 @@ package com.allstarproject.cs2340.allstarwatercrowdsourcingapp.controller;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Model;
-import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
-import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.RegisteredUser;
-
 import android.content.Intent;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Button;
+import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Model;
+import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
+import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.RegisteredUser;
 
+/**
+ * Created by Austin on 2/16/17.
+ */
 
 public class EditProfileActivity extends AppCompatActivity implements View.OnClickListener {
-
+    /**
+     * variables to be used in this class.  Instance of model singleton, instance of current user
+     * and instances of the View items to be displayed
+     */
     Model model = Model.getInstance();
     RegisteredUser currentUser = model.getUser();
     TextView txtCurrentName;
@@ -23,6 +28,11 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
     EditText txtName;
     EditText txtPassword;
     EditText txtConfPassword;
+
+    /**
+     * onCreate method to instantiate the necessary views and listeners for this Activity
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +54,11 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
         cancelEdit.setOnClickListener(this);
     }
 
+    /**
+     * onClick method to handle events for when buttons cancel and submit are pressed
+     * switch statement is used to handle different possible buttons and events
+     * @param v current view
+     */
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
