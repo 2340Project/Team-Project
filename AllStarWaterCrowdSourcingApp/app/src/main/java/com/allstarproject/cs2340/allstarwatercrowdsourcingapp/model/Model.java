@@ -22,7 +22,7 @@ public class Model {
     private RegisteredUser user;
 
     /**
-     * Singleton
+     * Singleton constructor
      */
     private Model() {
         map = new HashMap<String, RegisteredUser>();
@@ -30,7 +30,7 @@ public class Model {
     }
 
     /**
-     *
+     * method to get instance of Singleton model object
      * @return single instance of model
      */
     public static Model getInstance() {
@@ -38,7 +38,7 @@ public class Model {
     }
 
     /**
-     *
+     * method used to verify password on login
      * @param username users username from textfield
      * @param password users password from textfield
      * @return boolean if user is valid and password is valid
@@ -56,6 +56,8 @@ public class Model {
 
     /**
      * method to add user to Map
+     * @param username is users current username to be stored as key in map
+     * @param user is current user object to be stored as value in map
      */
     public void addUser(String username, RegisteredUser user) {
         map.put(username, user);
@@ -63,9 +65,18 @@ public class Model {
     }
     /**
      * getter method for current user instance
+     * @return RegisteredUser current user
      */
     public RegisteredUser getUser( ) {
         return user;
+    }
+
+    /**
+     * method to set current user in user var on login
+     * @param currentUserName the username of the user logging
+     */
+    public void setUser(String currentUserName) {
+        user = map.get(currentUserName);
     }
 
 
