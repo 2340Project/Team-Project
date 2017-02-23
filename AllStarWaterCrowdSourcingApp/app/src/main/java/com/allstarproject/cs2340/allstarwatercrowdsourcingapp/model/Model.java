@@ -8,21 +8,29 @@ import java.util.Map;
  */
 
 public class Model {
+    /**
+     * instance of singleton Model
+     */
     private static final Model model = new Model();
-    private static Map<String, String> map;
-
-    private RegisteredUser registeredUser;
+    /**
+     * map to store user object in current run of app
+     */
+    private static Map<String, RegisteredUser> map;
+    /**
+     * current user (could be a RegisteredUser or any subtype)
+     */
+    private RegisteredUser user;
 
     /**
-     * Singleton
+     * Singleton constructor
      */
     private Model() {
-        map = new HashMap<String, String>();
-        map.put("user", "pass");
+        map = new HashMap<String, RegisteredUser>();
+        //map.put("user", "pass");
     }
 
     /**
-     *
+     * method to get instance of Singleton model object
      * @return single instance of model
      */
     public static Model getInstance() {
@@ -30,7 +38,7 @@ public class Model {
     }
 
     /**
-     *
+     * method used to verify password on login
      * @param username users username from textfield
      * @param password users password from textfield
      * @return boolean if user is valid and password is valid
@@ -38,7 +46,7 @@ public class Model {
     public static boolean verify(String username, String password) {
         boolean valid = false;
         System.out.println(map.get(username) + " password in map");
-        if (map.containsKey(username) && password.equals(map.get(username))) {
+        if (map.containsKey(username) && password.equals(map.get(username).getPassword())) {
             valid = true;
             return valid;
         } else {
@@ -47,15 +55,28 @@ public class Model {
     }
 
     /**
-     * method to create new user
+     * method to add user to Map
+     * @param username is users current username to be stored as key in map
+     * @param user is current user object to be stored as value in map
      */
-    public void createUser() {
+    public void addUser(String username, RegisteredUser user) {
+        map.put(username, user);
+        this.user = user;
+    }
+    /**
+     * getter method for current user instance
+     * @return RegisteredUser current user
+     */
+    public RegisteredUser getUser( ) {
+        return user;
     }
 
     /**
-     * method to add user to Map
+     * method to set current user in user var on login
+     * @param currentUserName the username of the user logging
      */
-    public void addUser(String user, String password) {
+    public void setUser(String currentUserName) {
+        user = map.get(currentUserName);
     }
 
 

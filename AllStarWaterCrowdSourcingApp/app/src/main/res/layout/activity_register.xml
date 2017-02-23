@@ -24,16 +24,15 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/txtUserName"
-        android:hint="Enter Username"
+        android:id="@+id/txtName"
+        android:hint="Enter Last Name"
         android:singleLine="false"
         android:background="@drawable/my_border"
         android:textColorLink="?android:attr/colorForeground"
         android:textSize="24sp"
-        android:layout_below="@+id/txtEmail"
-        android:layout_alignLeft="@+id/txtPassword"
-        android:layout_alignStart="@+id/txtPassword"
-        android:layout_marginTop="14dp" />
+        android:layout_marginTop="31dp"
+        android:layout_below="@+id/txtLogin"
+        />
 
     <EditText
         android:layout_width="wrap_content"
@@ -47,38 +46,9 @@
         android:textColorLink="?android:attr/colorForeground"
         android:textSize="24sp"
         android:layout_marginTop="13dp"
-        android:layout_below="@+id/txtName"
-        android:layout_toRightOf="@+id/txtlbl"
-        android:layout_toEndOf="@+id/txtlbl" />
+        android:layout_below="@+id/txtName" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/txtName"
-        android:hint="Enter Last Name"
-        android:singleLine="false"
-        android:background="@drawable/my_border"
-        android:textColorLink="?android:attr/colorForeground"
-        android:textSize="24sp"
-        android:layout_marginTop="31dp"
-        android:layout_below="@+id/txtLogin"
-        android:layout_toRightOf="@+id/txtlbl"
-        android:layout_toEndOf="@+id/txtlbl" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:id="@+id/txtConfPassword"
-        android:hint="Confirm Password"
-        android:background="@drawable/my_border"
-        android:textColorLink="?android:attr/colorForeground"
-        android:textSize="24sp"
-        android:layout_below="@+id/txtlbl"
-        android:layout_centerHorizontal="true" />
 
     <Spinner
         android:layout_width="match_parent"
@@ -91,25 +61,8 @@
         android:popupBackground="@drawable/background"
         android:layout_marginTop="@dimen/activity_horizontal_margin"
         android:layout_below="@+id/txtConfPassword"
-        android:layout_toRightOf="@+id/txtlbl"
         android:layout_alignRight="@+id/txtConfPassword"
         android:layout_alignEnd="@+id/txtConfPassword" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:id="@+id/txtPassword"
-        android:hint="Enter Password"
-        android:background="@drawable/my_border"
-        android:textColorLink="?android:attr/colorForeground"
-        android:textCursorDrawable="@android:color/black"
-        android:textSize="24sp"
-        android:layout_marginTop="13dp"
-        android:layout_below="@+id/txtUserName"
-        android:layout_alignLeft="@+id/txtConfPassword"
-        android:layout_alignStart="@+id/txtConfPassword" />
 
     <Button
         android:text="Submit"
@@ -117,13 +70,13 @@
         android:textStyle="normal|bold"
         android:textSize="14sp"
         android:layout_height="wrap_content"
-        android:id="@+id/btnCancel"
+        android:id="@+id/btnSubmitRegister"
         style="@android:style/Widget.Button.Small"
         android:background="@android:drawable/checkbox_off_background"
         android:layout_marginRight="32dp"
         android:layout_marginEnd="32dp"
-        android:layout_alignBaseline="@+id/btnRegister"
-        android:layout_alignBottom="@+id/btnRegister"
+        android:layout_alignBaseline="@+id/btnCancelRegister"
+        android:layout_alignBottom="@+id/btnCancelRegister"
         android:layout_alignRight="@+id/spinner"
         android:layout_alignEnd="@+id/spinner"
         android:soundEffectsEnabled="?attr/windowActionBar" />
@@ -132,15 +85,15 @@
         android:text="Cancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btnRegister"
+        android:id="@+id/btnCancelRegister"
         android:textStyle="normal|bold"
         android:textSize="14sp"
         style="@android:style/Widget.Button.Small"
         android:layout_marginBottom="12dp"
         android:background="@android:drawable/checkbox_off_background"
         android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@+id/btnCancel"
-        android:layout_toStartOf="@+id/btnCancel"
+        android:layout_toLeftOf="@+id/btnSubmitRegister"
+        android:layout_toStartOf="@+id/btnSubmitRegister"
         android:layout_marginRight="12dp"
         android:layout_marginEnd="12dp" />
 
@@ -153,5 +106,46 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/txtConfPassword"
+        android:hint="Confirm Password"
+        android:background="@drawable/my_border"
+        android:textColorLink="?android:attr/colorForeground"
+        android:textSize="24sp"
+        android:layout_below="@+id/txtlbl" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/txtPassword"
+        android:hint="Enter Password"
+        android:background="@drawable/my_border"
+        android:textColorLink="?android:attr/colorForeground"
+        android:textCursorDrawable="@android:color/black"
+        android:textSize="24sp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/txtCurrentName"
+        android:hint="Enter Username"
+        android:singleLine="false"
+        android:background="@drawable/my_border"
+        android:textColorLink="?android:attr/colorForeground"
+        android:textSize="24sp"
+        android:layout_above="@+id/txtPassword"
+        android:layout_marginBottom="10dp" />
 
 </RelativeLayout>

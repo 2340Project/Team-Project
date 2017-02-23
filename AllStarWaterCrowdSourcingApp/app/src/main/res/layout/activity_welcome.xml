@@ -22,7 +22,7 @@
         android:text="Register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btnRegister"
+        android:id="@+id/btnCancelRegister"
         android:layout_alignBaseline="@+id/btnLogin"
         android:layout_alignBottom="@+id/btnLogin"
         android:layout_alignParentRight="true"
