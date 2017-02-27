@@ -40,6 +40,13 @@ public class Model {
         reportList = new ArrayList<WaterResourceReport>();
         reportNumber = 0;
     }
+
+    /**
+     * This method prints the reports and stores them in a String which then
+     * is used invoked in ViewWaterReportActivity
+     * @return the string containing all submitted water reports with each
+     * one on its own line.
+     */
     public String printReports() {
         String total = "";
         for (WaterResourceReport report : reportList) {
@@ -98,8 +105,8 @@ public class Model {
     }
 
     /**
-     * Takes in the user's input from the SubmitReportActivity and passes it to Water Resource Report.
-     * Add the Water resource report to a list so a user can view.
+     * Takes in the user's input from the SubmitReportActivity and passes it
+     * to Water Resource Report. Adds the Water resource report to a list.
      * @param location The location of the water source
      * @param waterType the type of the water source
      * @param waterCondition the conition of the water source
@@ -107,7 +114,8 @@ public class Model {
     public void addReport(String location, String waterType, String waterCondition) {
         reportNumber++;
         WaterResourceReport waterResourceReport = new
-                WaterResourceReport(location, waterType, waterCondition, reportNumber);
+                WaterResourceReport(location, waterType, waterCondition,
+                reportNumber);
         reportList.add(waterResourceReport);
     }
 

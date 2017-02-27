@@ -23,6 +23,12 @@ public class SubmitReportActivity extends AppCompatActivity implements View.OnCl
     EditText txtWaterType;
     EditText txtWaterCondition;
 
+    /**
+     * This method creates the buttons and text fields associated with the
+     * SubmitReportActivity Screen
+     * @param savedInstanceState the things that Android needs to run and
+     * display the screen
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,8 +44,9 @@ public class SubmitReportActivity extends AppCompatActivity implements View.OnCl
     }
 
     /**
-     * onClick method to handle the cancel button being clicked by returning you to Welcome and
-     * submit button to take you to Main screen.
+     * onClick method to handle the cancel button being clicked by returning
+     * you to Main Activity and the submit button submitsthe reports and takes
+     * you to the Main Activity screen.
      * @param v the current view
      */
     @Override

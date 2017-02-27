@@ -17,7 +17,8 @@ public class WaterResourceReport {
      * @param waterCondition the conition of the water source
      */
 
-    public WaterResourceReport(String location, String waterType, String waterCondition, int reportNumber) {
+    public WaterResourceReport(String location, String waterType,
+                                String waterCondition, int reportNumber) {
         this.location = location;
         this.waterType = waterType;
         this.waterCondition = waterCondition;
@@ -26,11 +27,13 @@ public class WaterResourceReport {
 
     /**
      * This represents a String representation of all attributes per report
-     * @return the String of location: water type, water condition
+     * @return the String of report number with the Location: water type,
+     * water condition per that report
      */
     @Override
     public String toString() {
-        return "" + reportNumber + ", " + location + ": " + waterType + ", " +  waterCondition;
+        return "" + reportNumber + ". " + location + ": " + waterType + ", "
+                + waterCondition;
     }
 
 }
