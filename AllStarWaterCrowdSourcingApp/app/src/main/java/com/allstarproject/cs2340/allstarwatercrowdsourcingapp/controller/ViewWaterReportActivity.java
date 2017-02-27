@@ -14,6 +14,11 @@ public class ViewWaterReportActivity extends AppCompatActivity {
     Model model = Model.getInstance();
     TextView waterReps;
 
+    /**
+     * This method populates the reports in the ViewWaterReport Screen
+     * @param savedInstanceState the things that Android needs to run the
+     * the screen
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
