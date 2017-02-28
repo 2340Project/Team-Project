@@ -22,9 +22,15 @@
         android:text="Register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:id="@+id/btnRegisterWelcome"
         android:layout_alignBaseline="@+id/btnLoginWelcome"
         android:layout_alignBottom="@+id/btnLoginWelcome"
+=======
+        android:id="@+id/btnCancelRegister"
+        android:layout_alignBaseline="@+id/btnLogin"
+        android:layout_alignBottom="@+id/btnLogin"
+>>>>>>> 3fed251c40fbdbbd93bc18a81460702448e26f63
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_marginRight="65dp"
