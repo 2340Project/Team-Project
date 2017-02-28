@@ -17,8 +17,10 @@
         </activity>
         <activity android:name=".controller.LoginActivity" />
         <activity android:name=".controller.MainActivity" />
-        <activity android:name=".controller.RegisterActivity"></activity>
-        <activity android:name=".controller.EditProfileActivity"></activity>
+        <activity android:name=".controller.RegisterActivity" />
+        <activity android:name=".controller.EditProfileActivity" />
+        <activity android:name=".controller.SubmitReportActivity" />
+        <activity android:name=".controller.ViewWaterReportActivity"></activity>
     </application>
 
 </manifest>

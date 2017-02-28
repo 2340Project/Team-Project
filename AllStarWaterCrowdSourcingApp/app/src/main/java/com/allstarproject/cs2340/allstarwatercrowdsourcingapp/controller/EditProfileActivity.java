@@ -17,8 +17,8 @@ import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.RegisteredUs
 
 public class EditProfileActivity extends AppCompatActivity implements View.OnClickListener {
     /**
-     * variables to be used in this class.  Instance of model singleton, instance of current user
-     * and instances of the View items to be displayed
+     * variables to be used in this class.  Instance of model singleton,
+     * instance of current user and instances of the View items to be displayed
      */
     Model model = Model.getInstance();
     RegisteredUser currentUser = model.getUser();
@@ -30,7 +30,8 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
     EditText txtConfPassword;
 
     /**
-     * onCreate method to instantiate the necessary views and listeners for this Activity
+     * onCreate method to instantiate the necessary views and listeners for this
+     * Activity
      * @param savedInstanceState
      */
     @Override
@@ -55,8 +56,9 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
     }
 
     /**
-     * onClick method to handle events for when buttons cancel and submit are pressed
-     * switch statement is used to handle different possible buttons and events
+     * onClick method to handle events for when buttons cancel and submit are
+     * pressed switch statement is used to handle different possible buttons
+     * and events
      * @param v current view
      */
     @Override
