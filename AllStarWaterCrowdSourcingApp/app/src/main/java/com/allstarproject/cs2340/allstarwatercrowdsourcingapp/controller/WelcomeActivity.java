@@ -15,21 +15,21 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
-        Button btnAction = (Button) findViewById(R.id.btnLogin);
+        Button btnAction = (Button) findViewById(R.id.btnLoginWelcome);
         btnAction.setOnClickListener(this);
 
-        Button btnRegister = (Button) findViewById(R.id.btnRegister);
+        Button btnRegister = (Button) findViewById(R.id.btnRegisterWelcome);
         btnRegister.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.btnLogin:
+            case R.id.btnLoginWelcome:
                 Intent intent = new Intent(WelcomeActivity.this, LoginActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.btnRegister:
+            case R.id.btnRegisterWelcome:
                 Intent intent2 = new Intent(WelcomeActivity.this, RegisterActivity.class);
                 startActivity(intent2);
                 break;

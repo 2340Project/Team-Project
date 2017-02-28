@@ -54,9 +54,9 @@
         android:text="Enter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/btnCancel"
-        android:layout_toRightOf="@+id/btnCancel"
-        android:layout_toEndOf="@+id/btnCancel"
+        android:layout_alignBottom="@+id/btnRegisterMain"
+        android:layout_toRightOf="@+id/btnRegisterMain"
+        android:layout_toEndOf="@+id/btnRegisterMain"
         android:layout_marginLeft="54dp"
         android:layout_marginStart="54dp"
         android:id="@+id/btnEnter" />
@@ -67,7 +67,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
-        android:id="@+id/btnCancel"
+        android:id="@+id/btnRegisterMain"
         android:layout_centerVertical="true"
         android:layout_alignLeft="@+id/txtPassword"
         android:layout_alignStart="@+id/txtPassword" />
