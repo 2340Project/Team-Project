@@ -59,4 +59,14 @@
         android:layout_marginTop="30dp"
         android:layout_below="@+id/btnEditProf"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="View Map"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnViewReports"
+        android:layout_toRightOf="@+id/btnEditProf"
+        android:layout_toEndOf="@+id/btnEditProf"
+        android:layout_marginTop="35dp"
+        android:id="@+id/btnViewMap" />
 </RelativeLayout>

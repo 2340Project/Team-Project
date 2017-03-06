@@ -25,6 +25,7 @@ public class WaterResourceReport {
         this.reportNumber = reportNumber;
     }
 
+
     /**
      * This represents a String representation of all attributes per report
      * @return the String of report number with the Location: water type,

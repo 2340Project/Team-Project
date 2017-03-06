@@ -116,7 +116,6 @@ public class Model {
         WaterResourceReport waterResourceReport = new
                 WaterResourceReport(location, waterType, waterCondition,
                 reportNumber);
-        reportList.add(waterResourceReport);
     }
 
 }
