@@ -63,6 +63,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
+        java.util.List<MarkerOptions> list =  Model.getReportList();
+        //GoogleMap gm = MapsActivity.getMap();
+        for (MarkerOptions mo : list) {
+            mMap.addMarker(mo);
+        }
+
         mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener(){
 
             @Override
@@ -111,5 +117,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 //        LatLng sydney = new LatLng(-34, 151);
 //        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
 //        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+    }
+
+    /**
+     *
+     * @return mMap static map instance
+     */
+    public static GoogleMap getMap() {
+        return mMap;
     }
 }

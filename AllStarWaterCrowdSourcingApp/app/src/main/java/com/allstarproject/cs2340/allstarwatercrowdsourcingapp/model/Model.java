@@ -48,7 +48,7 @@ public class Model extends FragmentActivity {
      * current user (could be a RegisteredUser or any subtype)
      */
     private RegisteredUser user;
-    private List<WaterResourceReport> reportList;
+    private static List<MarkerOptions> reportList;
     private int reportNumber;
 
 
@@ -59,23 +59,11 @@ public class Model extends FragmentActivity {
     private Model() {
         map = new HashMap<String, RegisteredUser>();
         //map.put("user", "pass");
-        reportList = new ArrayList<WaterResourceReport>();
+        reportList = new ArrayList<MarkerOptions>();
         reportNumber = 0;
     }
 
-    /**
-     * This method prints the reports and stores them in a String which then
-     * is used invoked in ViewWaterReportActivity
-     * @return the string containing all submitted water reports with each
-     * one on its own line.
-     */
-    public String printReports() {
-        String total = "";
-        for (WaterResourceReport report : reportList) {
-            total += (report.toString() + "\n");
-        }
-        return total;
-    }
+
     /**
      * method to get instance of Singleton model object
      * @return single instance of model
@@ -140,7 +128,7 @@ public class Model extends FragmentActivity {
                 reportNumber, MapsActivity.getLatLng());
       // MarkerOptions markerOptions = new MarkerOptions();
 
-        GoogleMap mMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
+        GoogleMap mMap = MapsActivity.getMap();
 
         System.out.println(waterResourceReport.getLatLng());
         System.out.println(waterResourceReport.getLocation());
@@ -149,12 +137,19 @@ public class Model extends FragmentActivity {
 
         markerOptions.title(waterResourceReport.getLocation());
 
-//        mMap.addMarker(markerOptions.position(waterResourceReport.getLatLng()).title(waterResourceReport.getLocation()));
+        mMap.addMarker(markerOptions.position(waterResourceReport.getLatLng()).title(waterResourceReport.getLocation()));
         markerOptions.snippet(waterResourceReport.getWaterType()+ ", " + waterResourceReport.getWaterCondition());
         mMap.addMarker(markerOptions);
-
-
-
+        reportList.add(markerOptions);
     }
 
+    /**
+     *
+     * @return a List that contains the markerOption objects
+     * to be added to the map.  This is used to repopulate the map
+     * after closing and returning
+     */
+    public static List getReportList() {
+        return reportList;
+    }
 }
