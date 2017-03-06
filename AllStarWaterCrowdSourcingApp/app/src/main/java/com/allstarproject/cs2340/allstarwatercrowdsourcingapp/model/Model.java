@@ -1,6 +1,9 @@
 package com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model;
 
-import android.support.annotation.NonNull;
+//import android.support.annotation.NonNull;
+//import android.support.v4.app.Fragment;
+//import android.support.v4.app.FragmentActivity;
+//import android.support.v4.app.FragmentManager;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -10,12 +13,29 @@ import java.util.ListIterator;
 import java.util.Map;
 import java.util.List;
 import java.util.ArrayList;
+import android.app.FragmentManager;
+import android.support.v4.app.FragmentActivity;
+
+
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.model.MarkerOptions;
+
+
+import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.controller.SubmitReportActivity;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.GoogleMap;
+import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.controller.MapsActivity;
+import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
+
 
 /**
  * Created by Austin on 2/12/17.
  */
 
-public class Model {
+public class Model extends FragmentActivity {
+
+    GoogleMap mMap = MapsActivity.getmMap();
+
     /**
      * instance of singleton Model
      */
@@ -30,6 +50,8 @@ public class Model {
     private RegisteredUser user;
     private List<WaterResourceReport> reportList;
     private int reportNumber;
+
+
 
     /**
      * Singleton constructor
@@ -115,8 +137,24 @@ public class Model {
         reportNumber++;
         WaterResourceReport waterResourceReport = new
                 WaterResourceReport(location, waterType, waterCondition,
-                reportNumber);
-        reportList.add(waterResourceReport);
+                reportNumber, MapsActivity.getLatLng());
+      // MarkerOptions markerOptions = new MarkerOptions();
+
+        GoogleMap mMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
+
+        System.out.println(waterResourceReport.getLatLng());
+        System.out.println(waterResourceReport.getLocation());
+        MarkerOptions markerOptions = new MarkerOptions();
+        markerOptions.position(waterResourceReport.getLatLng());
+
+        markerOptions.title(waterResourceReport.getLocation());
+
+//        mMap.addMarker(markerOptions.position(waterResourceReport.getLatLng()).title(waterResourceReport.getLocation()));
+        markerOptions.snippet(waterResourceReport.getWaterType()+ ", " + waterResourceReport.getWaterCondition());
+        mMap.addMarker(markerOptions);
+
+
+
     }
 
 }
