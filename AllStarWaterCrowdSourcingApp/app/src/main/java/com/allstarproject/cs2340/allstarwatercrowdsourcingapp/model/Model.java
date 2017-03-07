@@ -34,7 +34,7 @@ import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
 
 public class Model extends FragmentActivity {
 
-    GoogleMap mMap = MapsActivity.getmMap();
+    //GoogleMap mMap = MapsActivity.getmMap();
 
     /**
      * instance of singleton Model
@@ -130,14 +130,14 @@ public class Model extends FragmentActivity {
 
         GoogleMap mMap = MapsActivity.getMap();
 
-        System.out.println(waterResourceReport.getLatLng());
-        System.out.println(waterResourceReport.getLocation());
+        //System.out.println(waterResourceReport.getLatLng());
+        //System.out.println(waterResourceReport.getLocation());
         MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.position(waterResourceReport.getLatLng());
 
         markerOptions.title(waterResourceReport.getLocation());
 
-        mMap.addMarker(markerOptions.position(waterResourceReport.getLatLng()).title(waterResourceReport.getLocation()));
+        //mMap.addMarker(markerOptions.position(waterResourceReport.getLatLng()).title(waterResourceReport.getLocation()));
         markerOptions.snippet(waterResourceReport.getWaterType()+ ", " + waterResourceReport.getWaterCondition());
         mMap.addMarker(markerOptions);
         reportList.add(markerOptions);
