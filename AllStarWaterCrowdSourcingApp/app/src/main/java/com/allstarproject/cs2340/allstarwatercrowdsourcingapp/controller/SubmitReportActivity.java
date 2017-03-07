@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Admin;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Manager;
@@ -16,7 +17,10 @@ import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Model;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.RegisteredUser;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Worker;
 
+
+
 public class SubmitReportActivity extends AppCompatActivity implements View.OnClickListener {
+
 
     Model model = Model.getInstance();
     EditText txtLocation;
@@ -53,15 +57,18 @@ public class SubmitReportActivity extends AppCompatActivity implements View.OnCl
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnCancelSubmitReport:
-                Intent intent = new Intent(SubmitReportActivity.this, MainActivity.class);
+                Intent intent = new Intent(SubmitReportActivity.this, MapsActivity.class);
                 startActivity(intent);
                 break;
 
             case R.id.btnSubmitWaterReport:
-                Intent intent2 = new Intent(SubmitReportActivity.this, MainActivity.class);
+                //Intent intent2 = new Intent(SubmitReportActivity.this, MapsActivity.class);
+
+
                 model.addReport(txtLocation.getText().toString(), txtWaterType.getText().toString(),
                         txtWaterCondition.getText().toString());
-                startActivity(intent2);
+                super.finish();
+                //startActivity(intent2);
                 break;
         }
     }
