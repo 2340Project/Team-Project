@@ -70,7 +70,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             mMap.addMarker(mo);
             latln = mo.getPosition();
         }
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(latln));
+        LatLng ll = new LatLng(33.762909, -84.422675);
+        if (latln == null) {
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(ll));
+        } else {
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(latln));
+        }
         mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener(){
 
             @Override
