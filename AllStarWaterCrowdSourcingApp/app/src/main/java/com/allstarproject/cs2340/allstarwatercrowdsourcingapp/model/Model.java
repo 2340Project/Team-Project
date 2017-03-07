@@ -141,6 +141,7 @@ public class Model extends FragmentActivity {
         markerOptions.snippet(waterResourceReport.getWaterType()+ ", " + waterResourceReport.getWaterCondition());
         mMap.addMarker(markerOptions);
         reportList.add(markerOptions);
+
     }
 
     /**
