@@ -1,0 +1,21 @@
+<resources>
+    <!--
+    TODO: Before you run your application, you need a Google Maps API key.
+
+    To get one, follow this link, follow the directions and press "Create" at the end:
+
+    https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend&keyType=CLIENT_SIDE_ANDROID&r=25:73:9C:83:E3:87:AE:2A:CA:01:BC:3D:0E:EF:91:1C:5A:74:84:C0%3Bcom.allstarproject.cs2340.allstarwatercrowdsourcingapp.controller
+
+    You can also add your credentials to an existing key, using this line:
+    25:73:9C:83:E3:87:AE:2A:CA:01:BC:3D:0E:EF:91:1C:5A:74:84:C0;com.allstarproject.cs2340.allstarwatercrowdsourcingapp.controller
+
+    Alternatively, follow the directions here:
+    https://developers.google.com/maps/documentation/android/start#get-key
+
+    Once you have your key (it starts with "AIza"), replace the "google_maps_key"
+    string in this file.
+    -->
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">
+        AIzaSyAlcGUR1m-CoLdNb4iPiq3Lrg80UX1vhag
+    </string>
+</resources>

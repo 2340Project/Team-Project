@@ -33,15 +33,6 @@
         android:layout_marginBottom="36dp" />
 
     <Button
-        android:text="VIEW REPORTS"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:id="@+id/btnViewReports"
-        android:layout_below="@+id/btnAddWReport"
-        android:layout_centerHorizontal="true" />
-
-    <Button
         android:text="Log Out"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -52,11 +43,11 @@
         android:layout_alignEnd="@+id/textView2" />
 
     <Button
-        android:text="ADD WATER REPORT"
+        android:text="View Map"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btnAddWReport"
-        android:layout_marginTop="30dp"
+        android:id="@+id/btnViewMap"
+        android:layout_marginTop="119dp"
         android:layout_below="@+id/btnEditProf"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>

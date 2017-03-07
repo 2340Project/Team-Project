@@ -3,6 +3,7 @@ package com.allstarproject.cs2340.allstarwatercrowdsourcingapp.controller;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
+import android.text.method.*;
 
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Model;
@@ -24,8 +25,9 @@ public class ViewWaterReportActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_water_report);
 
-        String toPrint = model.printReports();
-        waterReps = (TextView) findViewById(R.id.txtReportList);
-        waterReps.setText(toPrint);
+//        String toPrint = model.printReports();
+//        waterReps = (TextView) findViewById(R.id.txtReportList);
+//        waterReps.setText(toPrint);
+//        waterReps.setMovementMethod(new ScrollingMovementMethod());
     }
 }
