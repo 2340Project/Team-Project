@@ -1,6 +1,9 @@
 package com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model;
 
-import android.support.annotation.NonNull;
+//import android.support.annotation.NonNull;
+//import android.support.v4.app.Fragment;
+//import android.support.v4.app.FragmentActivity;
+//import android.support.v4.app.FragmentManager;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -10,12 +13,29 @@ import java.util.ListIterator;
 import java.util.Map;
 import java.util.List;
 import java.util.ArrayList;
+import android.app.FragmentManager;
+import android.support.v4.app.FragmentActivity;
+
+
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.model.MarkerOptions;
+
+
+import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.controller.SubmitReportActivity;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.GoogleMap;
+import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.controller.MapsActivity;
+import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
+
 
 /**
  * Created by Austin on 2/12/17.
  */
 
-public class Model {
+public class Model extends FragmentActivity {
+
+    //GoogleMap mMap = MapsActivity.getmMap();
+
     /**
      * instance of singleton Model
      */
@@ -28,8 +48,10 @@ public class Model {
      * current user (could be a RegisteredUser or any subtype)
      */
     private RegisteredUser user;
-    private List<WaterResourceReport> reportList;
+    private static List<MarkerOptions> reportList;
     private int reportNumber;
+
+
 
     /**
      * Singleton constructor
@@ -37,23 +59,11 @@ public class Model {
     private Model() {
         map = new HashMap<String, RegisteredUser>();
         //map.put("user", "pass");
-        reportList = new ArrayList<WaterResourceReport>();
+        reportList = new ArrayList<MarkerOptions>();
         reportNumber = 0;
     }
 
-    /**
-     * This method prints the reports and stores them in a String which then
-     * is used invoked in ViewWaterReportActivity
-     * @return the string containing all submitted water reports with each
-     * one on its own line.
-     */
-    public String printReports() {
-        String total = "";
-        for (WaterResourceReport report : reportList) {
-            total += (report.toString() + "\n");
-        }
-        return total;
-    }
+
     /**
      * method to get instance of Singleton model object
      * @return single instance of model
@@ -115,7 +125,31 @@ public class Model {
         reportNumber++;
         WaterResourceReport waterResourceReport = new
                 WaterResourceReport(location, waterType, waterCondition,
-                reportNumber);
+                reportNumber, MapsActivity.getLatLng());
+      // MarkerOptions markerOptions = new MarkerOptions();
+
+        GoogleMap mMap = MapsActivity.getMap();
+
+        //System.out.println(waterResourceReport.getLatLng());
+        //System.out.println(waterResourceReport.getLocation());
+        MarkerOptions markerOptions = new MarkerOptions();
+        markerOptions.position(waterResourceReport.getLatLng());
+
+        markerOptions.title(waterResourceReport.getLocation());
+
+        //mMap.addMarker(markerOptions.position(waterResourceReport.getLatLng()).title(waterResourceReport.getLocation()));
+        markerOptions.snippet(waterResourceReport.getWaterType()+ ", " + waterResourceReport.getWaterCondition());
+        mMap.addMarker(markerOptions);
+        reportList.add(markerOptions);
     }
 
+    /**
+     *
+     * @return a List that contains the markerOption objects
+     * to be added to the map.  This is used to repopulate the map
+     * after closing and returning
+     */
+    public static List getReportList() {
+        return reportList;
+    }
 }
