@@ -65,10 +65,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         java.util.List<MarkerOptions> list =  Model.getReportList();
         //GoogleMap gm = MapsActivity.getMap();
+        LatLng latln = null;
         for (MarkerOptions mo : list) {
             mMap.addMarker(mo);
+            latln = mo.getPosition();
         }
-
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(latln));
         mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener(){
 
             @Override
@@ -105,6 +107,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                 // create alert dialog
                 AlertDialog alertDialog = alertDialogBuilder.create();
+
+                // pan camera to position
+                CameraUpdateFactory.newLatLng(latLng);
 
                 // show it
                 alertDialog.show();
