@@ -11,16 +11,17 @@
     tools:context="com.allstarproject.cs2340.allstarwatercrowdsourcingapp.controller.MainActivity">
 
     <Button
-        android:text="Edit Profile"
+        android:id="@+id/btnEditProf"
+        style="@android:style/Widget.Button.Inset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="25dp"
-        android:layout_marginStart="25dp"
-        android:id="@+id/btnEditProf"
-        android:layout_alignBaseline="@+id/btnLogout"
-        android:layout_alignBottom="@+id/btnLogout"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignEnd="@+id/btnLogout"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_alignRight="@+id/btnLogout"
+        android:layout_alignStart="@+id/textView2"
+        android:layout_below="@+id/btnLogout"
+        android:text="Edit Profile"
+        android:textSize="18sp" />
 
     <TextView
         android:text="Main App Screen"
@@ -33,30 +34,53 @@
         android:layout_marginBottom="36dp" />
 
     <Button
-        android:text="VIEW REPORTS"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
         android:id="@+id/btnViewReports"
+        style="@android:style/Widget.Button.Inset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/btnAddWReport"
+        android:layout_alignLeft="@+id/btnAddWReport"
+        android:layout_alignRight="@+id/btnAddWReport"
+        android:layout_alignStart="@+id/btnAddWReport"
         android:layout_below="@+id/btnAddWReport"
-        android:layout_centerHorizontal="true" />
+        android:text="VIEW REPORTS"
+        android:textSize="18sp" />
 
     <Button
-        android:text="Log Out"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="21dp"
         android:id="@+id/btnLogout"
-        android:layout_alignParentTop="true"
+        style="@android:style/Widget.Button.Inset"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/textView2"
+        android:layout_alignLeft="@+id/textView2"
         android:layout_alignRight="@+id/textView2"
-        android:layout_alignEnd="@+id/textView2" />
+        android:layout_alignStart="@+id/textView2"
+        android:text="Log Out    "
+        android:textSize="18sp" />
 
     <Button
-        android:text="ADD WATER REPORT"
+        android:id="@+id/btnAddWReport"
+        style="@android:style/Widget.Button.Inset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btnAddWReport"
-        android:layout_marginTop="30dp"
+        android:layout_alignEnd="@+id/btnEditProf"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_alignRight="@+id/btnEditProf"
+        android:layout_alignStart="@+id/textView2"
         android:layout_below="@+id/btnEditProf"
-        android:layout_centerHorizontal="true" />
+        android:text="ADD WATER REPORT"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/btnViewMap"
+        style="@android:style/Widget.Button.Inset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/btnViewReports"
+        android:layout_alignLeft="@+id/btnViewReports"
+        android:layout_alignRight="@+id/btnViewReports"
+        android:layout_alignStart="@+id/btnViewReports"
+        android:layout_below="@+id/btnViewReports"
+        android:text="Map"
+        android:textSize="18sp" />
 </RelativeLayout>

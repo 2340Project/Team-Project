@@ -18,50 +18,52 @@
         android:layout_below="@+id/txtPassword"
         android:layout_alignLeft="@+id/txtPassword"
         android:layout_alignStart="@+id/txtPassword" />
+
     <EditText
+        android:id="@+id/txtName"
+        style="@android:style/Widget.DeviceDefault.Light.AutoCompleteTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/txtName"
-        android:hint="Enter Last Name"
-        android:singleLine="false"
-        android:background="@drawable/my_border"
-        android:textColorLink="?android:attr/colorForeground"
-        android:textSize="24sp"
-        android:layout_below="@+id/txtCurrentEmail"
         android:layout_alignLeft="@+id/txtEmail"
         android:layout_alignStart="@+id/txtEmail"
-        android:layout_marginTop="24dp" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtCurrentEmail"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/my_border"
+        android:ems="10"
+        android:hint="Enter Last Name"
         android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/txtEmail"
-        android:hint="Enter Email"
         android:singleLine="false"
-        android:background="@drawable/my_border"
         android:textColorLink="?android:attr/colorForeground"
-        android:textSize="24sp"
-        android:layout_marginTop="22dp"
-        android:layout_below="@+id/txtName"
-        android:layout_alignLeft="@+id/txtPassword"
-        android:layout_alignStart="@+id/txtPassword" />
+        android:textSize="30sp" />
 
     <EditText
+        android:id="@+id/txtEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:id="@+id/txtConfPassword"
-        android:hint="Confirm Password"
+        android:layout_marginTop="11dp"
         android:background="@drawable/my_border"
+        android:ems="10"
+        android:hint="Enter Email"
+        android:inputType="textPersonName"
+        android:singleLine="false"
         android:textColorLink="?android:attr/colorForeground"
-        android:textSize="24sp"
+        android:textSize="30sp"
+        android:layout_below="@+id/txtName"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:id="@+id/txtConfPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/txtlbl"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/my_border"
+        android:ems="10"
+        android:hint="Confirm Password"
+        android:inputType="textPassword"
+        android:textColorLink="?android:attr/colorForeground"
+        android:textSize="30sp" />
 
     <TextView
         android:text="Edit Profile"
@@ -74,20 +76,20 @@
         android:layout_centerHorizontal="true" />
 
     <EditText
+        android:id="@+id/txtPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:id="@+id/txtPassword"
-        android:hint="Enter Password"
+        android:layout_marginTop="12dp"
         android:background="@drawable/my_border"
+        android:ems="10"
+        android:hint="Enter Password"
+        android:inputType="textPassword"
         android:textColorLink="?android:attr/colorForeground"
         android:textCursorDrawable="@android:color/black"
-        android:textSize="24sp"
+        android:textSize="30sp"
         android:layout_below="@+id/txtEmail"
-        android:layout_alignLeft="@+id/txtConfPassword"
-        android:layout_alignStart="@+id/txtConfPassword"
-        android:layout_marginTop="35dp" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -99,37 +101,29 @@
         android:layout_alignStart="@+id/txtCurrentName" />
 
     <Button
-        android:text="Cancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/btnCancelEdit"
+        style="@android:style/Widget.Button.Inset"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cancel"
+        android:textSize="18sp"
         android:textStyle="normal|bold"
-        android:textSize="14sp"
-        style="@android:style/Widget.Button.Small"
-        android:layout_marginBottom="12dp"
-        android:background="@android:drawable/checkbox_off_background"
-        android:layout_marginRight="38dp"
-        android:layout_marginEnd="38dp"
-        android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@+id/btnSubmitEdit"
-        android:layout_toStartOf="@+id/btnSubmitEdit" />
+        android:layout_below="@+id/btnSubmitEdit"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button
-        android:text="Submit"
-        android:layout_width="wrap_content"
-        android:textStyle="normal|bold"
-        android:textSize="14sp"
-        android:layout_height="wrap_content"
         android:id="@+id/btnSubmitEdit"
-        style="@android:style/Widget.Button.Small"
-        android:background="@android:drawable/checkbox_off_background"
-        android:layout_marginRight="28dp"
-        android:layout_marginEnd="28dp"
+        style="@android:style/Widget.Button.Inset"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtConfPassword"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
         android:soundEffectsEnabled="?attr/windowActionBar"
-        android:layout_alignBaseline="@+id/btnCancelEdit"
-        android:layout_alignBottom="@+id/btnCancelEdit"
-        android:layout_alignRight="@+id/txtConfPassword"
-        android:layout_alignEnd="@+id/txtConfPassword" />
+        android:text="Submit"
+        android:textSize="18sp"
+        android:textStyle="normal|bold" />
 
 
 

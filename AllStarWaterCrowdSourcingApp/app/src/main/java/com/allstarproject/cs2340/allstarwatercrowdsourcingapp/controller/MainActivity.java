@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.content.Intent;
-
-
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -30,6 +28,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Button btnAddWReport = (Button) findViewById(R.id.btnAddWReport);
         btnAddWReport.setOnClickListener(this);
+
+        Button btnViewMap = (Button) findViewById(R.id.btnViewMap);
+        btnViewMap.setOnClickListener(this);
 
     }
 
@@ -56,6 +57,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btnAddWReport:
                 Intent intent4 = new Intent(MainActivity.this, SubmitReportActivity.class);
                 startActivity(intent4);
+                break;
+            case R.id.btnViewMap:
+                Intent intent5 = new Intent(MainActivity.this, MapsActivity.class);
+                startActivity(intent5);
                 break;
         }
 

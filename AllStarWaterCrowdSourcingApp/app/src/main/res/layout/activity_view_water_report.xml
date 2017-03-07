@@ -25,6 +25,8 @@
         android:id="@+id/txtReportList"
         android:layout_marginTop="37dp"
         android:layout_below="@+id/txtWaterReports"
+        android:maxLines="500"
+        android:scrollbars="vertical"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginLeft="30dp"

@@ -16,34 +16,25 @@
         android:text="Welcome!"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:id="@+id/textView" />
 
     <Button
-        android:text="Register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-<<<<<<< HEAD
-        android:id="@+id/btnRegisterWelcome"
-        android:layout_alignBaseline="@+id/btnLoginWelcome"
-        android:layout_alignBottom="@+id/btnLoginWelcome"
-=======
         android:id="@+id/btnCancelRegister"
-        android:layout_alignBaseline="@+id/btnLogin"
-        android:layout_alignBottom="@+id/btnLogin"
->>>>>>> 3fed251c40fbdbbd93bc18a81460702448e26f63
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="65dp"
-        android:layout_marginEnd="65dp" />
-
-    <Button
-        android:text="Login"
-        android:layout_width="wrap_content"
+        style="@android:style/Widget.Button.Inset"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btnLoginWelcome"
-        android:layout_centerVertical="true"
+        android:layout_alignBottom="@+id/btnLogin"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginLeft="50dp"
-        android:layout_marginStart="50dp" />
+        android:layout_marginBottom="53dp"
+        android:text="Register" />
+
+    <Button
+        android:id="@+id/btnLogin"
+        style="@android:style/Widget.Button.Inset"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:text="Login" />
 </RelativeLayout>
