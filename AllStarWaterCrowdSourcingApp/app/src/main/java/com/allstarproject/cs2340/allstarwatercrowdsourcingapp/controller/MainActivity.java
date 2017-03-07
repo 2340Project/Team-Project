@@ -6,7 +6,10 @@ import android.view.View;
 import android.widget.Button;
 import android.content.Intent;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
-
+import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Model;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.GoogleMap;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     /**
      * onCreate method for MainActivity. Setup for Logout button and its listener
@@ -23,11 +26,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button btnEditProf = (Button) findViewById(R.id.btnEditProf);
         btnEditProf.setOnClickListener(this);
 
-        Button btnViewReports = (Button) findViewById(R.id.btnViewReports);
-        btnViewReports.setOnClickListener(this);
+//        Button btnViewReports = (Button) findViewById(R.id.btnViewReports);
+//        btnViewReports.setOnClickListener(this);
 
-        Button btnAddWReport = (Button) findViewById(R.id.btnAddWReport);
-        btnAddWReport.setOnClickListener(this);
+
+        Button btnViewMap = (Button) findViewById(R.id.btnViewMap);
+        btnViewMap.setOnClickListener(this);
 
         Button btnViewMap = (Button) findViewById(R.id.btnViewMap);
         btnViewMap.setOnClickListener(this);
@@ -50,18 +54,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent intent2 = new Intent(MainActivity.this, WelcomeActivity.class);
                 startActivity(intent2);
                 break;
-            case R.id.btnViewReports:
-                Intent intent3 = new Intent(MainActivity.this, ViewWaterReportActivity.class);
-                startActivity(intent3);
-                break;
-            case R.id.btnAddWReport:
-                Intent intent4 = new Intent(MainActivity.this, SubmitReportActivity.class);
-                startActivity(intent4);
-                break;
+
             case R.id.btnViewMap:
                 Intent intent5 = new Intent(MainActivity.this, MapsActivity.class);
                 startActivity(intent5);
                 break;
+<<<<<<< HEAD
+            case R.id.btnViewMap:
+                Intent intent5 = new Intent(MainActivity.this, MapsActivity.class);
+                startActivity(intent5);
+                break;
+=======
+
+>>>>>>> 814240628ee1cd990f388f50f52ce5e127c7875c
         }
 
     }

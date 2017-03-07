@@ -1,19 +1,37 @@
 package com.allstarproject.cs2340.allstarwatercrowdsourcingapp.controller;
 
-import android.support.v4.app.FragmentActivity;
-import android.os.Bundle;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+
+import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
+import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Model;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
-    private GoogleMap mMap;
+
+    private static GoogleMap mMap;
+    private Model model;
+    final Context context = this;
+    private static LatLng currentLatLng;
+
+    public static GoogleMap getmMap() {
+        return mMap;
+    }
+
+    public static LatLng getLatLng() {
+        return currentLatLng;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +41,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        model = Model.getInstance();
     }
 
 
@@ -39,9 +59,72 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
+        java.util.List<MarkerOptions> list =  Model.getReportList();
+        //GoogleMap gm = MapsActivity.getMap();
+        LatLng latln = null;
+        for (MarkerOptions mo : list) {
+            mMap.addMarker(mo);
+            latln = mo.getPosition();
+        }
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(latln));
+        mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener(){
+
+            @Override
+            public void onMapClick(LatLng latLng) {
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+
+                currentLatLng = latLng;
+
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+                alertDialogBuilder.setTitle("Would you like to add a water report at this location?");
+
+
+                MarkerOptions markerOptions = new MarkerOptions();
+
+                markerOptions.position(latLng);
+                alertDialogBuilder
+                        .setMessage("")
+                        .setCancelable(false)
+                        .setPositiveButton("Yes",new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog,int id) {
+
+                                Intent intent = new Intent(MapsActivity.this, SubmitReportActivity.class);
+                                startActivity(intent);
+
+                            }
+                        })
+                        .setNegativeButton("No",new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog,int id) {
+                                // if this button is clicked, just close
+                                // the dialog box and do nothing
+                                dialog.cancel();
+                            }
+                        });
+
+                // create alert dialog
+                AlertDialog alertDialog = alertDialogBuilder.create();
+
+                // pan camera to position
+                CameraUpdateFactory.newLatLng(latLng);
+
+                // show it
+                alertDialog.show();
+
+
+            }
+        });
+
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+//        LatLng sydney = new LatLng(-34, 151);
+//        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+//        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+    }
+
+    /**
+     *
+     * @return mMap static map instance
+     */
+    public static GoogleMap getMap() {
+        return mMap;
     }
 }
