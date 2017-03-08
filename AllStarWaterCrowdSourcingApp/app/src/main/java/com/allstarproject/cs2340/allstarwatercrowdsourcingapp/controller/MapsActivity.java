@@ -1,15 +1,15 @@
 package com.allstarproject.cs2340.allstarwatercrowdsourcingapp.controller;
 
+
 import android.app.AlertDialog;
-import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-
-import android.content.Context;
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
-import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Model;
+import android.support.v4.app.FragmentActivity;
 
+import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
+import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Model;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -17,10 +17,8 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-
-import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
-
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+
 
     private static GoogleMap mMap;
     private Model model;
@@ -34,8 +32,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public static LatLng getLatLng() {
         return currentLatLng;
     }
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +59,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
+        java.util.List<MarkerOptions> list =  Model.getReportList();
+        //GoogleMap gm = MapsActivity.getMap();
+        LatLng latln = null;
+        for (MarkerOptions mo : list) {
+            mMap.addMarker(mo);
+            latln = mo.getPosition();
+        }
+        LatLng ll = new LatLng(33.762909, -84.422675);
+        if (latln == null) {
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(ll));
+        } else {
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(latln));
+        }
         mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener(){
 
             @Override
@@ -100,6 +109,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 // create alert dialog
                 AlertDialog alertDialog = alertDialogBuilder.create();
 
+                // pan camera to position
+                CameraUpdateFactory.newLatLng(latLng);
+
                 // show it
                 alertDialog.show();
 
@@ -111,5 +123,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 //        LatLng sydney = new LatLng(-34, 151);
 //        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
 //        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+    }
+
+    /**
+     *
+     * @return mMap static map instance
+     */
+    public static GoogleMap getMap() {
+        return mMap;
     }
 }

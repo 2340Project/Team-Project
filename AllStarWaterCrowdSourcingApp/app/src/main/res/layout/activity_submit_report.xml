@@ -11,22 +11,22 @@
     android:layout_width="match_parent">
 
     <EditText
+        android:id="@+id/txtWaterLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/txtWaterLocation"
-        android:hint="Enter Location:"
-        android:singleLine="false"
-        android:background="@drawable/my_border"
-        android:textColorLink="?android:attr/colorForeground"
-        android:textSize="24sp"
-        android:layout_marginTop="42dp"
-        android:layout_below="@+id/txtWaterHeader"
+        android:layout_alignEnd="@+id/txtWaterHeader"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/txtWaterHeader"
-        android:layout_alignEnd="@+id/txtWaterHeader" />
+        android:layout_below="@+id/txtWaterHeader"
+        android:layout_marginTop="42dp"
+        android:background="@drawable/my_border"
+        android:ems="10"
+        android:hint="Enter Location:"
+        android:inputType="textPersonName"
+        android:singleLine="false"
+        android:textColorLink="?android:attr/colorForeground"
+        android:textSize="30sp" />
 
 
     <TextView
@@ -43,41 +43,35 @@
         android:layout_alignParentEnd="true" />
 
     <EditText
+        android:id="@+id/txtWaterCondition"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/txtWaterCondition"
-        android:hint="Enter Water Condition:"
-        android:singleLine="false"
         android:background="@drawable/my_border"
+        android:ems="10"
+        android:hint="Enter Water Condition:"
+        android:inputType="textPersonName"
+        android:singleLine="false"
         android:textColorLink="?android:attr/colorForeground"
-        android:textSize="24sp"
-        android:layout_marginTop="33dp"
-        android:layout_below="@+id/txtWaterType"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/txtWaterType"
-        android:layout_alignEnd="@+id/txtWaterType" />
 
+        android:textSize="30sp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <EditText
+        android:id="@+id/txtWaterType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/txtWaterType"
-        android:hint="Enter Water Type:"
-        android:singleLine="false"
+        android:layout_marginTop="16dp"
         android:background="@drawable/my_border"
-        android:textColorLink="?android:attr/colorForeground"
-        android:textSize="24sp"
-        android:layout_marginTop="39dp"
+        android:ems="10"
+        android:hint="Enter Water Type:"
+        android:inputType="textPersonName"
+
+        android:textSize="30sp"
         android:layout_below="@+id/txtWaterLocation"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/txtWaterLocation"
-        android:layout_alignEnd="@+id/txtWaterLocation" />
+        android:layout_alignParentStart="true" />
 
     <Button
         android:text="Cancel"
@@ -96,20 +90,27 @@
         android:layout_marginEnd="37dp" />
 
     <Button
-        android:text="Submit"
-        android:layout_width="wrap_content"
-        android:textStyle="normal|bold"
-        android:textSize="14sp"
+        android:id="@+id/btnCancelSubmitReport"
+        style="@android:style/Widget.Button.Inset"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btnSubmitWaterReport"
-        style="@android:style/Widget.Button.Small"
-        android:background="@android:drawable/checkbox_off_background"
-        android:soundEffectsEnabled="?attr/windowActionBar"
-        android:layout_marginRight="90dp"
-        android:layout_marginEnd="90dp"
-        android:layout_alignBaseline="@+id/btnCancelSubmitReport"
-        android:layout_alignBottom="@+id/btnCancelSubmitReport"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_below="@+id/txtWaterCondition"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="29dp"
+        android:text="Cancel"
+        android:textSize="18sp"
+        android:textStyle="normal|bold" />
 
+    <Button
+        android:id="@+id/btnSubmitWaterReport"
+        style="@android:style/Widget.Button.Inset"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:soundEffectsEnabled="?attr/windowActionBar"
+        android:text="Submit"
+        android:textSize="18sp"
+        android:textStyle="normal|bold"
+        android:layout_below="@+id/btnCancelSubmitReport"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>
