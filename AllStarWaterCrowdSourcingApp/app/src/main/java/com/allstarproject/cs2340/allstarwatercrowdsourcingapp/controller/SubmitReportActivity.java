@@ -1,21 +1,13 @@
 package com.allstarproject.cs2340.allstarwatercrowdsourcingapp.controller;
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
-import android.widget.TextView;
-
 
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
-import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Admin;
-import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Manager;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Model;
-import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.RegisteredUser;
-import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Worker;
 
 
 
@@ -57,8 +49,7 @@ public class SubmitReportActivity extends AppCompatActivity implements View.OnCl
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnCancelSubmitReport:
-                Intent intent = new Intent(SubmitReportActivity.this, MapsActivity.class);
-                startActivity(intent);
+                super.finish();
                 break;
 
             case R.id.btnSubmitWaterReport:
