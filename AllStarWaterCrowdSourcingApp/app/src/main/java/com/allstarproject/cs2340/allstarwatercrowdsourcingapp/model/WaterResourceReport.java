@@ -31,43 +31,81 @@ public class WaterResourceReport {
         this.latLng = latLng;
 
     }
-
+    /**
+     * getter method for the user's input of the water resource report
+     * @return a String of the location of the water resource report
+     */
     public static String getLocation() {
         return location;
     }
 
+    /**
+     * setter method for the location of the water report that the user
+     * inputted
+     */
     public void setLocation(String location) {
         this.location = location;
     }
 
+    /**
+     * getter method for the water type of the water resource report
+     * @return a String of the locations water type
+     */
     public String getWaterType() {
         return waterType;
     }
 
+    /**
+     * setter method for the water type of the water resource report that the
+     * user inputted
+     */
     public void setWaterType(String waterType) {
         this.waterType = waterType;
     }
 
+    /**
+     * getter method for the water condition of the water resource report
+     * @return a String of the locations water condition
+     */
     public String getWaterCondition() {
         return waterCondition;
     }
 
+    /**
+     * setter method for the locations water condition
+     */
     public void setWaterCondition(String waterCondition) {
         this.waterCondition = waterCondition;
     }
 
+    /**
+     * getter method for the water resource report number
+     * @return an int of the locations report number
+     */
     public int getReportNumber() {
         return reportNumber;
     }
 
+    /**
+     * setter method for the water resource report number
+     */
     public void setReportNumber(int reportNumber) {
         this.reportNumber = reportNumber;
     }
 
+    /**
+     * getter method for the water resource lattitude and longitude for the
+     * submitted water report on the user's click in the map.
+     * @return the lattitude and longitude
+     */
     public static LatLng getLatLng() {
         return latLng;
     }
 
+    /**
+     * setter method for the water resource lattitude and longitude for the
+     * submitted water report on the user's click in the map.
+     */
     public void setLatLng(LatLng latLng) {
         this.latLng = latLng;
     }
