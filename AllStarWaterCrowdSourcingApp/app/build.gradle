@@ -26,9 +26,9 @@ dependencies {
     })
     //IS THIS WHAT IS CAUSING A PROBLEM? TOOK OUT THE OLD VERSION VIA MERGE CONFLICT
     compile 'com.android.support:appcompat-v7:25.2.0'
-
     compile 'com.android.support:animated-vector-drawable:25.2.0'
     compile 'com.android.support:customtabs:25.2.0'
-    compile 'com.google.android.gms:play-services:9.8.0'
+    compile 'com.google.android.gms:play-services:10.0.0'
+    compile 'com.android.support.constraint:constraint-layout:+'
     testCompile 'junit:junit:4.12'
 }
