@@ -102,7 +102,10 @@
         android:layout_alignLeft="@+id/txtCurrentName"
         android:layout_alignStart="@+id/txtCurrentName"
         android:layout_below="@+id/txtCurrentName"
-        android:layout_marginTop="11dp" />
+        android:layout_marginTop="11dp"
+        android:textStyle="normal|bold"
+        android:textSize="30sp"
+        android:textColor="#000000"/>
 
     <Button
         android:id="@+id/btnCancelEdit"
@@ -138,6 +141,10 @@
         android:layout_alignLeft="@+id/txtName"
         android:layout_alignStart="@+id/txtName"
         android:layout_below="@+id/txtLogin"
-        android:layout_marginTop="15dp" />
+        android:layout_marginTop="15dp"
+        android:textStyle="normal|bold"
+        android:textSize="30sp"
+        android:textColor="#000000"
+        />
 
 </RelativeLayout>
