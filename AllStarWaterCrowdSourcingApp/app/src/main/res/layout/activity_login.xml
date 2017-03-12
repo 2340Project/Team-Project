@@ -71,28 +71,28 @@
         style="@android:style/Widget.Button.Inset"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/cast_mini_controller_icon_width"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignTop="@+id/txtlbl"
         android:text="Cancel"
         android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_below="@+id/btnEnter"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:id="@+id/btnEnter"
         style="@android:style/Widget.Button.Inset"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/cast_mini_controller_icon_width"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/btnCancel"
         android:text="Enter"
         android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_alignTop="@+id/txtlbl"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -105,5 +105,12 @@
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/txtLogin"
         android:layout_toEndOf="@+id/txtLogin" />
+
+    <GridView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignBottom="@+id/txtLogin"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>
