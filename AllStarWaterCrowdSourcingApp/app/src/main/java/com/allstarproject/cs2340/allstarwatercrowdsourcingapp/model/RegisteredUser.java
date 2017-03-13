@@ -10,10 +10,10 @@ public class RegisteredUser {
     private String userName;
     private String password;
     private String email;
-    private boolean isUser;
-    private boolean isWorker;
-    private boolean isManager;
-    private boolean isAdmin;
+    private boolean isUser = false;
+    private boolean isWorker = false;
+    private boolean isManager = false;
+    private boolean isAdmin = false;
 
     /**
      * constructor for instantiating a user object on login
@@ -23,6 +23,7 @@ public class RegisteredUser {
     public RegisteredUser(String username, String password) {
         this.userName = username;
         this.password = password;
+
         model.addUser(username, this);
 
     }
@@ -33,13 +34,23 @@ public class RegisteredUser {
      * @param password the User's password
      * @param name the User's name
      * @param email the User's email
+     * @param acctType string containing the selected acct type
      */
     public RegisteredUser(String username
             , String password, String name
-            , String email) {
+            , String email,  String acctType) {
         this(username, password);
         this.name = name;
         this.email = email;
+        if (acctType.equals("User")) {
+            this.isUser = true;
+        } else if (acctType.equals("Worker")) {
+            this.isWorker = true;
+        } else if (acctType.equals("Manager")) {
+            this.isManager = true;
+        } else if (acctType.equals("Admin")) {
+            this.isAdmin = true;
+        }
     }
 
     /**
@@ -104,5 +115,37 @@ public class RegisteredUser {
      */
     public String getPassword() {
         return password;
+    }
+
+    /**
+     *
+     * @return true/ false for is user
+     */
+    public boolean getIsUser() {
+        return isUser;
+    }
+
+    /**
+     *
+     * @return return true/false for is worker
+     */
+    public boolean getIsWorker() {
+        return isWorker;
+    }
+
+    /**
+     *
+     * @return return true/false for is manager
+     */
+    public boolean getIsManager() {
+        return isManager;
+    }
+
+    /**
+     *
+     * @return true or false for if is admin
+     */
+    public boolean getIsAdmin() {
+        return isAdmin;
     }
 }

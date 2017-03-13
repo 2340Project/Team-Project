@@ -1,43 +1,45 @@
 package com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model;
 
 
-
-import com.google.android.gms.maps.model.LatLng;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 /**
- * Created by Austin on 2/26/17.
+ * Created by Austin on 3/12/17.
  */
 
-public class WaterResourceReport {
+public class WaterPurityReport {
+
     private int reportNumber;
     private static String location;
-    private String waterType;
+    private double virusPPM;
+    private double contaminantPPM;
     private String waterCondition;
-    private static LatLng latLng;
+    private DateFormat dateFormat;
+    private java.util.Date date;
+    private String dateAndTime;
+    private String creator;
+
 
     /**
      * Constructor to instantiate the fields for the water resource report
      * @param location The location of the water source
-     * @param waterType the type of the water source
      * @param waterCondition the conition of the water source
      */
 
-    public WaterResourceReport(String location, String waterType,
-                               String waterCondition, int reportNumber, LatLng latLng) {
+    public WaterPurityReport(String location, double contaminantPPM,
+                               double virusPPM, String waterCondition, int reportNumber, String name) {
         this.location = location;
-        this.waterType = waterType;
+        this.contaminantPPM = contaminantPPM;
+        this. virusPPM = virusPPM;
         this.waterCondition = waterCondition;
         this.reportNumber = reportNumber;
-        this.latLng = latLng;
-
+        dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        date = new java.util.Date();
+        dateAndTime = dateFormat.format(date);
+        creator = name;
     }
 
-    public WaterResourceReport(String location, String waterType, String waterCondition, int reportNumber) {
-        this.location = location;
-        this.waterType = waterType;
-        this.waterCondition = waterCondition;
-        this.reportNumber = reportNumber;
-    }
     /**
      * getter method for the user's input of the water resource report
      * @return a String of the location of the water resource report
@@ -52,22 +54,6 @@ public class WaterResourceReport {
      */
     public void setLocation(String location) {
         this.location = location;
-    }
-
-    /**
-     * getter method for the water type of the water resource report
-     * @return a String of the locations water type
-     */
-    public String getWaterType() {
-        return waterType;
-    }
-
-    /**
-     * setter method for the water type of the water resource report that the
-     * user inputted
-     */
-    public void setWaterType(String waterType) {
-        this.waterType = waterType;
     }
 
     /**
@@ -100,21 +86,20 @@ public class WaterResourceReport {
         this.reportNumber = reportNumber;
     }
 
-    /**
-     * getter method for the water resource lattitude and longitude for the
-     * submitted water report on the user's click in the map.
-     * @return the lattitude and longitude
-     */
-    public static LatLng getLatLng() {
-        return latLng;
+    public double getVirusPPM() {
+        return virusPPM;
     }
 
-    /**
-     * setter method for the water resource lattitude and longitude for the
-     * submitted water report on the user's click in the map.
-     */
-    public void setLatLng(LatLng latLng) {
-        this.latLng = latLng;
+    public void setVirusPPM(double virusPPM) {
+        this.virusPPM = virusPPM;
+    }
+
+    public double getContaminantPPM() {
+        return contaminantPPM;
+    }
+
+    public void setContaminantPPM(double contaminantPPM) {
+        this.contaminantPPM = contaminantPPM;
     }
 
 
@@ -125,8 +110,7 @@ public class WaterResourceReport {
      */
     @Override
     public String toString() {
-        return "" + reportNumber + ". " + location + ": " + waterType + ", "
+        return "" + reportNumber + ". " + dateAndTime + " , " + "Submitted by: " + creator + " , " + location + ": " + virusPPM + " Virus PPM , " + contaminantPPM + " Contaminant PPM , "
                 + waterCondition;
     }
-
 }

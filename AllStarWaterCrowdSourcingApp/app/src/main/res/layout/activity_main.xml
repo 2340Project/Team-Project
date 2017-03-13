@@ -25,6 +25,20 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
+    <Button
+        android:id="@+id/btnViewSourceReport"
+        style="@android:style/Widget.Button.Inset"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/cast_mini_controller_icon_height"
+        android:text="View Resoures List"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/btnEditProf"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
@@ -43,7 +57,7 @@
         style="@android:style/Widget.Button.Inset"
         android:layout_width="match_parent"
         android:layout_height="@dimen/cast_mini_controller_icon_height"
-        android:layout_marginTop="112dp"
+        android:layout_marginTop="37dp"
         android:text="Log Out    "
         android:textSize="20sp"
         android:textStyle="bold"
@@ -59,7 +73,35 @@
         android:text="Map"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:layout_below="@+id/btnEditProf"
+        android:layout_below="@+id/btnViewSourceReport"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:id="@+id/btnSubmitPurityReport"
+        style="@android:style/Widget.Button.Inset"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/cast_mini_controller_icon_height"
+        android:text="Submit Purity Report"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/btnViewMap"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:id="@+id/btnViewPurityReports"
+        style="@android:style/Widget.Button.Inset"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/cast_mini_controller_icon_height"
+        android:text="View Purity Reports"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/btnSubmitPurityReport"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"

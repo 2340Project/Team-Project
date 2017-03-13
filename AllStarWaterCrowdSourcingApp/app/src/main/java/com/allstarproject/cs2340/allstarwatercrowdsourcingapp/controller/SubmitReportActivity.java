@@ -53,13 +53,12 @@ public class SubmitReportActivity extends AppCompatActivity implements View.OnCl
                 break;
 
             case R.id.btnSubmitWaterReport:
-                //Intent intent2 = new Intent(SubmitReportActivity.this, MapsActivity.class);
-
 
                 model.addReport(txtLocation.getText().toString(), txtWaterType.getText().toString(),
                         txtWaterCondition.getText().toString());
+                model.addReportList(txtLocation.getText().toString(), txtWaterType.getText().toString(),
+                        txtWaterCondition.getText().toString());
                 super.finish();
-                //startActivity(intent2);
                 break;
         }
     }
