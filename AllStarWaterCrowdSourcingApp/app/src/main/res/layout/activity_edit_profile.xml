@@ -33,24 +33,24 @@
         android:textColorLink="?android:attr/colorForeground"
         android:textSize="30sp"
         android:layout_below="@+id/txtCurrentEmail"
-        android:layout_toRightOf="@+id/txtlbl"
-        android:layout_toEndOf="@+id/txtlbl" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:id="@+id/txtEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/txtName"
-        android:layout_marginTop="11dp"
+        android:layout_marginTop="19dp"
         android:background="@drawable/my_border"
         android:ems="10"
         android:hint="Enter Email"
         android:inputType="textPersonName"
         android:singleLine="false"
         android:textColorLink="?android:attr/colorForeground"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:layout_below="@+id/txtName"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:id="@+id/txtConfPassword"
@@ -70,30 +70,29 @@
         android:id="@+id/txtLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
         android:text="Edit Profile"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@color/cast_expanded_controller_background_color"
         android:textSize="30sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:id="@+id/txtPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/txtEmail"
-        android:layout_marginTop="12dp"
         android:background="@drawable/my_border"
         android:ems="10"
         android:hint="Enter Password"
         android:inputType="textPassword"
         android:textColorLink="?android:attr/colorForeground"
         android:textCursorDrawable="@android:color/black"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:layout_below="@+id/txtEmail"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="17dp" />
 
     <TextView
         android:id="@+id/txtCurrentEmail"
@@ -103,35 +102,34 @@
         android:layout_alignStart="@+id/txtCurrentName"
         android:layout_below="@+id/txtCurrentName"
         android:layout_marginTop="11dp"
-        android:textStyle="normal|bold"
-        android:textSize="30sp"
-        android:textColor="#000000"/>
+        android:textSize="20sp"
+        android:textStyle="normal|bold"/>
 
     <Button
         android:id="@+id/btnCancelEdit"
         style="@android:style/Widget.Button.Inset"
         android:layout_width="match_parent"
         android:layout_height="@dimen/cast_mini_controller_icon_height"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/btnSubmitEdit"
         android:text="Cancel"
         android:textSize="20sp"
-        android:textStyle="normal|bold" />
+        android:textStyle="normal|bold"
+        android:layout_below="@+id/btnSubmitEdit"
+        android:layout_toRightOf="@+id/txtlbl"
+        android:layout_toEndOf="@+id/txtlbl" />
 
     <Button
         android:id="@+id/btnSubmitEdit"
         style="@android:style/Widget.Button.Inset"
         android:layout_width="match_parent"
         android:layout_height="@dimen/cast_mini_controller_icon_height"
-        android:layout_below="@+id/txtConfPassword"
-        android:layout_marginTop="13dp"
-        android:layout_toEndOf="@+id/txtlbl"
-        android:layout_toRightOf="@+id/txtlbl"
+        android:layout_marginTop="14dp"
         android:soundEffectsEnabled="?attr/windowActionBar"
         android:text="Submit"
         android:textSize="20sp"
-        android:textStyle="normal|bold" />
+        android:textStyle="normal|bold"
+        android:layout_below="@+id/txtConfPassword"
+        android:layout_toRightOf="@+id/txtlbl"
+        android:layout_toEndOf="@+id/txtlbl" />
 
 
     <TextView
@@ -142,9 +140,16 @@
         android:layout_alignStart="@+id/txtName"
         android:layout_below="@+id/txtLogin"
         android:layout_marginTop="15dp"
-        android:textStyle="normal|bold"
-        android:textSize="30sp"
-        android:textColor="#000000"
-        />
+
+        android:textSize="20sp"
+        android:textStyle="normal|bold"/>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignBottom="@+id/btnCancelEdit"
+        android:layout_below="@+id/txtCurrentEmail" />
 
 </RelativeLayout>
