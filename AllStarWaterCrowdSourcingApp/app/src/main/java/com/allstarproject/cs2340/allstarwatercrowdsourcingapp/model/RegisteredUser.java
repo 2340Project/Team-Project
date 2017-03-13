@@ -10,6 +10,10 @@ public class RegisteredUser {
     private String userName;
     private String password;
     private String email;
+    private boolean isUser;
+    private boolean isWorker;
+    private boolean isManager;
+    private boolean isAdmin;
 
     /**
      * constructor for instantiating a user object on login
