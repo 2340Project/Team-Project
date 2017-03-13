@@ -21,10 +21,5 @@ public class ViewWaterReportActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_water_report);
 
-
-//        String toPrint = model.printReports();
-//        waterReps = (TextView) findViewById(R.id.txtReportList);
-//        waterReps.setText(toPrint);
-//        waterReps.setMovementMethod(new ScrollingMovementMethod());
     }
 }
