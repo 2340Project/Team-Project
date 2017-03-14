@@ -33,8 +33,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button btnViewMap = (Button) findViewById(R.id.btnViewMap);
         btnViewMap.setOnClickListener(this);
 
-        Button btnViewMap = (Button) findViewById(R.id.btnViewMap);
-        btnViewMap.setOnClickListener(this);
 
     }
 
@@ -59,14 +57,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent intent5 = new Intent(MainActivity.this, MapsActivity.class);
                 startActivity(intent5);
                 break;
-<<<<<<< HEAD
-            case R.id.btnViewMap:
-                Intent intent5 = new Intent(MainActivity.this, MapsActivity.class);
-                startActivity(intent5);
-                break;
-=======
 
->>>>>>> 814240628ee1cd990f388f50f52ce5e127c7875c
+
         }
 
     }

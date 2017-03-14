@@ -16,12 +16,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/btnLogout"
-        android:layout_alignLeft="@+id/textView2"
         android:layout_alignRight="@+id/btnLogout"
-        android:layout_alignStart="@+id/textView2"
         android:layout_below="@+id/btnLogout"
         android:text="Edit Profile"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:text="Main App Screen"
@@ -33,54 +33,32 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="36dp" />
 
-    <Button
-        android:id="@+id/btnViewReports"
-        style="@android:style/Widget.Button.Inset"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/btnAddWReport"
-        android:layout_alignLeft="@+id/btnAddWReport"
-        android:layout_alignRight="@+id/btnAddWReport"
-        android:layout_alignStart="@+id/btnAddWReport"
-        android:layout_below="@+id/btnAddWReport"
-        android:text="VIEW REPORTS"
-        android:textSize="18sp" />
+
 
     <Button
         android:id="@+id/btnLogout"
         style="@android:style/Widget.Button.Inset"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/textView2"
-        android:layout_alignLeft="@+id/textView2"
-        android:layout_alignRight="@+id/textView2"
-        android:layout_alignStart="@+id/textView2"
         android:text="Log Out    "
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:layout_marginTop="53dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
-    <Button
-        android:id="@+id/btnAddWReport"
-        style="@android:style/Widget.Button.Inset"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/btnEditProf"
-        android:layout_alignLeft="@+id/textView2"
-        android:layout_alignRight="@+id/btnEditProf"
-        android:layout_alignStart="@+id/textView2"
-        android:layout_below="@+id/btnEditProf"
-        android:text="ADD WATER REPORT"
-        android:textSize="18sp" />
+
 
     <Button
         android:id="@+id/btnViewMap"
         style="@android:style/Widget.Button.Inset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/btnViewReports"
-        android:layout_alignLeft="@+id/btnViewReports"
-        android:layout_alignRight="@+id/btnViewReports"
-        android:layout_alignStart="@+id/btnViewReports"
-        android:layout_below="@+id/btnViewReports"
         android:text="Map"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:layout_centerVertical="true"
+        android:layout_alignRight="@+id/btnEditProf"
+        android:layout_alignEnd="@+id/btnEditProf"
+        android:layout_alignLeft="@+id/btnEditProf"
+        android:layout_alignStart="@+id/btnEditProf" />
 </RelativeLayout>

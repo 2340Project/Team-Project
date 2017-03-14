@@ -56,14 +56,17 @@
         android:id="@+id/txtConfPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtlbl"
-        android:layout_centerHorizontal="true"
         android:background="@drawable/my_border"
         android:ems="10"
+        android:layout_marginTop="11dp"
+
         android:hint="Confirm Password"
         android:inputType="textPassword"
         android:textColorLink="?android:attr/colorForeground"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:layout_below="@+id/txtPassword"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:text="Edit Profile"
