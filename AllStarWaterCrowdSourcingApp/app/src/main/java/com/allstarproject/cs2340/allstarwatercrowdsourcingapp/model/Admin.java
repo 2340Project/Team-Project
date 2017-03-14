@@ -16,6 +16,6 @@ public class Admin extends RegisteredUser {
      * @param email email to be set
      */
     public Admin(String username, String password, String name, String email) {
-        super(username, password, name, email);
+        super(username, password, name, email, "Admin");
     }
 }
