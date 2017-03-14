@@ -1,11 +1,10 @@
 package com.allstarproject.cs2340.allstarwatercrowdsourcingapp.controller;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
 
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Model;
@@ -48,20 +47,17 @@ public class SubmitReportActivity extends AppCompatActivity implements View.OnCl
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btnCancelSubmitWaterReport:
-//                Intent intent = new Intent(SubmitReportActivity.this, MapsActivity.class);
-//                startActivity(intent);
+            case R.id.btnCancelSubmitReport:
                 super.finish();
                 break;
 
             case R.id.btnSubmitWaterReport:
-                //Intent intent2 = new Intent(SubmitReportActivity.this, MapsActivity.class);
-
 
                 model.addReport(txtLocation.getText().toString(), txtWaterType.getText().toString(),
                         txtWaterCondition.getText().toString());
+                model.addReportList(txtLocation.getText().toString(), txtWaterType.getText().toString(),
+                        txtWaterCondition.getText().toString());
                 super.finish();
-                //startActivity(intent2);
                 break;
         }
     }

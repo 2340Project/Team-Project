@@ -1,18 +1,20 @@
 package com.allstarproject.cs2340.allstarwatercrowdsourcingapp.controller;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Spinner;
 import android.widget.EditText;
-import android.content.Intent;
-import android.widget.TextView;
+import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
+import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Admin;
+import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Manager;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Model;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.RegisteredUser;
-import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.*;
+import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Worker;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
     Model model = Model.getInstance();
@@ -52,7 +54,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
      */
     @Override
     public void onClick(View v) {
-        switch(v.getId()) {
+        switch (v.getId()) {
            case R.id.btnCancelRegister:
                Intent intent = new Intent(RegisterActivity.this, WelcomeActivity.class);
                startActivity(intent);
@@ -60,29 +62,39 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
             case R.id.btnSubmitRegister:
                 Intent intent2 = new Intent(RegisterActivity.this, LoginActivity.class);
-                if (txtConfPassword.getText().toString().equals(txtPassword.getText().toString())) {
-                    if (spinner.getSelectedItem() == "User") {
+                if (txtConfPassword.getText().toString().isEmpty() || txtPassword.getText().toString().isEmpty()
+                        || txtUserName.getText().toString().isEmpty() || txtPassword.getText().toString().isEmpty()
+                        || txtName.getText().toString().isEmpty() || txtEmail.getText().toString().isEmpty()) {
+                    Toast.makeText(getApplication(), "Missing data entry", Toast.LENGTH_LONG).show();
+                } else if (txtConfPassword.getText().toString().equals(txtPassword.getText().toString())) {
+                    if (spinner.getSelectedItem().toString().equals("User")) {
                         new RegisteredUser(txtUserName.getText().toString()
                                 , txtPassword.getText().toString(), txtName.getText().toString()
-                                ,txtEmail.getText().toString());
-                    } else if (spinner.getSelectedItem() == "Manager") {
-                        new Manager(txtUserName.getText().toString()
+                                , txtEmail.getText().toString(), spinner.getSelectedItem().toString());
+                        startActivity(intent2);
+                    } else if (spinner.getSelectedItem().toString().equals("Manager")) {
+                        new RegisteredUser(txtUserName.getText().toString()
                                 , txtPassword.getText().toString(), txtName.getText().toString()
-                                ,txtEmail.getText().toString());
-                    } else if (spinner.getSelectedItem() == "Worker") {
-                        new Worker(txtUserName.getText().toString()
+                                , txtEmail.getText().toString(), spinner.getSelectedItem().toString());
+                        startActivity(intent2);
+                    } else if (spinner.getSelectedItem().toString().equals("Worker")) {
+                        new RegisteredUser(txtUserName.getText().toString()
                                 , txtPassword.getText().toString(), txtName.getText().toString()
-                                ,txtEmail.getText().toString());
+                                , txtEmail.getText().toString(), spinner.getSelectedItem().toString());
+                        startActivity(intent2);
+                    } else if (spinner.getSelectedItem().toString().equals("Admin")) {
+                        new RegisteredUser(txtUserName.getText().toString()
+                                , txtPassword.getText().toString(), txtName.getText().toString()
+                                , txtEmail.getText().toString(), spinner.getSelectedItem().toString());
+                        startActivity(intent2);
                     } else {
-                        new Admin(txtUserName.getText().toString()
-                                , txtPassword.getText().toString(), txtName.getText().toString()
-                                ,txtEmail.getText().toString());
+                        Toast.makeText(getApplication(), "User type not selected", Toast.LENGTH_LONG).show();
                     }
-                    startActivity(intent2);
 
                 } else {
-                    TextView textView = (TextView) findViewById(R.id.txtlbl);
-                    textView.setText("Passwords do not match");
+                    Toast.makeText(getApplication(), "Passwords Dont Match", Toast.LENGTH_LONG).show();
+                   // TextView textView = (TextView) findViewById(R.id.txtlbl);
+                   // textView.setText("Passwords do not match");
                 }
 
                 break;

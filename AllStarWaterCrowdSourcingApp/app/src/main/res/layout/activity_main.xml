@@ -4,6 +4,7 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/backg"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -14,51 +15,100 @@
         android:id="@+id/btnEditProf"
         style="@android:style/Widget.Button.Inset"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/btnLogout"
-        android:layout_alignRight="@+id/btnLogout"
-        android:layout_below="@+id/btnLogout"
+
+        android:layout_height="@dimen/cast_mini_controller_icon_height"
         android:text="Edit Profile"
-        android:textSize="18sp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/textView2"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="15dp"
+        />
+
+    <Button
+        android:id="@+id/btnViewSourceReport"
+        style="@android:style/Widget.Button.Inset"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/cast_mini_controller_icon_height"
+        android:text="View Resoures List"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/btnEditProf"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <TextView
-        android:text="Main App Screen"
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView2"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="36dp" />
-
-
+        android:layout_marginTop="21dp"
+        android:text="Main App Screen"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="@color/cast_expanded_controller_background_color"
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/btnLogout"
         style="@android:style/Widget.Button.Inset"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+
+        android:layout_height="@dimen/cast_mini_controller_icon_height"
+        android:layout_marginTop="37dp"
         android:text="Log Out    "
-        android:textSize="18sp"
-        android:layout_marginTop="53dp"
-        android:layout_alignParentTop="true"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/btnViewPurityReports"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
-
-
 
     <Button
         android:id="@+id/btnViewMap"
         style="@android:style/Widget.Button.Inset"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/cast_mini_controller_icon_height"
         android:text="Map"
-        android:textSize="18sp"
-        android:layout_centerVertical="true"
-        android:layout_alignRight="@+id/btnEditProf"
-        android:layout_alignEnd="@+id/btnEditProf"
-        android:layout_alignLeft="@+id/btnEditProf"
-        android:layout_alignStart="@+id/btnEditProf" />
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/btnViewSourceReport"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:id="@+id/btnSubmitPurityReport"
+        style="@android:style/Widget.Button.Inset"
+        android:layout_width="wrap_content"
+
+        android:layout_height="@dimen/cast_mini_controller_icon_height"
+        android:text="Submit Purity Report"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/btnViewMap"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:id="@+id/btnViewPurityReports"
+        style="@android:style/Widget.Button.Inset"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/cast_mini_controller_icon_height"
+        android:text="View Purity Reports"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/btnSubmitPurityReport"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>

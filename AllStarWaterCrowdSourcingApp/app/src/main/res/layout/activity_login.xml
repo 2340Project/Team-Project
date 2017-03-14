@@ -5,6 +5,7 @@
     android:id="@+id/activity_login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/backg"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -15,79 +16,82 @@
         android:id="@+id/txtCurrentName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_centerVertical="true"
         android:background="@drawable/my_border"
         android:ems="10"
-        android:hint="enter username"
+        android:hint="Enter Username"
         android:inputType="textPersonName"
         android:singleLine="true"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:layout_above="@+id/txtPassword"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:id="@+id/txtPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="37dp"
         android:background="@drawable/my_border"
         android:ems="10"
-        android:hint="enter password"
+        android:hint="Enter Password"
         android:inputType="textPassword"
         android:textSize="30sp"
-        android:layout_below="@+id/txtCurrentName"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignBottom="@+id/imageView" />
 
 
     <TextView
-        android:text="Login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/txtLogin"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:layout_alignBottom="@+id/imageView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtPassword"
-        android:layout_alignLeft="@+id/txtPassword"
-        android:layout_alignStart="@+id/txtPassword"
-        android:layout_marginTop="19dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:text="Login"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="@color/cast_expanded_controller_background_color"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <TextView
         android:id="@+id/txtlbl"
-        android:layout_toStartOf="@+id/btnEnter"
-        android:layout_alignRight="@+id/txtPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/txtPassword"
-        android:textColor="@android:color/holo_red_dark" />
+        android:layout_alignLeft="@+id/txtPassword"
+        android:layout_alignRight="@+id/txtPassword"
+        android:layout_alignStart="@+id/txtPassword"
+        android:layout_below="@+id/txtPassword"
+        android:layout_marginTop="19dp"
+        android:layout_toStartOf="@+id/btnEnter"
+        android:textColor="@android:color/holo_red_dark"
+        android:layout_toLeftOf="@+id/btnEnter" />
 
     <Button
         android:id="@+id/btnCancel"
         style="@android:style/Widget.Button.Inset"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/txtlbl"
+        android:layout_height="@dimen/cast_mini_controller_icon_width"
         android:text="Cancel"
-        android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button" />
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/btnEnter"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:id="@+id/btnEnter"
         style="@android:style/Widget.Button.Inset"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/btnCancel"
+        android:layout_height="@dimen/cast_mini_controller_icon_width"
         android:text="Enter"
-        android:textSize="18sp" />
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="19dp"
+        android:layout_below="@+id/txtlbl"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -95,8 +99,17 @@
         android:layout_height="wrap_content"
         android:cropToPadding="true"
         app:srcCompat="@drawable/login"
-        android:layout_above="@+id/txtCurrentName"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_marginLeft="135dp"
+        android:layout_marginStart="135dp"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/txtLogin"
+        android:layout_toEndOf="@+id/txtLogin" />
+
+    <GridView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignBottom="@+id/txtLogin"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>
