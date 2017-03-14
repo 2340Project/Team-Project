@@ -54,7 +54,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
      */
     @Override
     public void onClick(View v) {
-        switch(v.getId()) {
+        switch (v.getId()) {
            case R.id.btnCancelRegister:
                Intent intent = new Intent(RegisterActivity.this, WelcomeActivity.class);
                startActivity(intent);
@@ -70,22 +70,22 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     if (spinner.getSelectedItem().toString().equals("User")) {
                         new RegisteredUser(txtUserName.getText().toString()
                                 , txtPassword.getText().toString(), txtName.getText().toString()
-                                ,txtEmail.getText().toString());
+                                , txtEmail.getText().toString(), spinner.getSelectedItem().toString());
                         startActivity(intent2);
                     } else if (spinner.getSelectedItem().toString().equals("Manager")) {
-                        new Manager(txtUserName.getText().toString()
+                        new RegisteredUser(txtUserName.getText().toString()
                                 , txtPassword.getText().toString(), txtName.getText().toString()
-                                ,txtEmail.getText().toString());
+                                , txtEmail.getText().toString(), spinner.getSelectedItem().toString());
                         startActivity(intent2);
                     } else if (spinner.getSelectedItem().toString().equals("Worker")) {
-                        new Worker(txtUserName.getText().toString()
+                        new RegisteredUser(txtUserName.getText().toString()
                                 , txtPassword.getText().toString(), txtName.getText().toString()
-                                ,txtEmail.getText().toString());
+                                , txtEmail.getText().toString(), spinner.getSelectedItem().toString());
                         startActivity(intent2);
                     } else if (spinner.getSelectedItem().toString().equals("Admin")) {
-                        new Admin(txtUserName.getText().toString()
+                        new RegisteredUser(txtUserName.getText().toString()
                                 , txtPassword.getText().toString(), txtName.getText().toString()
-                                ,txtEmail.getText().toString());
+                                , txtEmail.getText().toString(), spinner.getSelectedItem().toString());
                         startActivity(intent2);
                     } else {
                         Toast.makeText(getApplication(), "User type not selected", Toast.LENGTH_LONG).show();

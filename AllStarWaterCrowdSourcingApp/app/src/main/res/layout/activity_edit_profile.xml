@@ -140,6 +140,7 @@
         android:layout_alignStart="@+id/txtName"
         android:layout_below="@+id/txtLogin"
         android:layout_marginTop="15dp"
+
         android:textSize="20sp"
         android:textStyle="normal|bold"/>
 
