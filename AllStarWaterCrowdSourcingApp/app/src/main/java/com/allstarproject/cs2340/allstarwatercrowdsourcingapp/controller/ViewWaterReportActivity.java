@@ -8,8 +8,8 @@ import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Model;
 
 public class ViewWaterReportActivity extends AppCompatActivity {
-    Model model = Model.getInstance();
-    TextView waterReps;
+    private Model model = Model.getInstance();
+    private TextView waterReps;
 
     /**
      * This method populates the reports in the ViewWaterReport Screen

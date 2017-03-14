@@ -51,8 +51,6 @@ public class Model extends FragmentActivity {
     private static List<MarkerOptions> reportList;
     private int reportNumber;
 
-
-
     /**
      * Singleton constructor
      */

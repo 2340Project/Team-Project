@@ -8,10 +8,12 @@ import android.content.Intent;
 
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
 
-public class WelcomeActivity extends AppCompatActivity implements View.OnClickListener {
+public class WelcomeActivity extends AppCompatActivity
+        implements View.OnClickListener {
     /**
      * onCreate method for initial setup
-     * @param savedInstanceState bundled data that contains info necessary or setting up buttons
+     * @param savedInstanceState bundled data that contains info necessary or
+     * setting up buttons
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,21 +28,25 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     /**
-     * onClick method that handles action when Login or Register buttons are clicked from
-     * WelcomeActivity
+     * onClick method that handles action when Login or Register buttons are
+     * clicked from WelcomeActivity
      * @param view current view
      */
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.btnLogin:
-                Intent intent = new Intent(WelcomeActivity.this, LoginActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.btnCancelRegister:
-                Intent intent2 = new Intent(WelcomeActivity.this, RegisterActivity.class);
-                startActivity(intent2);
-                break;
+        case R.id.btnLogin:
+            Intent intent = new Intent(WelcomeActivity.this,
+                    LoginActivity.class);
+            startActivity(intent);
+            break;
+        case R.id.btnCancelRegister:
+            Intent intent2 = new Intent(WelcomeActivity.this,
+                    RegisterActivity.class);
+            startActivity(intent2);
+            break;
+        default:
+            //this is here for checkstyle
         }
     }
 }

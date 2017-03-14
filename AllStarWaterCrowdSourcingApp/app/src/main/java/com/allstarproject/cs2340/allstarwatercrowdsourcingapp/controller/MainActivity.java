@@ -7,10 +7,12 @@ import android.view.View;
 import android.widget.Button;
 
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity
+        implements View.OnClickListener {
     /**
-     * onCreate method for MainActivity. Setup for Logout button and its listener
-     * @param savedInstanceState Bundled data passed in for creation
+     * onCreate method for MainActivity. Setup for Logout button and its
+     * listener
+     * * @param savedInstanceState Bundled data passed in for creation
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,9 +25,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button btnEditProf = (Button) findViewById(R.id.btnEditProf);
         btnEditProf.setOnClickListener(this);
 
-//        Button btnViewReports = (Button) findViewById(R.id.btnViewReports);
-//        btnViewReports.setOnClickListener(this);
-
+        //Button btnViewReports = (Button) findViewById(R.id.btnViewReports);
+        //btnViewReports.setOnClickListener(this);
 
         Button btnViewMap = (Button) findViewById(R.id.btnViewMap);
         btnViewMap.setOnClickListener(this);
@@ -33,27 +34,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     /**
-     * onClick for MainActivity.  Setup for main act when screen is launched from login
+     * onClick for MainActivity.  Setup for main act when screen is launched
+     * from login
      * @param v current view
      */
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btnEditProf:
-                Intent intent1 = new Intent(MainActivity.this, EditProfileActivity.class);
-                startActivity(intent1);
-                break;
+        case R.id.btnEditProf:
+            Intent intent1 = new Intent(MainActivity.this,
+                    EditProfileActivity.class);
+            startActivity(intent1);
+            break;
 
-            case R.id.btnLogout:
-                Intent intent2 = new Intent(MainActivity.this, WelcomeActivity.class);
-                startActivity(intent2);
-                break;
+        case R.id.btnLogout:
+            Intent intent2 = new Intent(MainActivity.this,
+                    WelcomeActivity.class);
+            startActivity(intent2);
+            break;
 
-            case R.id.btnViewMap:
-                Intent intent5 = new Intent(MainActivity.this, MapsActivity.class);
-                startActivity(intent5);
-                break;
+        case R.id.btnViewMap:
+            Intent intent5 = new Intent(MainActivity.this,
+                    MapsActivity.class);
+            startActivity(intent5);
+            break;
+
+        default:
+            //this is here for checkstyle
         }
-
     }
 }

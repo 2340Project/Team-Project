@@ -14,10 +14,12 @@ import android.widget.TextView;
 
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
-    EditText txtUser;
-    EditText txtPass;
-    Model model = Model.getInstance();
+public class LoginActivity extends AppCompatActivity
+        implements View.OnClickListener {
+
+    private EditText txtUser;
+    private EditText txtPass;
+    private Model model = Model.getInstance();
 
     /**
      * this is the onCreate for LoginActiviy
@@ -39,30 +41,31 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     /**
-     * onClick method that will manage the login or cancel button as well as notifying of invalid
-     * password if necessary
-     *
+     * onClick method that will manage the login or cancel button as well as
+     * notifying of invalid password if necessary
      * @param view is the current view
      */
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.btnEnter:
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                if (Model.verify(txtUser.getText().toString(), txtPass.getText().toString())) {
-                    model.setUser(txtUser.getText().toString());
-                    startActivity(intent);
-                } else {
-                    TextView textView = (TextView) findViewById(R.id.txtlbl);
-                    textView.setText("Wrong Password or Username");
-                }
-                break;
-
-            case R.id.btnCancel:
-                Intent intent2 = new Intent(LoginActivity.this,
-                        WelcomeActivity.class);
-                startActivity(intent2);
-                break;
+        case R.id.btnEnter:
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            if (Model.verify(txtUser.getText().toString(),
+                    txtPass.getText().toString())) {
+                model.setUser(txtUser.getText().toString());
+                startActivity(intent);
+            } else {
+                TextView textView = (TextView) findViewById(R.id.txtlbl);
+                textView.setText("Wrong Password or Username");
+            }
+            break;
+        case R.id.btnCancel:
+            Intent intent2 = new Intent(LoginActivity.this,
+                    WelcomeActivity.class);
+            startActivity(intent2);
+            break;
+        default:
+            //this default case is here so checkstyle doesn't bitch
         }
     }
 }
