@@ -49,7 +49,10 @@ public class Model extends FragmentActivity {
      */
     private RegisteredUser user;
     private static List<MarkerOptions> reportList;
+    private static List<WaterResourceReport> printList;
+    private static List<WaterPurityReport> purityReportList;
     private int reportNumber;
+    private int purityReportNumber;
 
 
 
@@ -60,6 +63,8 @@ public class Model extends FragmentActivity {
         map = new HashMap<String, RegisteredUser>();
         //map.put("user", "pass");
         reportList = new ArrayList<MarkerOptions>();
+        printList = new ArrayList<WaterResourceReport>();
+        purityReportList = new ArrayList<WaterPurityReport>();
         reportNumber = 0;
     }
 
@@ -102,7 +107,7 @@ public class Model extends FragmentActivity {
      * getter method for current user instance
      * @return RegisteredUser current user
      */
-    public RegisteredUser getUser( ) {
+    public RegisteredUser getUser() {
         return user;
     }
 
@@ -144,6 +149,40 @@ public class Model extends FragmentActivity {
 
     }
 
+    public String printReports() {
+        String total = "";
+        for (WaterResourceReport report : printList) {
+            total += (report.toString() + "\n");
+        }
+        return total;
+    }
+
+    public String printPurityReports() {
+        String total = "";
+        for (WaterPurityReport report : purityReportList) {
+            total += (report.toString() + "\n");
+        }
+        return total;
+    }
+
+    /**
+     * method to add the resourceReports to a list
+     * @param location string location of the water
+     * @param waterType string type of the water
+     * @param waterCondition string condition of water
+     */
+    public void addReportList(String location, String waterType, String waterCondition) {
+        reportNumber++;
+        WaterResourceReport waterResourceReport = new WaterResourceReport(location, waterType, waterCondition, reportNumber);
+        printList.add(waterResourceReport);
+    }
+
+    public void addPurityReportList(String location, double contaminantPPM,
+                                    double virusPPM, String waterCondition) {
+        purityReportNumber++;
+        WaterPurityReport waterPurityReport = new WaterPurityReport(location, contaminantPPM, virusPPM, waterCondition, purityReportNumber, user.getName());
+        purityReportList.add(waterPurityReport);
+    }
     /**
      *
      * @return a List that contains the markerOption objects

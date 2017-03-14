@@ -43,6 +43,8 @@
         <activity
             android:name=".controller.MapsActivity"
             android:label="@string/title_activity_maps" />
+        <activity android:name=".controller.SubmitPurityReportActivity" />
+        <activity android:name=".controller.ViewPurityReportActivity"></activity>
     </application>
 
 </manifest>
