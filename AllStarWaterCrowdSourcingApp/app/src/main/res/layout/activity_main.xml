@@ -19,11 +19,13 @@
         android:text="Edit Profile"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:layout_below="@+id/btnLogout"
+        android:layout_below="@+id/textView2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="15dp"
+        />
 
     <Button
         android:id="@+id/btnViewSourceReport"
@@ -61,7 +63,7 @@
         android:text="Log Out    "
         android:textSize="20sp"
         android:textStyle="bold"
-        android:layout_below="@+id/textView2"
+        android:layout_below="@+id/btnViewPurityReports"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
