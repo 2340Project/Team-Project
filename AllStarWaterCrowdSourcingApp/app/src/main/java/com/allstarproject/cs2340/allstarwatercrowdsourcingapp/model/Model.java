@@ -130,7 +130,7 @@ public class Model extends FragmentActivity {
         reportNumber++;
         WaterResourceReport waterResourceReport = new
                 WaterResourceReport(location, waterType, waterCondition,
-                reportNumber, MapsActivity.getLatLng());
+                reportNumber, MapsActivity.getLatLng(), user.getName());
       // MarkerOptions markerOptions = new MarkerOptions();
 
         GoogleMap mMap = MapsActivity.getMap();
@@ -172,7 +172,7 @@ public class Model extends FragmentActivity {
      * @param waterCondition string condition of water
      */
     public void addReportList(String location, String waterType, String waterCondition) {
-        WaterResourceReport waterResourceReport = new WaterResourceReport(location, waterType, waterCondition, reportNumber);
+        WaterResourceReport waterResourceReport = new WaterResourceReport(location, waterType, waterCondition, reportNumber, user.getName());
         printList.add(waterResourceReport);
     }
 

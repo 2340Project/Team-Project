@@ -24,7 +24,7 @@ public class WaterPurityReport {
     /**
      * Constructor to instantiate the fields for the water resource report
      * @param location The location of the water source
-     * @param waterCondition the conition of the water source
+     * @param waterCondition the condition of the water source
      */
 
     public WaterPurityReport(String location, double contaminantPPM,

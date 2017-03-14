@@ -4,6 +4,9 @@ package com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model;
 
 import com.google.android.gms.maps.model.LatLng;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
 /**
  * Created by Austin on 2/26/17.
  */
@@ -13,6 +16,10 @@ public class WaterResourceReport {
     private String location;
     private String waterType;
     private String waterCondition;
+    private String dateAndTime;
+    private DateFormat dateFormat;
+    private java.util.Date date;
+    private String creator;
     private static LatLng latLng;
 
     /**
@@ -23,21 +30,30 @@ public class WaterResourceReport {
      */
 
     public WaterResourceReport(String location, String waterType,
-                               String waterCondition, int reportNumber, LatLng latLng) {
+                               String waterCondition, int reportNumber, LatLng latLng, String name) {
         this.location = location;
         this.waterType = waterType;
         this.waterCondition = waterCondition;
         this.reportNumber = reportNumber;
+        dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        date = new java.util.Date();
+        dateAndTime = dateFormat.format(date);
+        creator = name;
         this.latLng = latLng;
 
     }
 
-    public WaterResourceReport(String location, String waterType, String waterCondition, int reportNumber) {
+    public WaterResourceReport(String location, String waterType, String waterCondition, int reportNumber, String name) {
         this.location = location;
         this.waterType = waterType;
         this.waterCondition = waterCondition;
         this.reportNumber = reportNumber;
+        dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        date = new java.util.Date();
+        dateAndTime = dateFormat.format(date);
+        creator = name;
     }
+
     /**
      * getter method for the user's input of the water resource report
      * @return a String of the location of the water resource report
@@ -125,7 +141,7 @@ public class WaterResourceReport {
      */
     @Override
     public String toString() {
-        return "" + reportNumber + ". " + location + ": " + waterType + ", "
+        return "" + reportNumber + ". " + dateAndTime + " , " + location + ": " + waterType + ", "
                 + waterCondition;
     }
 
