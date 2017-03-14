@@ -10,7 +10,7 @@ import com.google.android.gms.maps.model.LatLng;
 
 public class WaterResourceReport {
     private int reportNumber;
-    private static String location;
+    private String location;
     private String waterType;
     private String waterCondition;
     private static LatLng latLng;
@@ -42,7 +42,7 @@ public class WaterResourceReport {
      * getter method for the user's input of the water resource report
      * @return a String of the location of the water resource report
      */
-    public static String getLocation() {
+    public String getLocation() {
         return location;
     }
 

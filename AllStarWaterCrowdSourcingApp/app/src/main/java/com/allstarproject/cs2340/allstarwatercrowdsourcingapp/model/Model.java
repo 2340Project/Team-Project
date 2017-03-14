@@ -172,7 +172,6 @@ public class Model extends FragmentActivity {
      * @param waterCondition string condition of water
      */
     public void addReportList(String location, String waterType, String waterCondition) {
-        reportNumber++;
         WaterResourceReport waterResourceReport = new WaterResourceReport(location, waterType, waterCondition, reportNumber);
         printList.add(waterResourceReport);
     }

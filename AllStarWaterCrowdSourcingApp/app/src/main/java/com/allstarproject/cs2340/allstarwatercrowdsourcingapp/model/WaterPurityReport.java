@@ -111,6 +111,6 @@ public class WaterPurityReport {
     @Override
     public String toString() {
         return "" + reportNumber + ". " + dateAndTime + " , " + "Submitted by: " + creator + " , " + location + ": " + virusPPM + " Virus PPM , " + contaminantPPM + " Contaminant PPM , "
-                + waterCondition;
+                + waterCondition + "\n";
     }
 }
