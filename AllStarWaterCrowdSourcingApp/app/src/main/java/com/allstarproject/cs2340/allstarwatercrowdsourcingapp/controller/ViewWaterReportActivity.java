@@ -10,10 +10,11 @@ import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Model;
 import android.widget.Button;
 
-public class ViewWaterReportActivity extends AppCompatActivity implements View.OnClickListener {
-    Model model = Model.getInstance();
-    TextView waterReps;
-    Button btnCancelViewResources;
+public class ViewWaterReportActivity extends AppCompatActivity
+        implements View.OnClickListener {
+    private Model model = Model.getInstance();
+    private TextView waterReps;
+    private Button btnCancelViewResources;
 
     /**
      * This method populates the reports in the ViewWaterReport Screen
@@ -24,7 +25,8 @@ public class ViewWaterReportActivity extends AppCompatActivity implements View.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_water_report);
-        btnCancelViewResources = (Button) findViewById(R.id.btnCancelViewResources);
+        btnCancelViewResources = (Button) findViewById(
+                R.id.btnCancelViewResources);
         btnCancelViewResources.setOnClickListener(this);
         String toPrint = model.printReports();
         waterReps = (TextView) findViewById(R.id.txtReportList);
@@ -33,7 +35,8 @@ public class ViewWaterReportActivity extends AppCompatActivity implements View.O
 
     @Override
     public void onClick(View v) {
-        Intent intent1 = new Intent(ViewWaterReportActivity.this, MainActivity.class);
+        Intent intent1 = new Intent(
+                ViewWaterReportActivity.this, MainActivity.class);
         startActivity(intent1);
     }
 }

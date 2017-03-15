@@ -29,7 +29,8 @@ public class MainActivity extends AppCompatActivity
         Button btnEditProf = (Button) findViewById(R.id.btnEditProf);
         btnEditProf.setOnClickListener(this);
 
-        Button btnViewSourceReport = (Button) findViewById(R.id.btnViewSourceReport);
+        Button btnViewSourceReport = (Button) findViewById(
+                R.id.btnViewSourceReport);
         btnViewSourceReport.setOnClickListener(this);
 
         Button btnViewMap = (Button) findViewById(R.id.btnViewMap);
@@ -64,37 +65,42 @@ public class MainActivity extends AppCompatActivity
     public void onClick(View v) {
         switch (v.getId()) {
         case R.id.btnEditProf:
-            Intent intent1 = new Intent(MainActivity.this, EditProfileActivity.class);
+            Intent intent1 = new Intent(MainActivity.this,
+                    EditProfileActivity.class);
             startActivity(intent1);
             break;
 
         case R.id.btnLogout:
-            Intent intent2 = new Intent(MainActivity.this, WelcomeActivity.class);
+            Intent intent2 = new Intent(MainActivity.this,
+                    WelcomeActivity.class);
             startActivity(intent2);
             break;
 
         case R.id.btnViewMap:
-            Intent intent5 = new Intent(MainActivity.this, MapsActivity.class);
+            Intent intent5 = new Intent(MainActivity.this,
+                    MapsActivity.class);
             startActivity(intent5);
             break;
 
         case R.id.btnSubmitPurityReport:
-            Intent intent6 = new Intent(MainActivity.this, SubmitPurityReportActivity.class);
+            Intent intent6 = new Intent(MainActivity.this,
+                    SubmitPurityReportActivity.class);
             startActivity(intent6);
             break;
 
         case R.id.btnViewPurityReports:
-            Intent intent7 = new Intent(MainActivity.this, ViewPurityReportActivity.class);
+            Intent intent7 = new Intent(MainActivity.this,
+                    ViewPurityReportActivity.class);
             startActivity(intent7);
             break;
 
         case R.id.btnViewSourceReport:
-            Intent intent8 = new Intent(MainActivity.this, ViewWaterReportActivity.class);
+            Intent intent8 = new Intent(MainActivity.this,
+                    ViewWaterReportActivity.class);
             startActivity(intent8);
             break;
-    }
         default:
-            //this is here for checkstyle
+                //this is here for checkstyle
         }
     }
 }

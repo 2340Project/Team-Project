@@ -30,8 +30,9 @@ public class WaterResourceReport {
      * @param reportNumber the report number of the water resource report
      * @param latLng the latitude and longitude of the water resource report
      * that the user reported
+     * @param name the name of the user who is submitting the water resource
+     * report
      */
-
     public WaterResourceReport(String location, String waterType,
                                String waterCondition, int reportNumber,
                                LatLng latLng, String name) {
@@ -44,10 +45,19 @@ public class WaterResourceReport {
         dateAndTime = dateFormat.format(date);
         creator = name;
         this.latLng = latLng;
-
     }
-
-    public WaterResourceReport(String location, String waterType, String waterCondition, int reportNumber, String name) {
+    /**
+     * Constructor to instantiate the fields for the water resource report
+     * @param location The location of the water source
+     * @param waterType the type of the water source
+     * @param waterCondition the condition of the water source
+     * @param reportNumber the report number of the water resource report
+     * @param name the name of the user who is submitting the water resource
+     * report
+     */
+    public WaterResourceReport(String location, String waterType,
+                               String waterCondition, int reportNumber,
+                               String name) {
         this.location = location;
         this.waterType = waterType;
         this.waterCondition = waterCondition;
@@ -150,7 +160,8 @@ public class WaterResourceReport {
      */
     @Override
     public String toString() {
-        return "" + reportNumber + ". " + dateAndTime + " , " + location + ": " + waterType + ", "
+        return "" + reportNumber + ". " + dateAndTime + " , " + location + ": "
+                + waterType + ", "
                 + waterCondition;
     }
 

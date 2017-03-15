@@ -24,14 +24,20 @@ public class WaterPurityReport {
     /**
      * Constructor to instantiate the fields for the water resource report
      * @param location The location of the water source
-     * @param waterCondition the condition of the water source
+     * @param contaminantPPM the amount of the contaminantPPM
+     * @param virusPPM the amount of the virusPPM
+     * @param waterCondition the water condition of the water purity report
+     * @param reportNumber the number associated with the water purity report
+     * @param name the name of the workers || managers who created the water
+     * purity report
      */
 
     public WaterPurityReport(String location, double contaminantPPM,
-                               double virusPPM, String waterCondition, int reportNumber, String name) {
+                               double virusPPM, String waterCondition,
+                             int reportNumber, String name) {
         this.location = location;
         this.contaminantPPM = contaminantPPM;
-        this. virusPPM = virusPPM;
+        this.virusPPM = virusPPM;
         this.waterCondition = waterCondition;
         this.reportNumber = reportNumber;
         dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -51,6 +57,7 @@ public class WaterPurityReport {
     /**
      * setter method for the location of the water report that the user
      * inputted
+     * @param location the location of the water resource
      */
     public void setLocation(String location) {
         this.location = location;
@@ -66,6 +73,7 @@ public class WaterPurityReport {
 
     /**
      * setter method for the locations water condition
+     * @param waterCondition the water condition of a particular water source
      */
     public void setWaterCondition(String waterCondition) {
         this.waterCondition = waterCondition;
@@ -81,28 +89,47 @@ public class WaterPurityReport {
 
     /**
      * setter method for the water resource report number
+     * @param reportNumber the report number of a particular water resource
+     * report
      */
     public void setReportNumber(int reportNumber) {
         this.reportNumber = reportNumber;
     }
 
+    /**
+     * A getter for the virusPPM
+     * @return the amount of the virus PPM corresponding to a particular
+     * water purity report
+     */
     public double getVirusPPM() {
         return virusPPM;
     }
 
+    /**
+     * A setter for the virusPPM
+     * @param virusPPM setting the amount of the virus PPM corresponding to a
+     * particular water purity report
+     */
     public void setVirusPPM(double virusPPM) {
         this.virusPPM = virusPPM;
     }
-
+    /**
+     * A getter for the contaminantPPM
+     * @return the amount of the contaminant PPM corresponding to a particular
+     * water purity report
+     */
     public double getContaminantPPM() {
         return contaminantPPM;
     }
-
+    /**
+     * A setter for the ContaminantPPM
+     * @param contaminantPPM setting the amount of the contaminant PPM
+     *                       corresponding to a
+     * particular water purity report
+     */
     public void setContaminantPPM(double contaminantPPM) {
         this.contaminantPPM = contaminantPPM;
     }
-
-
     /**
      * This represents a String representation of all attributes per report
      * @return the String of report number with the Location: water type,
@@ -110,7 +137,9 @@ public class WaterPurityReport {
      */
     @Override
     public String toString() {
-        return "" + reportNumber + ". " + dateAndTime + " , " + "Submitted by: " + creator + " , " + location + ": " + virusPPM + " Virus PPM , " + contaminantPPM + " Contaminant PPM , "
-                + waterCondition + "\n";
+        return "" + reportNumber + ". " + dateAndTime + " , "
+                + "Submitted by: " + "" + creator + " , " + location + ": "
+                + virusPPM + " Virus PPM , " + contaminantPPM
+                + " Contaminant PPM , " + waterCondition + "\n";
     }
 }

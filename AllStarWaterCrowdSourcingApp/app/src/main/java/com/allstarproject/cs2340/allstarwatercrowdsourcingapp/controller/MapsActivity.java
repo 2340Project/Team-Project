@@ -130,8 +130,8 @@ public class MapsActivity extends FragmentActivity
                         })
                         .setNegativeButton("No", new
                                 DialogInterface.OnClickListener() {
-                                    public void onClick(DialogInterface dialog,
-                                                        int id) {
+                                    public void onClick(
+                                            DialogInterface dialog, int id) {
                                 // if this button is clicked, just close
                                 // the dialog box and do nothing
                                 dialog.cancel();
