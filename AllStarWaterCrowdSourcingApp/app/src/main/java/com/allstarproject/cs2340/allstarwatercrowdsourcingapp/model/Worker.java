@@ -15,6 +15,6 @@ public class Worker extends RegisteredUser {
      * @param email email to be set
      */
     public Worker(String username, String password, String name, String email) {
-        super(username, password, name, email);
+        super(username, password, name, email, "Worker");
     }
 }

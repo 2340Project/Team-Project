@@ -146,4 +146,12 @@
         android:textColorLink="?android:attr/colorForeground"
         android:textSize="30sp" />
 
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/txtEmail"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="33dp" />
+
 </RelativeLayout>

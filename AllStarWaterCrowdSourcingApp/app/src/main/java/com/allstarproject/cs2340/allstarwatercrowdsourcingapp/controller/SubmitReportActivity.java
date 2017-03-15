@@ -51,20 +51,18 @@ public class SubmitReportActivity extends AppCompatActivity
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-        case R.id.btnCancelSubmitReport:
-            super.finish();
-            break;
-        case R.id.btnSubmitWaterReport:
-            /*Intent intent2 = new Intent(SubmitReportActivity.this,
-            MapsActivity.class);*/
-            model.addReport(txtLocation.getText().toString(),
-                    txtWaterType.getText().toString(),
-                    txtWaterCondition.getText().toString());
-            super.finish();
-            //startActivity(intent2);
-            break;
-        default:
-            //this is here for checkstyle;
+            case R.id.btnCancelSubmitReport:
+                super.finish();
+                break;
+
+            case R.id.btnSubmitWaterReport:
+
+                model.addReport(txtLocation.getText().toString(), txtWaterType.getText().toString(),
+                        txtWaterCondition.getText().toString());
+                model.addReportList(txtLocation.getText().toString(), txtWaterType.getText().toString(),
+                        txtWaterCondition.getText().toString());
+                super.finish();
+                break;
         }
     }
 }
