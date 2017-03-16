@@ -11,13 +11,14 @@ import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Model;
 
 
 
-public class SubmitReportActivity extends AppCompatActivity implements View.OnClickListener {
+public class SubmitReportActivity extends AppCompatActivity
+        implements View.OnClickListener {
 
 
-    Model model = Model.getInstance();
-    EditText txtLocation;
-    EditText txtWaterType;
-    EditText txtWaterCondition;
+    private Model model = Model.getInstance();
+    private EditText txtLocation;
+    private EditText txtWaterType;
+    private EditText txtWaterCondition;
 
     /**
      * This method creates the buttons and text fields associated with the
@@ -33,9 +34,11 @@ public class SubmitReportActivity extends AppCompatActivity implements View.OnCl
         txtWaterType = (EditText) findViewById(R.id.txtWaterType);
         txtWaterCondition = (EditText) findViewById(R.id.txtWaterCondition);
 
-        Button btnSubmitWaterReport = (Button) findViewById(R.id.btnSubmitWaterReport);
+        Button btnSubmitWaterReport = (Button) findViewById(
+                R.id.btnSubmitWaterReport);
         btnSubmitWaterReport.setOnClickListener(this);
-        Button btnCancelSubmitReport = (Button) findViewById(R.id.btnCancelSubmitReport);
+        Button btnCancelSubmitReport = (Button) findViewById(
+                R.id.btnCancelSubmitReport);
         btnCancelSubmitReport.setOnClickListener(this);
     }
 
@@ -48,18 +51,22 @@ public class SubmitReportActivity extends AppCompatActivity implements View.OnCl
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btnCancelSubmitReport:
-                super.finish();
-                break;
+        case R.id.btnCancelSubmitReport:
+            super.finish();
+            break;
 
-            case R.id.btnSubmitWaterReport:
+        case R.id.btnSubmitWaterReport:
 
-                model.addReport(txtLocation.getText().toString(), txtWaterType.getText().toString(),
-                        txtWaterCondition.getText().toString());
-                model.addReportList(txtLocation.getText().toString(), txtWaterType.getText().toString(),
-                        txtWaterCondition.getText().toString());
-                super.finish();
-                break;
+            model.addReport(txtLocation.getText().toString(),
+                    txtWaterType.getText().toString(),
+                    txtWaterCondition.getText().toString());
+            model.addReportList(txtLocation.getText().toString(),
+                    txtWaterType.getText().toString(),
+                    txtWaterCondition.getText().toString());
+            super.finish();
+            break;
+        default:
+            //this is here for checkstyle
         }
     }
 }

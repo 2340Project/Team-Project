@@ -10,23 +10,23 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
-import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Admin;
-import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Manager;
-import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Model;
-import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.RegisteredUser;
-import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Worker;
+import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.
+        RegisteredUser;
 
-public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
-    Model model = Model.getInstance();
-    Spinner spinner;
-    EditText txtUserName;
-    EditText txtName;
-    EditText txtEmail;
-    EditText txtPassword;
-    EditText txtConfPassword;
+
+public class RegisterActivity extends AppCompatActivity
+        implements View.OnClickListener {
+
+    private Spinner spinner;
+    private EditText txtUserName;
+    private EditText txtName;
+    private EditText txtEmail;
+    private EditText txtPassword;
+    private EditText txtConfPassword;
 
     /**
      * onCreate used to setup RegisterActivity on creation
+     *
      * @param savedInstanceState is bundled data passed in to use at creation
      */
     @Override
@@ -44,60 +44,82 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         Button btnRCancel = (Button) findViewById(R.id.btnCancelRegister);
         btnRCancel.setOnClickListener(this);
-        Button btnSubmitRegister = (Button) findViewById(R.id.btnSubmitRegister);
+        Button btnSubmitRegister = (Button) findViewById(
+                R.id.btnSubmitRegister);
         btnSubmitRegister.setOnClickListener(this);
     }
 
     /**
-     * onClick method to handle the cancel button being clicked by returning you to Welcome
+     * onClick method to handle the cancel button being clicked by returning
+     * you to Welcome
+     *
      * @param v the current view
      */
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-           case R.id.btnCancelRegister:
-               Intent intent = new Intent(RegisterActivity.this, WelcomeActivity.class);
-               startActivity(intent);
-               break;
+        case R.id.btnCancelRegister:
+            Intent intent = new Intent(RegisterActivity.this,
+                    WelcomeActivity.class);
+            startActivity(intent);
+            break;
 
-            case R.id.btnSubmitRegister:
-                Intent intent2 = new Intent(RegisterActivity.this, LoginActivity.class);
-                if (txtConfPassword.getText().toString().isEmpty() || txtPassword.getText().toString().isEmpty()
-                        || txtUserName.getText().toString().isEmpty() || txtPassword.getText().toString().isEmpty()
-                        || txtName.getText().toString().isEmpty() || txtEmail.getText().toString().isEmpty()) {
-                    Toast.makeText(getApplication(), "Missing data entry", Toast.LENGTH_LONG).show();
-                } else if (txtConfPassword.getText().toString().equals(txtPassword.getText().toString())) {
-                    if (spinner.getSelectedItem().toString().equals("User")) {
-                        new RegisteredUser(txtUserName.getText().toString()
-                                , txtPassword.getText().toString(), txtName.getText().toString()
-                                , txtEmail.getText().toString(), spinner.getSelectedItem().toString());
-                        startActivity(intent2);
-                    } else if (spinner.getSelectedItem().toString().equals("Manager")) {
-                        new RegisteredUser(txtUserName.getText().toString()
-                                , txtPassword.getText().toString(), txtName.getText().toString()
-                                , txtEmail.getText().toString(), spinner.getSelectedItem().toString());
-                        startActivity(intent2);
-                    } else if (spinner.getSelectedItem().toString().equals("Worker")) {
-                        new RegisteredUser(txtUserName.getText().toString()
-                                , txtPassword.getText().toString(), txtName.getText().toString()
-                                , txtEmail.getText().toString(), spinner.getSelectedItem().toString());
-                        startActivity(intent2);
-                    } else if (spinner.getSelectedItem().toString().equals("Admin")) {
-                        new RegisteredUser(txtUserName.getText().toString()
-                                , txtPassword.getText().toString(), txtName.getText().toString()
-                                , txtEmail.getText().toString(), spinner.getSelectedItem().toString());
-                        startActivity(intent2);
-                    } else {
-                        Toast.makeText(getApplication(), "User type not selected", Toast.LENGTH_LONG).show();
-                    }
-
+        case R.id.btnSubmitRegister:
+            Intent intent2 = new Intent(RegisterActivity.this,
+                    LoginActivity.class);
+            if (txtConfPassword.getText().toString().isEmpty()
+                    || txtPassword.getText().toString().isEmpty()
+                    || txtUserName.getText().toString().isEmpty()
+                    || txtPassword.getText().toString().isEmpty()
+                    || txtName.getText().toString().isEmpty()
+                    || txtEmail.getText().toString().isEmpty()) {
+                Toast.makeText(getApplication(), "Missing data entry",
+                        Toast.LENGTH_LONG).show();
+            } else if (txtConfPassword.getText().toString().equals(
+                    txtPassword.getText().toString())) {
+                if (spinner.getSelectedItem().toString().equals("User")) {
+                    new RegisteredUser(txtUserName.getText().toString(),
+                            txtPassword.getText().toString(),
+                            txtName.getText().toString(),
+                            txtEmail.getText().toString(),
+                            spinner.getSelectedItem().toString());
+                    startActivity(intent2);
+                } else if (spinner.getSelectedItem().toString().
+                        equals("Manager")) {
+                    new RegisteredUser(txtUserName.getText().toString(),
+                            txtPassword.getText().toString(),
+                            txtName.getText().toString(),
+                            txtEmail.getText().toString(),
+                            spinner.getSelectedItem().toString());
+                    startActivity(intent2);
+                } else if (spinner.getSelectedItem().toString().
+                        equals("Worker")) {
+                    new RegisteredUser(txtUserName.getText().toString(),
+                            txtPassword.getText().toString(),
+                            txtName.getText().toString(),
+                            txtEmail.getText().toString(),
+                            spinner.getSelectedItem().toString());
+                    startActivity(intent2);
+                } else if (spinner.getSelectedItem().toString().
+                        equals("Admin")) {
+                    new RegisteredUser(txtUserName.getText().toString(),
+                            txtPassword.getText().toString(),
+                            txtName.getText().toString(),
+                            txtEmail.getText().toString(),
+                            spinner.getSelectedItem().toString());
+                    startActivity(intent2);
                 } else {
-                    Toast.makeText(getApplication(), "Passwords Dont Match", Toast.LENGTH_LONG).show();
-                   // TextView textView = (TextView) findViewById(R.id.txtlbl);
-                   // textView.setText("Passwords do not match");
+                    Toast.makeText(getApplication(),
+                            "User type not selected",
+                            Toast.LENGTH_LONG).show();
                 }
-
+            } else {
+                Toast.makeText(getApplication(), "Passwords Dont Match",
+                        Toast.LENGTH_LONG).show();
                 break;
+            }
+        default:
+            //this is here for checkstyle.
         }
     }
 }

@@ -16,29 +16,26 @@
         android:id="@+id/txtCurrentName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_centerVertical="true"
         android:background="@drawable/my_border"
         android:ems="10"
         android:hint="Enter Username"
         android:inputType="textPersonName"
         android:singleLine="true"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:layout_above="@+id/txtPassword"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:id="@+id/txtPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="17dp"
         android:background="@drawable/my_border"
         android:ems="10"
         android:hint="Enter Password"
         android:inputType="textPassword"
         android:textSize="30sp"
-        android:layout_below="@+id/txtCurrentName"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignBottom="@+id/imageView" />
 
 
     <TextView
@@ -64,7 +61,8 @@
         android:layout_below="@+id/txtPassword"
         android:layout_marginTop="19dp"
         android:layout_toStartOf="@+id/btnEnter"
-        android:textColor="@android:color/holo_red_dark" />
+        android:textColor="@android:color/holo_red_dark"
+        android:layout_toLeftOf="@+id/btnEnter" />
 
     <Button
         android:id="@+id/btnCancel"
@@ -88,7 +86,8 @@
         android:text="Enter"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:layout_alignTop="@+id/txtlbl"
+        android:layout_marginTop="19dp"
+        android:layout_below="@+id/txtlbl"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
