@@ -80,11 +80,10 @@
         style="@android:style/Widget.Button.Inset"
         android:layout_width="match_parent"
         android:layout_height="@dimen/cast_mini_controller_icon_height"
-        android:layout_below="@+id/txtWaterCondition"
-        android:layout_marginTop="29dp"
         android:text="Cancel"
         android:textSize="20sp"
         android:textStyle="normal|bold"
+        android:layout_below="@+id/btnSubmitWaterReport"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -93,11 +92,12 @@
         style="@android:style/Widget.Button.Inset"
         android:layout_width="match_parent"
         android:layout_height="@dimen/cast_mini_controller_icon_height"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/btnCancelSubmitReport"
         android:soundEffectsEnabled="?attr/windowActionBar"
         android:text="Submit"
         android:textSize="20sp"
-        android:textStyle="normal|bold" />
+        android:textStyle="normal|bold"
+        android:layout_below="@+id/txtWaterCondition"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="39dp" />
 </RelativeLayout>

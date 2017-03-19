@@ -29,6 +29,7 @@ dependencies {
     compile 'com.android.support:animated-vector-drawable:25.2.0'
     compile 'com.android.support:customtabs:25.2.0'
     compile 'com.google.android.gms:play-services:9.8.0'
-    compile 'com.android.support.constraint:constraint-layout:+'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.android.support:design:25.2.0'
     testCompile 'junit:junit:4.12'
 }
