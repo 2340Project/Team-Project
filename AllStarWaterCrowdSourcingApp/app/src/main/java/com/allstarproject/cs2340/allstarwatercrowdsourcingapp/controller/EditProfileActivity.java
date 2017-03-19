@@ -15,24 +15,26 @@ import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.RegisteredUs
  * Created by Austin on 2/16/17.
  */
 
-public class EditProfileActivity extends AppCompatActivity implements View.OnClickListener {
+public class EditProfileActivity extends AppCompatActivity
+        implements View.OnClickListener {
     /**
      * variables to be used in this class.  Instance of model singleton,
      * instance of current user and instances of the View items to be displayed
      */
-    Model model = Model.getInstance();
-    RegisteredUser currentUser = model.getUser();
-    TextView txtCurrentName;
-    TextView txtCurrentEmail;
-    EditText txtEmail;
-    EditText txtName;
-    EditText txtPassword;
-    EditText txtConfPassword;
+    private Model model = Model.getInstance();
+    private RegisteredUser currentUser = model.getUser();
+    private TextView txtCurrentName;
+    private TextView txtCurrentEmail;
+    private EditText txtEmail;
+    private EditText txtName;
+    private EditText txtPassword;
+    private EditText txtConfPassword;
 
     /**
      * onCreate method to instantiate the necessary views and listeners for this
      * Activity
-     * @param savedInstanceState
+     * @param savedInstanceState A thing that android mandates to populate
+     * your instance data
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +42,7 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
         setContentView(R.layout.activity_edit_profile);
         txtCurrentEmail = (TextView) findViewById(R.id.txtCurrentEmail);
         txtCurrentName = (TextView) findViewById(R.id.txtCurrentName);
-        txtCurrentEmail.setText("Current Email: " + currentUser.getEmail() );
+        txtCurrentEmail.setText("Current Email: " + currentUser.getEmail());
         txtCurrentName.setText("Current Name: " + currentUser.getName());
 
         txtEmail = (EditText) findViewById(R.id.txtEmail);
@@ -64,32 +66,35 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btnCancelEdit:
-                Intent intent = new Intent(EditProfileActivity.this, MainActivity.class);
-                startActivity(intent);
+        case R.id.btnCancelEdit:
+            Intent intent = new Intent(EditProfileActivity.this,
+                    MainActivity.class);
+            startActivity(intent);
             break;
-            case R.id.btnSubmitEdit:
-                //get the user instance
-                //set new user data
-                Intent intent1 = new Intent(EditProfileActivity.this, EditProfileActivity.class);
-                if (txtConfPassword.getText().toString().equals(txtPassword.getText().toString())) {
-                    if (!(txtEmail.getText().toString().equals(""))) {
-                        currentUser.setEmail(txtEmail.getText().toString());
-                    }
-                    if (!(txtName.getText().toString().equals(""))) {
-                        currentUser.setName(txtName.getText().toString());
-                    }
-                    if (!(txtPassword.getText().toString().equals(""))) {
-                        currentUser.setPassword(txtPassword.getText().toString());
-                    }
-                    startActivity(intent1);
-                } else {
-                    TextView textView = (TextView) findViewById(R.id.txtlbl);
-                    textView.setText("Passwords do not match");
+        case R.id.btnSubmitEdit:
+            //get the user instance
+            //set new user data
+            Intent intent1 = new Intent(EditProfileActivity.this,
+                    EditProfileActivity.class);
+            if (txtConfPassword.getText().toString().equals(
+                    txtPassword.getText().toString())) {
+                if (!(txtEmail.getText().toString().equals(""))) {
+                    currentUser.setEmail(txtEmail.getText().toString());
                 }
-
+                if (!(txtName.getText().toString().equals(""))) {
+                    currentUser.setName(txtName.getText().toString());
+                }
+                if (!(txtPassword.getText().toString().equals(""))) {
+                    currentUser.setPassword(txtPassword.getText().toString());
+                }
+                startActivity(intent1);
+            } else {
+                TextView textView = (TextView) findViewById(R.id.txtlbl);
+                textView.setText("Passwords do not match");
+            }
             break;
+        default:
+            //this default case is here so checkstyle doesn't bitch.
         }
     }
-
 }

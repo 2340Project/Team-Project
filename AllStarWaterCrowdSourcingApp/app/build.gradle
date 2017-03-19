@@ -24,12 +24,14 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    //IS THIS WHAT IS CAUSING A PROBLEM? TOOK OUT THE OLD VERSION VIA MERGE CONFLICT
     compile 'com.android.support:appcompat-v7:25.2.0'
     compile 'com.android.support:animated-vector-drawable:25.2.0'
     compile 'com.android.support:customtabs:25.2.0'
     compile 'com.google.android.gms:play-services:9.8.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
+<<<<<<< HEAD
     compile 'com.android.support:design:25.2.0'
+=======
+>>>>>>> cdabd6e2c0d2b6aef0623768e5e4722aa75d47b6
     testCompile 'junit:junit:4.12'
 }

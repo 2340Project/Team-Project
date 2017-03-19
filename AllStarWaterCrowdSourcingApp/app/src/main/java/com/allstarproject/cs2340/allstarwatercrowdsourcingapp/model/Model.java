@@ -6,26 +6,15 @@ package com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model;
 //import android.support.v4.app.FragmentManager;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.ListIterator;
 import java.util.Map;
 import java.util.List;
-import java.util.ArrayList;
-import android.app.FragmentManager;
+
 import android.support.v4.app.FragmentActivity;
-
-
-import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.model.MarkerOptions;
-
-
-import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.controller.SubmitReportActivity;
-import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.GoogleMap;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.controller.MapsActivity;
-import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
+
 
 
 /**
@@ -49,9 +38,10 @@ public class Model extends FragmentActivity {
      */
     private RegisteredUser user;
     private static List<MarkerOptions> reportList;
+    private static List<WaterResourceReport> printList;
+    private static List<WaterPurityReport> purityReportList;
     private int reportNumber;
-
-
+    private int purityReportNumber;
 
     /**
      * Singleton constructor
@@ -60,6 +50,8 @@ public class Model extends FragmentActivity {
         map = new HashMap<String, RegisteredUser>();
         //map.put("user", "pass");
         reportList = new ArrayList<MarkerOptions>();
+        printList = new ArrayList<WaterResourceReport>();
+        purityReportList = new ArrayList<WaterPurityReport>();
         reportNumber = 0;
     }
 
@@ -81,7 +73,8 @@ public class Model extends FragmentActivity {
     public static boolean verify(String username, String password) {
         boolean valid = false;
         System.out.println(map.get(username) + " password in map");
-        if (map.containsKey(username) && password.equals(map.get(username).getPassword())) {
+        if (map.containsKey(username) && password.equals(map.get(username).
+                getPassword())) {
             valid = true;
             return valid;
         } else {
@@ -102,7 +95,7 @@ public class Model extends FragmentActivity {
      * getter method for current user instance
      * @return RegisteredUser current user
      */
-    public RegisteredUser getUser( ) {
+    public RegisteredUser getUser() {
         return user;
     }
 
@@ -121,12 +114,12 @@ public class Model extends FragmentActivity {
      * @param waterType the type of the water source
      * @param waterCondition the conition of the water source
      */
-    public void addReport(String location, String waterType, String waterCondition) {
+    public void addReport(String location, String waterType,
+                          String waterCondition) {
         reportNumber++;
-        WaterResourceReport waterResourceReport = new
-                WaterResourceReport(location, waterType, waterCondition,
-                reportNumber, MapsActivity.getLatLng());
-      // MarkerOptions markerOptions = new MarkerOptions();
+        WaterResourceReport waterResourceReport = new WaterResourceReport(
+                location, waterType, waterCondition, reportNumber,
+                MapsActivity.getLatLng(), user.getName());
 
         GoogleMap mMap = MapsActivity.getMap();
 
@@ -137,13 +130,66 @@ public class Model extends FragmentActivity {
 
         markerOptions.title(waterResourceReport.getLocation());
 
-        //mMap.addMarker(markerOptions.position(waterResourceReport.getLatLng()).title(waterResourceReport.getLocation()));
-        markerOptions.snippet(waterResourceReport.getWaterType()+ ", " + waterResourceReport.getWaterCondition());
+        //mMap.addMarker(markerOptions.position(waterResourceReport.
+        // getLatLng()).title(waterResourceReport.getLocation()));
+        markerOptions.snippet(waterResourceReport.getWaterType() + ", "
+                + waterResourceReport.getWaterCondition());
         mMap.addMarker(markerOptions);
         reportList.add(markerOptions);
 
     }
 
+    /**
+     * this method prints the water resource reports
+     * @return a string representation of the water resource reports
+     */
+    public String printReports() {
+        String total = "";
+        for (WaterResourceReport report : printList) {
+            total += (report.toString() + "\n");
+        }
+        return total;
+    }
+    /**
+     * this method prints the water purity reports
+     * @return a string representation of the water purity reports
+     */
+    public String printPurityReports() {
+        String total = "";
+        for (WaterPurityReport report : purityReportList) {
+            total += (report.toString() + "\n");
+        }
+        return total;
+    }
+
+    /**
+     * method to add the resourceReports to a list
+     * @param location string location of the water
+     * @param waterType string type of the water
+     * @param waterCondition string condition of water
+     */
+    public void addReportList(String location, String waterType,
+                              String waterCondition) {
+        WaterResourceReport waterResourceReport = new WaterResourceReport(
+                location, waterType, waterCondition, reportNumber,
+                user.getName());
+        printList.add(waterResourceReport);
+    }
+    /**
+     * method to add the purityReports to a list
+     * @param location string location of the water
+     * @param contaminantPPM double type of the contaminantPPM
+     * @param virusPPM double type of the virusPPM
+     * @param waterCondition string type of the water condition
+     */
+    public void addPurityReportList(String location, double contaminantPPM,
+                                    double virusPPM, String waterCondition) {
+        purityReportNumber++;
+        WaterPurityReport waterPurityReport = new WaterPurityReport(location,
+                contaminantPPM, virusPPM, waterCondition, purityReportNumber,
+                user.getName());
+        purityReportList.add(waterPurityReport);
+    }
     /**
      *
      * @return a List that contains the markerOption objects
