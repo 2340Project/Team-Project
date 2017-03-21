@@ -7,7 +7,8 @@ import android.widget.Button;
 import android.content.Intent;
 
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
-
+import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.ModelFacade;
+import java.io.File;
 public class WelcomeActivity extends AppCompatActivity implements View.OnClickListener {
     /**
      * onCreate method for initial setup
@@ -23,6 +24,8 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
 
         Button btnRegister = (Button) findViewById(R.id.btnCancelRegister);
         btnRegister.setOnClickListener(this);
+
+
     }
 
     /**
@@ -35,6 +38,7 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
         switch (view.getId()) {
             case R.id.btnLogin:
                 Intent intent = new Intent(WelcomeActivity.this, LoginActivity.class);
+
                 startActivity(intent);
                 break;
             case R.id.btnCancelRegister:

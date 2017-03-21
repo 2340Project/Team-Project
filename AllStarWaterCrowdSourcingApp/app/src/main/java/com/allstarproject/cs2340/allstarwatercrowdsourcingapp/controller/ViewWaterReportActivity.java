@@ -4,12 +4,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
-import java.util.ArrayList;
 import android.content.Intent;
 
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Model;
-import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.WaterResourceReport;
 import android.widget.Button;
 
 public class ViewWaterReportActivity extends AppCompatActivity implements View.OnClickListener {

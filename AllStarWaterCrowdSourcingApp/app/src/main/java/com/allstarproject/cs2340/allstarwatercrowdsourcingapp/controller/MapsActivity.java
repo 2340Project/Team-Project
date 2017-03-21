@@ -17,21 +17,16 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+import java.io.Serializable;
+
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, Serializable {
 
 
     private static GoogleMap mMap;
     private Model model;
     final Context context = this;
     private static LatLng currentLatLng;
-
-    public static GoogleMap getmMap() {
-        return mMap;
-    }
-
-    public static LatLng getLatLng() {
-        return currentLatLng;
-    }
+    private static MapsActivity mapsActivity = new MapsActivity();
 
     /**
      * This is the onCreate which obtains the view SupportMapFragment and get
@@ -67,7 +62,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        java.util.List<MarkerOptions> list =  Model.getReportList();
+        java.util.List<MarkerOptions> list =  model.getReportList();
         //GoogleMap gm = MapsActivity.getMap();
         LatLng latln = null;
         for (MarkerOptions mo : list) {
@@ -85,8 +80,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             @Override
             public void onMapClick(LatLng latLng) {
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-
+                System.out.println(latLng + " latlng when being set");
+                //set currLatLng
                 currentLatLng = latLng;
+                System.out.println(latLng + " latlng AFTER being set");
+                System.out.println(currentLatLng + " current LatLng after being set");
 
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
                 alertDialogBuilder.setTitle("Would you like to add a water report at this location?");
@@ -132,9 +130,23 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     /**
      *
-     * @return static map instance
+     * @return map instance
      */
     public static GoogleMap getMap() {
         return mMap;
     }
+
+    /**
+     *
+     * @return LatLng of current location
+     */
+    public static LatLng getLatLng() {
+        System.out.println(currentLatLng + " latLng before passing it over");
+        return currentLatLng;
+    }
+
+    /**
+     *
+     */
+    public static MapsActivity getMapActivity() { return mapsActivity;}
 }

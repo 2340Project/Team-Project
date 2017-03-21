@@ -8,7 +8,8 @@ import android.widget.Button;
 
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Model;
-
+import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.ModelFacade;
+import java.io.File;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     Model model = Model.getInstance();
     /**
@@ -62,7 +63,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.btnLogout:
+                File file = new File(this.getFilesDir(), ModelFacade.DEFAULT_BINARY_FILE_NAME);
                 Intent intent2 = new Intent(MainActivity.this, WelcomeActivity.class);
+                ModelFacade mf = model.getModelFacade();
+                mf.saveBinary(file);
                 startActivity(intent2);
                 break;
 

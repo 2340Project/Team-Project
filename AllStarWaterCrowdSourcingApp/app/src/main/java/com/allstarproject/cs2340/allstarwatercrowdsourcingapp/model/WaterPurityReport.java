@@ -1,6 +1,7 @@
 package com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model;
 
 
+import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
@@ -8,7 +9,7 @@ import java.text.SimpleDateFormat;
  * Created by Austin on 3/12/17.
  */
 
-public class WaterPurityReport {
+public class WaterPurityReport implements Serializable{
 
     private int reportNumber;
     private static String location;

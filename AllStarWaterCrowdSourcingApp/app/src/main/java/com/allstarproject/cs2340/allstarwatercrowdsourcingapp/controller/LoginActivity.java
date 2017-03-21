@@ -13,6 +13,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
+import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.ModelFacade;
+
+import java.io.File;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     EditText txtUser;
@@ -36,6 +39,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         Button btnCancel = (Button) findViewById(R.id.btnCancel);
         btnCancel.setOnClickListener(this);
+
+        ModelFacade mf = new ModelFacade();
+        File file = new File(this.getFilesDir(), ModelFacade.DEFAULT_BINARY_FILE_NAME);
+        mf.loadBinary(file);
+        ModelFacade.setup();
+
     }
 
     /**
@@ -49,7 +58,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         switch (view.getId()) {
             case R.id.btnEnter:
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                if (Model.verify(txtUser.getText().toString(), txtPass.getText().toString())) {
+                if (model.verify(txtUser.getText().toString(), txtPass.getText().toString())) {
                     model.setUser(txtUser.getText().toString());
                     startActivity(intent);
                 } else {

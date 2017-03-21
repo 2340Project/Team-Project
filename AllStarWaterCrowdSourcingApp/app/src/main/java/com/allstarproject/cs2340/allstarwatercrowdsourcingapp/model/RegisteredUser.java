@@ -1,10 +1,12 @@
 package com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model;
 
+import java.io.Serializable;
+
 /**
  * Created by Austin on 2/12/17.
  */
 
-public class RegisteredUser {
+public class RegisteredUser implements Serializable {
     Model model = Model.getInstance();
     private String name;
     private String userName;

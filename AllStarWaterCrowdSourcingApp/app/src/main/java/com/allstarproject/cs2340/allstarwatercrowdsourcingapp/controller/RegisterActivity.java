@@ -8,16 +8,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
-
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
-import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Admin;
-import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Manager;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Model;
+import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.ModelFacade;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.RegisteredUser;
-import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Worker;
+
+import java.io.File;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
-    Model model = Model.getInstance();
+    //Model model = Model.getInstance();
     Spinner spinner;
     EditText txtUserName;
     EditText txtName;
@@ -46,6 +45,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         btnRCancel.setOnClickListener(this);
         Button btnSubmitRegister = (Button) findViewById(R.id.btnSubmitRegister);
         btnSubmitRegister.setOnClickListener(this);
+
+
     }
 
     /**
