@@ -11,9 +11,9 @@ import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Model;
 
 
 
-public class SubmitReportActivity extends AppCompatActivity
-        implements View.OnClickListener {
 
+
+public class SubmitReportActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Model model = Model.getInstance();
     private EditText txtLocation;
@@ -37,8 +37,10 @@ public class SubmitReportActivity extends AppCompatActivity
         Button btnSubmitWaterReport = (Button) findViewById(
                 R.id.btnSubmitWaterReport);
         btnSubmitWaterReport.setOnClickListener(this);
-        Button btnCancelSubmitReport = (Button) findViewById(
-                R.id.btnCancelSubmitReport);
+
+
+        Button btnCancelSubmitReport = (Button) findViewById(R.id.btnCancelSubmitWaterReport);
+
         btnCancelSubmitReport.setOnClickListener(this);
     }
 

@@ -9,9 +9,10 @@ import android.widget.Button;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Model;
 
-public class MainActivity extends AppCompatActivity
-        implements View.OnClickListener {
-    private Model model = Model.getInstance();
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    Model model = Model.getInstance();
+    Button btnViewSourceReport;
 
     /**
      * onCreate method for MainActivity. Setup for Logout button and its
@@ -22,7 +23,6 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         Button btnLogout = (Button) findViewById(R.id.btnLogout);
         btnLogout.setOnClickListener(this);
 
