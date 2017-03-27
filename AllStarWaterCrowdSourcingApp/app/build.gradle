@@ -29,9 +29,6 @@ dependencies {
     compile 'com.android.support:customtabs:25.2.0'
     compile 'com.google.android.gms:play-services:9.8.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
-<<<<<<< HEAD
     compile 'com.android.support:design:25.2.0'
-=======
->>>>>>> cdabd6e2c0d2b6aef0623768e5e4722aa75d47b6
     testCompile 'junit:junit:4.12'
 }

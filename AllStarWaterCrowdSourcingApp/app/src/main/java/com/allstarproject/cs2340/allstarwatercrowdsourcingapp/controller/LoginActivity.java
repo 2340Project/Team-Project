@@ -31,7 +31,7 @@ public class LoginActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        Button btnEnter = (Button) findViewById(R.id.btnEnter);
+        Button btnEnter = (Button) findViewById(R.id.btnViewReport);
         txtUser = (EditText) findViewById(R.id.txtCurrentName);
         txtPass = (EditText) findViewById(R.id.txtPassword);
         btnEnter.setOnClickListener(this);
@@ -48,7 +48,7 @@ public class LoginActivity extends AppCompatActivity
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-        case R.id.btnEnter:
+        case R.id.btnViewReport:
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             if (Model.verify(txtUser.getText().toString(),
                     txtPass.getText().toString())) {

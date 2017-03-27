@@ -40,7 +40,7 @@ public class RegisterActivity extends AppCompatActivity
         txtPassword = (EditText) findViewById(R.id.txtPassword);
         txtConfPassword = (EditText) findViewById(R.id.txtConfPassword);
 
-        spinner = (Spinner) findViewById(R.id.spinner);
+        spinner = (Spinner) findViewById(R.id.spnUserType);
 
         Button btnRCancel = (Button) findViewById(R.id.btnCancelRegister);
         btnRCancel.setOnClickListener(this);

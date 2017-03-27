@@ -33,12 +33,18 @@ public class MainActivity extends AppCompatActivity
                 R.id.btnViewSourceReport);
         btnViewSourceReport.setOnClickListener(this);
 
+        Button btnHistReport = (Button) findViewById(R.id.btnHistReport);
+        btnHistReport.setOnClickListener(this);
+
         Button btnViewMap = (Button) findViewById(R.id.btnViewMap);
         btnViewMap.setOnClickListener(this);
         if (model.getUser().getIsManager() || model.getUser().getIsWorker()) {
             Button btnSubmitPurityReport = (Button) findViewById(
                     R.id.btnSubmitPurityReport);
             btnSubmitPurityReport.setOnClickListener(this);
+            if(model.getUser().getIsManager()) {
+                btnHistReport.setVisibility(View.VISIBLE);
+            }
         } else {
             Button btnSubmitPurityReport = (Button) findViewById(
                     R.id.btnSubmitPurityReport);
@@ -98,6 +104,12 @@ public class MainActivity extends AppCompatActivity
             Intent intent8 = new Intent(MainActivity.this,
                     ViewWaterReportActivity.class);
             startActivity(intent8);
+            break;
+
+        case R.id.btnHistReport:
+            Intent intent9 = new Intent(MainActivity.this,
+                    HistoricalReport.class);
+            startActivity(intent9);
             break;
         default:
                 //this is here for checkstyle
