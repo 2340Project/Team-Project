@@ -8,6 +8,38 @@
         <item>Manager</item>
         <item>Admin</item>
     </string-array>
+
+    <string name="location_prompt">Choose Location</string>
+    <string-array name="location_arrays">
+        <item>Choose Location</item>
+        <item>Location1</item>
+        <item>Location2</item>
+        <item>Location3</item>
+        <item>Location4</item>
+        <item>Location5</item>
+    </string-array>
+
+    <string name="virus_prompt">Choose Virus PPM</string>
+    <string-array name="virus_arrays">
+        <item>Choose Virus</item>
+        <item>Virus1</item>
+        <item>Virus2</item>
+        <item>Virus3</item>
+        <item>Virus4</item>
+        <item>Virus5</item>
+    </string-array>
+
+    <string name="contaminant_prompt">Choose Country</string>
+    <string-array name="contaminant_arrays">
+        <item>Chose Contaminant</item>
+        <item>Contaminant1</item>
+        <item>Contaminant2</item>
+        <item>Contaminant3</item>
+        <item>Contaminant4</item>
+        <item>Contaminant5</item>
+    </string-array>
+
     <string name="title_activity_maps">Map</string>
+    <string name="title_activity_worker">WorkerActivity</string>
 
 </resources>

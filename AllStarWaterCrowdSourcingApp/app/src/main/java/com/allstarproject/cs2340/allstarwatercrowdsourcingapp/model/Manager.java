@@ -14,8 +14,8 @@ public class Manager extends RegisteredUser {
      * @param name name to be set
      * @param email email to be set
      */
-    public Manager(String username, String password, String name,
-                   String email) {
+
+    public Manager(String username, String password, String name, String email) {
         super(username, password, name, email, "Manager");
     }
 }

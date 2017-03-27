@@ -8,14 +8,12 @@ import android.widget.EditText;
 
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Model;
-
-
-
-
+import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.ModelFacade;
 
 public class SubmitReportActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Model model = Model.getInstance();
+    ModelFacade modelFacade = ModelFacade.getModelFacade();
+    Model model = modelFacade.getModelInstance();
     private EditText txtLocation;
     private EditText txtWaterType;
     private EditText txtWaterCondition;

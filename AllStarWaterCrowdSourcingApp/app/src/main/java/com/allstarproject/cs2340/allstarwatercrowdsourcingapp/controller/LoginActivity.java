@@ -13,14 +13,16 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
+import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.ModelFacade;
 
-public class LoginActivity extends AppCompatActivity
-        implements View.OnClickListener {
-
-    private EditText txtUser;
-    private EditText txtPass;
-    private Model model = Model.getInstance();
-
+import java.io.File;
+import android.util.Log;
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
+    EditText txtUser;
+    EditText txtPass;
+    TextView textView;
+    ModelFacade modelFacade = ModelFacade.getModelFacade();
+    Model model = modelFacade.getModelInstance();
     /**
      * this is the onCreate for LoginActiviy
      * @param savedInstanceState is the Bundle to be used for creation
@@ -30,14 +32,23 @@ public class LoginActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        ModelFacade modelFacade = ModelFacade.getModelFacade();
+//        File file = new File(this.getFilesDir(), ModelFacade.DEFAULT_BINARY_FILE_NAME);
+//        modelFacade.loadBinary(file);
+//        model.regenMap();
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        Button btnEnter = (Button) findViewById(R.id.btnEnter);
         txtUser = (EditText) findViewById(R.id.txtCurrentName);
         txtPass = (EditText) findViewById(R.id.txtPassword);
+        textView = (TextView) findViewById(R.id.txtlbl1);
+        Button btnEnter = (Button) findViewById(R.id.btnEnter);
         btnEnter.setOnClickListener(this);
 
         Button btnCancel = (Button) findViewById(R.id.btnCancel);
         btnCancel.setOnClickListener(this);
+
+
+        //Log.d("Check user after load", model.getUser().getName().toString());
+
     }
 
     /**
@@ -50,22 +61,21 @@ public class LoginActivity extends AppCompatActivity
         switch (view.getId()) {
         case R.id.btnEnter:
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-            if (Model.verify(txtUser.getText().toString(),
+            if (model.verify(txtUser.getText().toString(),
                     txtPass.getText().toString())) {
                 model.setUser(txtUser.getText().toString());
                 startActivity(intent);
             } else {
-                TextView textView = (TextView) findViewById(R.id.txtlbl);
+
                 textView.setText("Wrong Password or Username");
             }
             break;
-        case R.id.btnCancel:
-            Intent intent2 = new Intent(LoginActivity.this,
-                    WelcomeActivity.class);
-            startActivity(intent2);
-            break;
-        default:
-            //this default case is here so checkstyle doesn't bitch
+
+            case R.id.btnCancel:
+                Intent intent2 = new Intent(LoginActivity.this,
+                        WelcomeActivity.class);
+                startActivity(intent2);
+                break;
         }
     }
 }

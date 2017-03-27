@@ -8,14 +8,15 @@ import android.content.Intent;
 
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Model;
+import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.ModelFacade;
+
 import android.widget.Button;
 
-public class ViewWaterReportActivity extends AppCompatActivity
-        implements View.OnClickListener {
-    private Model model = Model.getInstance();
-    private TextView waterReps;
-    private Button btnCancelViewResources;
-
+public class ViewWaterReportActivity extends AppCompatActivity implements View.OnClickListener {
+    ModelFacade modelFacade = ModelFacade.getModelFacade();
+    Model model = modelFacade.getModelInstance();
+    TextView waterReps;
+    Button btnCancelViewResources;
     /**
      * This method populates the reports in the ViewWaterReport Screen
      * @param savedInstanceState the things that Android needs to run the

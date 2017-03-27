@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
+import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.ModelFacade;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Model;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -16,36 +17,19 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Markers;
+import java.io.Serializable;
 
-public class MapsActivity extends FragmentActivity
-        implements OnMapReadyCallback {
 
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, Serializable {
 
     private static GoogleMap mMap;
+    private ModelFacade modelFacade;
     private Model model;
     private final Context context = this;
     private static LatLng currentLatLng;
 
-
-    /**
-     * This method serves the purpose of getting the map in Model so we can
-     * add the marker with the necessary information.
-     * @return the map with everything that was added to it in the past
-     */
-    public static GoogleMap getmMap() {
-        return mMap;
-    }
-
-    /**
-     * This method serves the purpose of retrieving the marker coordiantes of
-     * the water resource report the user added.
-     * @return the current cartesian coordianted of the marker that was
-     * populated by the user.
-     */
-    public static LatLng getLatLng() {
-        return currentLatLng;
-    }
-
+    private static MapsActivity mapsActivity = new MapsActivity();
     /**
      * This is the onCreate which obtains the view SupportMapFragment and get
      * notified when the map is ready to be used. This also initializes the
@@ -63,8 +47,8 @@ public class MapsActivity extends FragmentActivity
                 (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-
-        model = Model.getInstance();
+        modelFacade = ModelFacade.getModelFacade();
+        model = modelFacade.getModelInstance();
     }
 
 
@@ -84,26 +68,36 @@ public class MapsActivity extends FragmentActivity
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        java.util.List<MarkerOptions> list =  Model.getReportList();
+        java.util.List<Markers> list =  model.getReportList();
         //GoogleMap gm = MapsActivity.getMap();
         LatLng latln = null;
-        for (MarkerOptions mo : list) {
-            mMap.addMarker(mo);
-            latln = mo.getPosition();
+        java.util.List<MarkerOptions> listOfOptions = new java.util.LinkedList<>();
+        if (list != null) {
+            for (Markers m : list) {
+                MarkerOptions mo = new MarkerOptions();
+                mo.title(m.getTitle());
+                mo.position(m.getLatLong());
+                mo.snippet(m.getSnippet());
+
+                mMap.addMarker(mo);
+
+            }
         }
-        LatLng ll = new LatLng(33.762909, -84.422675);
-        if (latln == null) {
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(ll));
-        } else {
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(latln));
-        }
-        mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+
+        LatLng llATL = new LatLng(33.762909, -84.422675);
+
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(llATL));
+
+        mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener(){
 
             @Override
             public void onMapClick(LatLng latLng) {
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-
+                System.out.println(latLng + " latlng when being set");
+                //set currLatLng
                 currentLatLng = latLng;
+                System.out.println(latLng + " latlng AFTER being set");
+                System.out.println(currentLatLng + " current LatLng after being set");
 
                 AlertDialog.Builder alertDialogBuilder = new
                         AlertDialog.Builder(context);
@@ -154,9 +148,23 @@ public class MapsActivity extends FragmentActivity
 
     /**
      *
-     * @return static map instance
+     * @return map instance
      */
     public static GoogleMap getMap() {
         return mMap;
     }
+
+    /**
+     *
+     * @return LatLng of current location
+     */
+    public static LatLng getLatLng() {
+        System.out.println(currentLatLng + " latLng before passing it over");
+        return currentLatLng;
+    }
+
+    /**
+     *
+     */
+    public static MapsActivity getMapActivity() { return mapsActivity;}
 }

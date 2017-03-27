@@ -8,11 +8,14 @@ import android.widget.Button;
 import android.content.Intent;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Model;
-public class ViewPurityReportActivity extends AppCompatActivity
-        implements View.OnClickListener {
-    private Model model = Model.getInstance();
-    private TextView purityReps;
-    private Button btnCancelPurity;
+
+import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.ModelFacade;
+
+public class ViewPurityReportActivity extends AppCompatActivity implements View.OnClickListener {
+    ModelFacade modelFacade = ModelFacade.getModelFacade();
+    Model model = modelFacade.getModelInstance();
+    TextView purityReps;
+    Button btnCancelPurity;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

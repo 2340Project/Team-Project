@@ -6,12 +6,12 @@ import com.google.android.gms.maps.model.LatLng;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-
+import java.io.Serializable;
 /**
  * Created by Austin on 2/26/17.
  */
 
-public class WaterResourceReport {
+public class WaterResourceReport implements Serializable {
     private int reportNumber;
     private String location;
     private String waterType;
@@ -20,7 +20,7 @@ public class WaterResourceReport {
     private DateFormat dateFormat;
     private java.util.Date date;
     private String creator;
-    private static LatLng latLng;
+    private LatLng latLng;
 
     /**
      * Constructor to instantiate the fields for the water resource report
@@ -139,7 +139,8 @@ public class WaterResourceReport {
      * submitted water report on the user's click in the map.
      * @return the lattitude and longitude
      */
-    public static LatLng getLatLng() {
+    public LatLng getLatLng() {
+        System.out.println(latLng + " This is the latLng on click");
         return latLng;
     }
 
@@ -160,8 +161,8 @@ public class WaterResourceReport {
      */
     @Override
     public String toString() {
-        return "" + reportNumber + ". " + dateAndTime + " , " + location + ": "
-                + waterType + ", "
+
+        return "" + reportNumber + ". " + dateAndTime + " , " + creator + " , " + location + ": " + waterType + ", "
                 + waterCondition;
     }
 

@@ -111,27 +111,27 @@
         android:id="@+id/btnCancelEdit"
         style="@android:style/Widget.Button.Inset"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/cast_mini_controller_icon_height"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnSubmitEdit"
+        android:layout_toEndOf="@+id/txtlbl"
+        android:layout_toRightOf="@+id/txtlbl"
         android:text="Cancel"
         android:textSize="20sp"
-        android:textStyle="normal|bold"
-        android:layout_below="@+id/btnSubmitEdit"
-        android:layout_toRightOf="@+id/txtlbl"
-        android:layout_toEndOf="@+id/txtlbl" />
+        android:textStyle="normal|bold" />
 
     <Button
         android:id="@+id/btnSubmitEdit"
         style="@android:style/Widget.Button.Inset"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/cast_mini_controller_icon_height"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtConfPassword"
         android:layout_marginTop="14dp"
+        android:layout_toEndOf="@+id/txtlbl"
+        android:layout_toRightOf="@+id/txtlbl"
         android:soundEffectsEnabled="?attr/windowActionBar"
         android:text="Submit"
         android:textSize="20sp"
-        android:textStyle="normal|bold"
-        android:layout_below="@+id/txtConfPassword"
-        android:layout_toRightOf="@+id/txtlbl"
-        android:layout_toEndOf="@+id/txtlbl" />
+        android:textStyle="normal|bold" />
 
 
     <TextView
@@ -145,13 +145,5 @@
 
         android:textSize="20sp"
         android:textStyle="normal|bold"/>
-
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignBottom="@+id/btnCancelEdit"
-        android:layout_below="@+id/txtCurrentEmail" />
 
 </RelativeLayout>

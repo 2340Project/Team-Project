@@ -39,12 +39,12 @@
         android:id="@+id/btnCancelViewResources"
         style="@android:style/Widget.Button.Inset"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/cast_mini_controller_icon_height"
-        android:text="Cancel"
-        android:textSize="20sp"
-        android:textStyle="normal|bold"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="34dp" />
+        android:layout_marginBottom="34dp"
+        android:text="Cancel"
+        android:textSize="20sp"
+        android:textStyle="normal|bold" />
 </RelativeLayout>

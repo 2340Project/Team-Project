@@ -11,7 +11,14 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.allstarproject.cs2340.allstarwatercrowdsourcingapp.controller.LoginActivity">
-
+    <TextView
+        android:id="@+id/txtlbl1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txtPassword"
+        android:layout_alignStart="@+id/txtPassword"
+        android:layout_above="@+id/btnEnter"
+        android:textColor="@android:color/holo_red_dark" />
     <EditText
         android:id="@+id/txtCurrentName"
         android:layout_width="wrap_content"
@@ -22,20 +29,24 @@
         android:inputType="textPersonName"
         android:singleLine="true"
         android:textSize="30sp"
-        android:layout_above="@+id/txtPassword"
+        android:layout_alignBottom="@+id/imageView"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="12dp" />
 
     <EditText
         android:id="@+id/txtPassword"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/my_border"
         android:ems="10"
         android:hint="Enter Password"
         android:inputType="textPassword"
         android:textSize="30sp"
-        android:layout_alignBottom="@+id/imageView" />
+        android:layout_above="@+id/btnEnter"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="55dp" />
 
 
     <TextView
@@ -50,60 +61,42 @@
         android:textSize="30sp"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/txtlbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/txtPassword"
-        android:layout_alignLeft="@+id/txtPassword"
-        android:layout_alignRight="@+id/txtPassword"
-        android:layout_alignStart="@+id/txtPassword"
-        android:layout_below="@+id/txtPassword"
-        android:layout_marginTop="19dp"
-        android:layout_toStartOf="@+id/btnEnter"
-        android:textColor="@android:color/holo_red_dark"
-        android:layout_toLeftOf="@+id/btnEnter" />
-
     <Button
         android:id="@+id/btnCancel"
         style="@android:style/Widget.Button.Inset"
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/cast_mini_controller_icon_width"
-        android:text="Cancel"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_below="@+id/btnEnter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_marginBottom="33dp"
+        android:text="Cancel"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/btnEnter"
         style="@android:style/Widget.Button.Inset"
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/cast_mini_controller_icon_width"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:text="Enter"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:layout_marginTop="19dp"
-        android:layout_below="@+id/txtlbl"
+        android:layout_above="@+id/btnCancel"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentStart="true" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:cropToPadding="true"
-        app:srcCompat="@drawable/login"
+        android:layout_alignParentTop="true"
         android:layout_marginLeft="135dp"
         android:layout_marginStart="135dp"
-        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/txtLogin"
         android:layout_toRightOf="@+id/txtLogin"
-        android:layout_toEndOf="@+id/txtLogin" />
+        android:cropToPadding="true"
+        app:srcCompat="@drawable/login" />
 
     <GridView
         android:layout_width="match_parent"

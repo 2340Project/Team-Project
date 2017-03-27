@@ -9,6 +9,7 @@ import android.widget.TextView;
 import android.widget.Button;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Model;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
+import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.ModelFacade;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.RegisteredUser;
 
 /**
@@ -21,14 +22,15 @@ public class EditProfileActivity extends AppCompatActivity
      * variables to be used in this class.  Instance of model singleton,
      * instance of current user and instances of the View items to be displayed
      */
-    private Model model = Model.getInstance();
-    private RegisteredUser currentUser = model.getUser();
-    private TextView txtCurrentName;
-    private TextView txtCurrentEmail;
-    private EditText txtEmail;
-    private EditText txtName;
-    private EditText txtPassword;
-    private EditText txtConfPassword;
+    ModelFacade modelFacade = ModelFacade.getModelFacade();
+    Model model = modelFacade.getModelInstance();
+    RegisteredUser currentUser = model.getUser();
+    TextView txtCurrentName;
+    TextView txtCurrentEmail;
+    EditText txtEmail;
+    EditText txtName;
+    EditText txtPassword;
+    EditText txtConfPassword;
 
     /**
      * onCreate method to instantiate the necessary views and listeners for this
