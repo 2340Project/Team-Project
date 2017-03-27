@@ -1,11 +1,14 @@
 package com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model;
 
+import java.io.Serializable;
+import android.util.Log;
 /**
  * Created by Austin on 2/12/17.
  */
 
-public class RegisteredUser {
-    private Model model = Model.getInstance();
+public class RegisteredUser implements Serializable {
+    private ModelFacade modelFacade = ModelFacade.getModelFacade();
+    private Model model = modelFacade.getModelInstance();
     private String name;
     private String userName;
     private String password;
@@ -25,7 +28,7 @@ public class RegisteredUser {
         this.password = password;
 
         model.addUser(username, this);
-
+        Log.d("Add user", "User was just added to the map");
     }
 
     /**
