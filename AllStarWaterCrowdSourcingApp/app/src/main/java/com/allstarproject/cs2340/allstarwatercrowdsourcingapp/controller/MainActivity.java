@@ -14,6 +14,8 @@ import java.io.File;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     ModelFacade modelFacade = ModelFacade.getModelFacade();
     Model model = modelFacade.getModelInstance();
+    Button btnViewSourceReport;
+
     /**
      * onCreate method for MainActivity. Setup for Logout button and its
      * listener
@@ -23,7 +25,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         Button btnLogout = (Button) findViewById(R.id.btnLogout);
         btnLogout.setOnClickListener(this);
 

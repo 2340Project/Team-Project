@@ -76,7 +76,7 @@
 
 
     <Button
-        android:id="@+id/btnCancelSubmitReport"
+        android:id="@+id/btnCancelSubmitWaterReport"
         style="@android:style/Widget.Button.Inset"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

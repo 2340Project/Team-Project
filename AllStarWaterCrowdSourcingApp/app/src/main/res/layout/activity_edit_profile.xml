@@ -58,6 +58,8 @@
         android:layout_height="wrap_content"
         android:background="@drawable/my_border"
         android:ems="10"
+        android:layout_marginTop="11dp"
+
         android:hint="Confirm Password"
         android:inputType="textPassword"
         android:textColorLink="?android:attr/colorForeground"

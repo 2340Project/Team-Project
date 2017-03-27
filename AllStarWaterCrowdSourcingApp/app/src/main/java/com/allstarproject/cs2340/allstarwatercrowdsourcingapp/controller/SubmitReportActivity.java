@@ -10,15 +10,13 @@ import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Model;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.ModelFacade;
 
-
-public class SubmitReportActivity extends AppCompatActivity
-        implements View.OnClickListener {
+public class SubmitReportActivity extends AppCompatActivity implements View.OnClickListener {
 
     ModelFacade modelFacade = ModelFacade.getModelFacade();
     Model model = modelFacade.getModelInstance();
-    EditText txtLocation;
-    EditText txtWaterType;
-    EditText txtWaterCondition;
+    private EditText txtLocation;
+    private EditText txtWaterType;
+    private EditText txtWaterCondition;
 
     /**
      * This method creates the buttons and text fields associated with the
@@ -37,8 +35,10 @@ public class SubmitReportActivity extends AppCompatActivity
         Button btnSubmitWaterReport = (Button) findViewById(
                 R.id.btnSubmitWaterReport);
         btnSubmitWaterReport.setOnClickListener(this);
-        Button btnCancelSubmitReport = (Button) findViewById(
-                R.id.btnCancelSubmitReport);
+
+
+        Button btnCancelSubmitReport = (Button) findViewById(R.id.btnCancelSubmitWaterReport);
+
         btnCancelSubmitReport.setOnClickListener(this);
     }
 
