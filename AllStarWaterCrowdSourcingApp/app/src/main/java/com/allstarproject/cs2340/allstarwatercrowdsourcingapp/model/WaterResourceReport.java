@@ -26,11 +26,16 @@ public class WaterResourceReport {
      * Constructor to instantiate the fields for the water resource report
      * @param location The location of the water source
      * @param waterType the type of the water source
-     * @param waterCondition the conition of the water source
+     * @param waterCondition the condition of the water source
+     * @param reportNumber the report number of the water resource report
+     * @param latLng the latitude and longitude of the water resource report
+     * that the user reported
+     * @param name the name of the user who is submitting the water resource
+     * report
      */
-
     public WaterResourceReport(String location, String waterType,
-                               String waterCondition, int reportNumber, LatLng latLng, String name) {
+                               String waterCondition, int reportNumber,
+                               LatLng latLng, String name) {
         this.location = location;
         this.waterType = waterType;
         this.waterCondition = waterCondition;
@@ -40,10 +45,19 @@ public class WaterResourceReport {
         dateAndTime = dateFormat.format(date);
         creator = name;
         this.latLng = latLng;
-
     }
-
-    public WaterResourceReport(String location, String waterType, String waterCondition, int reportNumber, String name) {
+    /**
+     * Constructor to instantiate the fields for the water resource report
+     * @param location The location of the water source
+     * @param waterType the type of the water source
+     * @param waterCondition the condition of the water source
+     * @param reportNumber the report number of the water resource report
+     * @param name the name of the user who is submitting the water resource
+     * report
+     */
+    public WaterResourceReport(String location, String waterType,
+                               String waterCondition, int reportNumber,
+                               String name) {
         this.location = location;
         this.waterType = waterType;
         this.waterCondition = waterCondition;
@@ -65,6 +79,7 @@ public class WaterResourceReport {
     /**
      * setter method for the location of the water report that the user
      * inputted
+     * @param location the location of the water resource report
      */
     public void setLocation(String location) {
         this.location = location;
@@ -81,6 +96,7 @@ public class WaterResourceReport {
     /**
      * setter method for the water type of the water resource report that the
      * user inputted
+     * @param waterType the water type of the water resource report
      */
     public void setWaterType(String waterType) {
         this.waterType = waterType;
@@ -96,6 +112,7 @@ public class WaterResourceReport {
 
     /**
      * setter method for the locations water condition
+     * @param waterCondition the water condition of the water report.
      */
     public void setWaterCondition(String waterCondition) {
         this.waterCondition = waterCondition;
@@ -111,6 +128,7 @@ public class WaterResourceReport {
 
     /**
      * setter method for the water resource report number
+     * @param reportNumber the report number of the water resource report.
      */
     public void setReportNumber(int reportNumber) {
         this.reportNumber = reportNumber;
@@ -128,6 +146,7 @@ public class WaterResourceReport {
     /**
      * setter method for the water resource lattitude and longitude for the
      * submitted water report on the user's click in the map.
+     * @param latLng the latitude and longitude of the water resource report
      */
     public void setLatLng(LatLng latLng) {
         this.latLng = latLng;
@@ -141,7 +160,8 @@ public class WaterResourceReport {
      */
     @Override
     public String toString() {
-        return "" + reportNumber + ". " + dateAndTime + " , " + location + ": " + waterType + ", "
+        return "" + reportNumber + ". " + dateAndTime + " , " + location + ": "
+                + waterType + ", "
                 + waterCondition;
     }
 

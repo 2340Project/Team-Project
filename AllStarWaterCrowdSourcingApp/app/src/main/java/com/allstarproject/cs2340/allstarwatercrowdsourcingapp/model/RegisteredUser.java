@@ -5,7 +5,7 @@ package com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model;
  */
 
 public class RegisteredUser {
-    Model model = Model.getInstance();
+    private Model model = Model.getInstance();
     private String name;
     private String userName;
     private String password;
@@ -36,9 +36,9 @@ public class RegisteredUser {
      * @param email the User's email
      * @param acctType string containing the selected acct type
      */
-    public RegisteredUser(String username
-            , String password, String name
-            , String email,  String acctType) {
+    public RegisteredUser(String username,
+                          String password, String name,
+                          String email,  String acctType) {
         this(username, password);
         this.name = name;
         this.email = email;

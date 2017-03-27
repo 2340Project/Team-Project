@@ -52,14 +52,15 @@
 
 
     <Spinner
-        android:id="@+id/spinner"
-        style="@android:style/Widget.Material.Spinner.Underlined"
+        android:id="@+id/spnUserType"
+        style="@android:style/Widget.Spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:dropDownWidth="match_parent"
+        android:elevation="24dp"
         android:entries="@array/country_arrays"
         android:popupBackground="@drawable/background"
-        android:prompt="@string/country_prompt"
+        android:layout_marginTop="12dp"
         android:layout_below="@+id/txtConfPassword"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -68,27 +69,26 @@
         android:id="@+id/btnSubmitRegister"
         style="@android:style/Widget.Button.Inset"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/cast_mini_controller_icon_height"
-        android:layout_below="@+id/txtConfPassword"
-        android:layout_marginTop="42dp"
-        android:layout_toEndOf="@+id/txtlbl"
-        android:layout_toRightOf="@+id/txtlbl"
+        android:layout_height="wrap_content"
         android:soundEffectsEnabled="?attr/windowActionBar"
         android:text="Submit"
         android:textSize="20sp"
-        android:textStyle="normal|bold" />
+        android:textStyle="normal|bold"
+        android:layout_above="@+id/btnCancelRegister"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:id="@+id/btnCancelRegister"
         style="@android:style/Widget.Button.Inset"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/cast_mini_controller_icon_height"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/btnSubmitRegister"
+        android:layout_height="wrap_content"
         android:text="Cancel"
         android:textSize="20sp"
-        android:textStyle="normal|bold" />
+        android:textStyle="normal|bold"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/txtlbl"
+        android:layout_toEndOf="@+id/txtlbl" />
 
     <TextView
         android:id="@+id/txtLogin"

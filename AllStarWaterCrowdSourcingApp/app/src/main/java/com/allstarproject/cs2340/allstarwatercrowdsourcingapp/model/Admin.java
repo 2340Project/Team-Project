@@ -8,8 +8,8 @@ public class Admin extends RegisteredUser {
     /**
      * Constructor for creating Admin
      * this is a subclass of RegisteredUser
-     * is necessary for using instanceof and validating proper account type for access to certain
-     * app features and functions
+     * is necessary for using instanceof and validating proper account type for
+     * access to certain app features and functions
      * @param username username to be set
      * @param password password to be set
      * @param name name to be set
