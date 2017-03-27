@@ -20,53 +20,17 @@ import java.util.Map;
  */
 
 public class ModelFacade implements Serializable {
-    public final static String DEFAULT_BINARY_FILE_NAME = "data.ser";
-    private static Model m = Model.getInstance();
-    private static Map map;
-    private static List<MarkerOptions> reportList;
-    private static List<WaterResourceReport> printList;
-    private static List<WaterPurityReport> purityReportList;
-    private static int reportNumber;
-    private static int purityReportNumber;
-    private MapsActivity mapsActivity = MapsActivity.getMapActivity();
-    private static MarkerOptions markerOptions;
-    public static ModelFacade mf = new ModelFacade();
+    public final static String DEFAULT_BINARY_FILE_NAME = "data.bin";
+    private static ModelFacade mf = new ModelFacade();
+    private Model m;
 
     public ModelFacade() {
-        System.out.println(m + " the model instance");
-        map = m.getUserMap();
-        reportList = m.getReportList();
-        printList = m.getPrintList();
-        purityReportList = m.getPurityReportList();
-        reportNumber = m.getReportNumber();
-        purityReportNumber = m.getPurityReportNumber();
-        markerOptions = m.getMarkerOptions();
-    }
-
-    public List getReportList() {
-        return reportList;
-    }
-    public List getPrintList() {
-        return printList;
-    }
-    public List getPurityReportList() {
-        return purityReportList;
-    }
-    public int getReportNumber() {
-        return reportNumber;
-    }
-    public int getPurityReportNumber() {
-        return purityReportNumber;
-    }
-    public MarkerOptions getMarkerOptions() {
-        return markerOptions;
-    }
-    public Map<String, RegisteredUser> getUserMap() {
-        return map;
+        m = new Model();
     }
 
     public boolean loadBinary(File file) {
         boolean success = true;
+        String success1 = "true";
         try {
             /*
               To read, we must use the ObjectInputStream since we want to read our model in with
@@ -74,21 +38,23 @@ public class ModelFacade implements Serializable {
              */
             ObjectInputStream in = new ObjectInputStream(new FileInputStream(file));
             // assuming we saved our top level object, we read it back in with one line of code.
-            m.setModelFacade((ModelFacade) in.readObject());
+            m = (Model) in.readObject();
             in.close();
         } catch (IOException e) {
             Log.e("UserManagementFacade", "Error reading an entry from binary file");
             e.printStackTrace();
             success = false;
+            success1 = "false";
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-
+        Log.d("Status of load", (String) success1);
         return success;
     }
 
     public boolean saveBinary(File file) {
         boolean success = true;
+        String success1 = "true";
         try {
             /*
                For binary, we use Serialization, so everything we write has to implement
@@ -105,14 +71,16 @@ public class ModelFacade implements Serializable {
             ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file));
             // We basically can save our entire data model with one write, since this will follow
             // all the links and pointers to save everything.  Just save the top level object.
-            out.writeObject(m.getModelFacade());
+            out.writeObject(m);
             out.close();
 
         } catch (IOException e) {
             Log.e("UserManagerFacade", "Error writing an entry from binary file");
             e.printStackTrace();
             success = false;
+            success1 = "false";
         }
+        Log.d("Status of save", success1);
         return success;
     }
 
@@ -120,18 +88,7 @@ public class ModelFacade implements Serializable {
         return mf;
     }
 
-
-    public static void setup() {
-        for (Object s : map.keySet()) {
-            System.out.println(s);
-        }
-
-        m.setMap(map);
-        m.setMarkerOptions(markerOptions);
-        m.setPrintList(printList);
-        m.setPurityReportList(purityReportList);
-        m.setPurityReportNumber(purityReportNumber);
-        m.setReportList(reportList);
-        m.setReportNumber(reportNumber);
+    public Model getModelInstance() {
+        return m;
     }
 }

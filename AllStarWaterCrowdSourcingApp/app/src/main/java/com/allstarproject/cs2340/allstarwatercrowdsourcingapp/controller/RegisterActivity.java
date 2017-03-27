@@ -3,6 +3,7 @@ package com.allstarproject.cs2340.allstarwatercrowdsourcingapp.controller;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -72,21 +73,37 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                         new RegisteredUser(txtUserName.getText().toString()
                                 , txtPassword.getText().toString(), txtName.getText().toString()
                                 , txtEmail.getText().toString(), spinner.getSelectedItem().toString());
+                        ModelFacade modelFacade = ModelFacade.getModelFacade();
+                        File file = new File(this.getFilesDir(), ModelFacade.DEFAULT_BINARY_FILE_NAME);
+                        Log.d("Saving", "About to save data. . .");
+                        modelFacade.saveBinary(file);
                         startActivity(intent2);
                     } else if (spinner.getSelectedItem().toString().equals("Manager")) {
                         new RegisteredUser(txtUserName.getText().toString()
                                 , txtPassword.getText().toString(), txtName.getText().toString()
                                 , txtEmail.getText().toString(), spinner.getSelectedItem().toString());
+                        ModelFacade modelFacade = ModelFacade.getModelFacade();
+                        File file = new File(this.getFilesDir(), ModelFacade.DEFAULT_BINARY_FILE_NAME);
+                        Log.d("Saving", "About to save data. . .");
+                        modelFacade.saveBinary(file);
                         startActivity(intent2);
                     } else if (spinner.getSelectedItem().toString().equals("Worker")) {
                         new RegisteredUser(txtUserName.getText().toString()
                                 , txtPassword.getText().toString(), txtName.getText().toString()
                                 , txtEmail.getText().toString(), spinner.getSelectedItem().toString());
+                        ModelFacade modelFacade = ModelFacade.getModelFacade();
+                        File file = new File(this.getFilesDir(), ModelFacade.DEFAULT_BINARY_FILE_NAME);
+                        Log.d("Saving", "About to save data. . .");
+                        modelFacade.saveBinary(file);
                         startActivity(intent2);
                     } else if (spinner.getSelectedItem().toString().equals("Admin")) {
                         new RegisteredUser(txtUserName.getText().toString()
                                 , txtPassword.getText().toString(), txtName.getText().toString()
                                 , txtEmail.getText().toString(), spinner.getSelectedItem().toString());
+                        ModelFacade modelFacade = ModelFacade.getModelFacade();
+                        File file = new File(this.getFilesDir(), ModelFacade.DEFAULT_BINARY_FILE_NAME);
+                        Log.d("Saving", "About to save data. . .");
+                        modelFacade.saveBinary(file);
                         startActivity(intent2);
                     } else {
                         Toast.makeText(getApplication(), "User type not selected", Toast.LENGTH_LONG).show();

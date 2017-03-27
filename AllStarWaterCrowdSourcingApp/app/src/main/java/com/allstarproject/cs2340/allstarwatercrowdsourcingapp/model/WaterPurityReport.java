@@ -12,7 +12,7 @@ import java.text.SimpleDateFormat;
 public class WaterPurityReport implements Serializable{
 
     private int reportNumber;
-    private static String location;
+    private String location;
     private double virusPPM;
     private double contaminantPPM;
     private String waterCondition;
@@ -45,7 +45,7 @@ public class WaterPurityReport implements Serializable{
      * getter method for the user's input of the water resource report
      * @return a String of the location of the water resource report
      */
-    public static String getLocation() {
+    public String getLocation() {
         return location;
     }
 

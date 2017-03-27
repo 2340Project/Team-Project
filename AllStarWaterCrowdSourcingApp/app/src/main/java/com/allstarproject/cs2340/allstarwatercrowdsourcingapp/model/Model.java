@@ -1,37 +1,15 @@
 package com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model;
 
-//import android.support.annotation.NonNull;
-//import android.support.v4.app.Fragment;
-//import android.support.v4.app.FragmentActivity;
-//import android.support.v4.app.FragmentManager;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.ListIterator;
 import java.util.Map;
 import java.util.List;
-import java.util.ArrayList;
-import android.app.FragmentManager;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
-
-
-import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-
-
-import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.controller.SubmitReportActivity;
-import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.GoogleMap;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.controller.MapsActivity;
-import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
 import java.io.Serializable;
 
 /**
@@ -40,72 +18,61 @@ import java.io.Serializable;
 
 public class Model extends FragmentActivity implements Serializable {
 
-
     /**
-     * instance of singleton Model
-     */
-    private static Model model = new Model();
-    /**
-     * map to store user object in current run of app
+     * map to store user objects
      */
     private Map<String, RegisteredUser> map;
+
+    /**
+     * userList
+     */
+    private List<RegisteredUser> users;
     /**
      * current user (could be a RegisteredUser or any subtype)
      */
-    private transient RegisteredUser user;
-    private List<MarkerOptions> reportList;
+    private static transient RegisteredUser user;
+    /**
+     * list containing WaterReports
+     */
+    private List<Markers> reportList = new java.util.LinkedList();
+    /**
+     * list containing data to be printed for WaterReports
+     */
     private List<WaterResourceReport> printList;
+    /**
+     * list containing WaterPurityReports
+     */
     private List<WaterPurityReport> purityReportList;
+    /**
+     * Report number for WaterResourceReport
+     */
     private int reportNumber;
+    /**
+     * report number for WaterPurityReport
+     */
     private int purityReportNumber;
+    /**
+     * mapsActivity instance
+     */
     private transient MapsActivity mapsActivity = MapsActivity.getMapActivity();
 
-    public void setMap(Map<String, RegisteredUser> map) {
-        this.map = map;
-    }
 
-    public void setReportList(List<MarkerOptions> reportList) {
-        this.reportList = reportList;
-    }
-
-    public void setPrintList(List<WaterResourceReport> printList) {
-        this.printList = printList;
-    }
-
-    public void setPurityReportList(List<WaterPurityReport> purityReportList) {
-        this.purityReportList = purityReportList;
-    }
-
-    public void setReportNumber(int reportNumber) {
-        this.reportNumber = reportNumber;
-    }
-
-    public void setPurityReportNumber(int purityReportNumber) {
-        this.purityReportNumber = purityReportNumber;
-    }
-
-    public void setMarkerOptions(MarkerOptions markerOptions) {
-        this.markerOptions = markerOptions;
-    }
-
-    private MarkerOptions markerOptions;
+    private transient MarkerOptions markerOptions;
 
 
     /**
      * Singleton constructor
      */
-    private Model() {
+    public Model() {
         map = new HashMap<>();
-        //map.put("user", "pass");
-        reportList = new ArrayList<>();
+        users = new java.util.LinkedList<>();
+//        reportList = new ArrayList<>();
         printList = new ArrayList<>();
         purityReportList = new ArrayList<>();
         reportNumber = 0;
         purityReportNumber = 0;
 
     }
-    private static ModelFacade mf = ModelFacade.getModelFacade();
-
     public Map<String, RegisteredUser> getUserMap() {
         return map;
     }
@@ -115,11 +82,11 @@ public class Model extends FragmentActivity implements Serializable {
      * method to get instance of Singleton model object
      * @return single instance of model
      */
-    public static Model getInstance() {
-
-        System.out.println(model + " the model instance before passed");
-        return model;
-    }
+//    public static Model getInstance() {
+//
+//        System.out.println(model + " the model instance before passed");
+//        return model;
+//    }
 
     /**
      * method used to verify password on login
@@ -151,14 +118,18 @@ public class Model extends FragmentActivity implements Serializable {
      * @param user is current user object to be stored as value in map
      */
     public void addUser(String username, RegisteredUser user) {
+        Log.d("Verify user add model", username + " was added");
+        users.add(user);
         map.put(username, user);
         this.user = user;
     }
+
+    /**
     /**
      * getter method for current user instance
      * @return RegisteredUser current user
      */
-    public RegisteredUser getUser() {
+    public static RegisteredUser getUser() {
         return user;
     }
 
@@ -182,19 +153,19 @@ public class Model extends FragmentActivity implements Serializable {
         WaterResourceReport waterResourceReport = new
                 WaterResourceReport(location, waterType, waterCondition,
                 reportNumber, mapsActivity.getLatLng(), user.getName());
-      // MarkerOptions markerOptions = new MarkerOptions();
 
         GoogleMap mMap = mapsActivity.getMap();
+        Markers marker = new Markers(waterResourceReport.getLocation(), MapsActivity
+                .getMapActivity().getLatLng(), waterResourceReport.getWaterType()
+                + ", " + waterResourceReport.getWaterCondition());
 
-        //System.out.println(waterResourceReport.getLatLng());
-        //System.out.println(waterResourceReport.getLocation());
-        LatLng currentLat = MapsActivity.getMapActivity().getLatLng();
+
+        System.out.println(marker + "HERE LINE 163!");
         markerOptions = new MarkerOptions();
-        System.out.println(currentLat + " latLng when errors");
-        markerOptions.position(currentLat);
+        markerOptions.position(marker.getLatLong());
 
-        markerOptions.title(waterResourceReport.getLocation());
-        markerOptions.snippet(waterResourceReport.getWaterType()+ ", " + waterResourceReport.getWaterCondition());
+        markerOptions.title(marker.getTitle());
+        markerOptions.snippet(marker.getSnippet());
         if (markerOptions == null) {
             System.out.println(markerOptions + " actual marker option");
             System.out.println(markerOptions.getTitle() + " the title");
@@ -203,7 +174,9 @@ public class Model extends FragmentActivity implements Serializable {
         //mMap.addMarker(markerOptions.position(waterResourceReport.getLatLng()).title(waterResourceReport.getLocation()));
         else {
             mMap.addMarker(markerOptions);
-            reportList.add(markerOptions);
+            System.out.println(marker + "HERE LINE 177!");
+            System.out.println(reportList + "HERE LINE 178!");
+            reportList.add(marker);
         }
 
     }
@@ -261,10 +234,14 @@ public class Model extends FragmentActivity implements Serializable {
 
     public MarkerOptions getMarkerOptions() { return markerOptions; }
 
-    public void setModelFacade(ModelFacade set) { mf = set; }
-
-    public ModelFacade getModelFacade() { return mf; }
-
     public ModelFacade getUpdatedModelFacade() { return new ModelFacade(); }
+
+    public void regenMap() {
+        Log.d("List size after load:", users.size() + " .");
+        for (RegisteredUser u : users) {
+            map.put(u.getUserName(), u);
+        }
+        Log.d("Regen map:", map.size() + " is the size");
+    }
 
 }

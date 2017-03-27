@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
+import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.ModelFacade;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Model;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -16,13 +17,14 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-
+import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Markers;
 import java.io.Serializable;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, Serializable {
 
 
     private static GoogleMap mMap;
+    private ModelFacade modelFacade;
     private Model model;
     final Context context = this;
     private static LatLng currentLatLng;
@@ -43,8 +45,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-
-        model = Model.getInstance();
+        modelFacade = ModelFacade.getModelFacade();
+        model = modelFacade.getModelInstance();
     }
 
 
@@ -62,19 +64,25 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        java.util.List<MarkerOptions> list =  model.getReportList();
+        java.util.List<Markers> list =  model.getReportList();
         //GoogleMap gm = MapsActivity.getMap();
         LatLng latln = null;
-        for (MarkerOptions mo : list) {
-            mMap.addMarker(mo);
-            latln = mo.getPosition();
+        java.util.List<MarkerOptions> listOfOptions = new java.util.LinkedList<>();
+        if (list != null) {
+            for (Markers m : list) {
+                MarkerOptions mo = new MarkerOptions();
+                mo.title(m.getTitle());
+                mo.position(m.getLatLong());
+                mo.snippet(m.getSnippet());
+
+                mMap.addMarker(mo);
+
+            }
         }
-        LatLng ll = new LatLng(33.762909, -84.422675);
-        if (latln == null) {
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(ll));
-        } else {
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(latln));
-        }
+        LatLng llATL = new LatLng(33.762909, -84.422675);
+
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(llATL));
+
         mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener(){
 
             @Override

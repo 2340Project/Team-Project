@@ -5,13 +5,14 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-
+import android.util.Log;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Model;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.ModelFacade;
 import java.io.File;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    Model model = Model.getInstance();
+    ModelFacade modelFacade = ModelFacade.getModelFacade();
+    Model model = modelFacade.getModelInstance();
     /**
      * onCreate method for MainActivity. Setup for Logout button and its listener
      * @param savedInstanceState Bundled data passed in for creation
@@ -33,6 +34,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Button btnViewMap = (Button) findViewById(R.id.btnViewMap);
         btnViewMap.setOnClickListener(this);
+        Log.d("Check model instance", model.toString());
+        Log.d("Check User instance", model.getUser().toString());
         if (model.getUser().getIsManager() || model.getUser().getIsWorker()) {
             Button btnSubmitPurityReport = (Button) findViewById(R.id.btnSubmitPurityReport);
             btnSubmitPurityReport.setOnClickListener(this);
@@ -65,8 +68,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btnLogout:
                 File file = new File(this.getFilesDir(), ModelFacade.DEFAULT_BINARY_FILE_NAME);
                 Intent intent2 = new Intent(MainActivity.this, WelcomeActivity.class);
-                ModelFacade mf = model.getModelFacade();
-                mf.saveBinary(file);
+                Log.d("Saving", "About to save data. . .");
+                modelFacade.saveBinary(file);
                 startActivity(intent2);
                 break;
 

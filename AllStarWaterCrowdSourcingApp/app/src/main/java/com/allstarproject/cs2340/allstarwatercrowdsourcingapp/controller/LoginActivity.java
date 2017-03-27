@@ -16,11 +16,12 @@ import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.ModelFacade;
 
 import java.io.File;
-
+import android.util.Log;
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     EditText txtUser;
     EditText txtPass;
-    Model model = Model.getInstance();
+    ModelFacade modelFacade = ModelFacade.getModelFacade();
+    Model model = modelFacade.getModelInstance();
 
     /**
      * this is the onCreate for LoginActiviy
@@ -31,6 +32,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        ModelFacade modelFacade = ModelFacade.getModelFacade();
+//        File file = new File(this.getFilesDir(), ModelFacade.DEFAULT_BINARY_FILE_NAME);
+//        modelFacade.loadBinary(file);
+//        model.regenMap();
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         Button btnEnter = (Button) findViewById(R.id.btnEnter);
         txtUser = (EditText) findViewById(R.id.txtCurrentName);
@@ -40,10 +45,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         Button btnCancel = (Button) findViewById(R.id.btnCancel);
         btnCancel.setOnClickListener(this);
 
-        ModelFacade mf = new ModelFacade();
-        File file = new File(this.getFilesDir(), ModelFacade.DEFAULT_BINARY_FILE_NAME);
-        mf.loadBinary(file);
-        ModelFacade.setup();
+
+        //Log.d("Check user after load", model.getUser().getName().toString());
 
     }
 
@@ -60,6 +63,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 if (model.verify(txtUser.getText().toString(), txtPass.getText().toString())) {
                     model.setUser(txtUser.getText().toString());
+                    Log.d("Login Verified", model.getUser().getName() + " is valid");
                     startActivity(intent);
                 } else {
                     TextView textView = (TextView) findViewById(R.id.txtlbl);

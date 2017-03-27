@@ -8,8 +8,14 @@ import android.content.Intent;
 
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.ModelFacade;
+import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Model;
+
 import java.io.File;
 public class WelcomeActivity extends AppCompatActivity implements View.OnClickListener {
+
+    ModelFacade modelFacade = ModelFacade.getModelFacade();
+    Model model = modelFacade.getModelInstance();
+
     /**
      * onCreate method for initial setup
      * @param savedInstanceState bundled data that contains info necessary or setting up buttons
@@ -18,7 +24,9 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
-
+        File file = new File(this.getFilesDir(), ModelFacade.DEFAULT_BINARY_FILE_NAME);
+        modelFacade.loadBinary(file);
+        model.regenMap();
         Button btnAction = (Button) findViewById(R.id.btnLogin);
         btnAction.setOnClickListener(this);
 
