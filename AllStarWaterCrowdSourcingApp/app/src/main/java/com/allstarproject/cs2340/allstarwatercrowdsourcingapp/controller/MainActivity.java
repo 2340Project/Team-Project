@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btnHistReport:
                 Intent intent9 = new Intent(MainActivity.this,
-                        HistoricalReport.class);
+                        HistoricalReportActivity.class);
                 startActivity(intent9);
                 break;
             default:

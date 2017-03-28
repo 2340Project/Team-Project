@@ -19,6 +19,7 @@ public class SubmitPurityReportActivity extends AppCompatActivity implements Vie
     EditText txtContaminantType;
     EditText txtVirusPPM;
     EditText txtWaterConditionPurity;
+    EditText txtVirOrContamType;
 
 
     @Override
@@ -35,10 +36,11 @@ public class SubmitPurityReportActivity extends AppCompatActivity implements Vie
 
         txtWaterLocationPurity = (EditText) findViewById(
                 R.id.txtWaterLocationPurity);
-        txtContaminantType = (EditText) findViewById(R.id.txtContaminantType);
         txtVirusPPM = (EditText) findViewById(R.id.txtVirusPPM);
         txtWaterConditionPurity = (EditText) findViewById(
                 R.id.txtWaterConditionPurity);
+
+        txtVirOrContamType = (EditText) findViewById(R.id.txtVirOrContamType);
     }
 
     @Override
@@ -54,10 +56,9 @@ public class SubmitPurityReportActivity extends AppCompatActivity implements Vie
                     MainActivity.class);
             model.addPurityReportList(txtWaterLocationPurity.getText().
                             toString(),
-                    Double.parseDouble(txtContaminantType.getText().
-                            toString()),
                     Double.parseDouble(txtVirusPPM.getText().toString()),
-                    txtWaterConditionPurity.getText().toString());
+                    txtWaterConditionPurity.getText().toString()
+                    ,txtVirOrContamType.getText().toString());
             startActivity(intent2);
             break;
         default:

@@ -12,6 +12,7 @@ import java.text.SimpleDateFormat;
 public class WaterPurityReport implements Serializable{
 
     private int reportNumber;
+    private String virusAndContamType;
     private String location;
     private double virusPPM;
     private double contaminantPPM;
@@ -25,7 +26,6 @@ public class WaterPurityReport implements Serializable{
     /**
      * Constructor to instantiate the fields for the water resource report
      * @param location The location of the water source
-     * @param contaminantPPM the amount of the contaminantPPM
      * @param virusPPM the amount of the virusPPM
      * @param waterCondition the water condition of the water purity report
      * @param reportNumber the number associated with the water purity report
@@ -33,11 +33,11 @@ public class WaterPurityReport implements Serializable{
      * purity report
      */
 
-    public WaterPurityReport(String location, double contaminantPPM,
-                               double virusPPM, String waterCondition,
+    public WaterPurityReport(String location, String waterCondition ,
+                               double virusPPM, String vType,
                              int reportNumber, String name) {
         this.location = location;
-        this.contaminantPPM = contaminantPPM;
+        this.virusAndContamType = vType;
         this.virusPPM = virusPPM;
         this.waterCondition = waterCondition;
         this.reportNumber = reportNumber;
@@ -54,6 +54,13 @@ public class WaterPurityReport implements Serializable{
     public String getLocation() {
         return location;
     }
+
+    public java.util.Date getDate() { return date; }
+    /**
+     * getter method for returning type of virus/contaminant in a report
+     * @return the type of virus
+     */
+    public String getVirusType() { return virusAndContamType; }
 
     /**
      * setter method for the location of the water report that the user

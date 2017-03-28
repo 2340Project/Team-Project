@@ -51,7 +51,7 @@ public class SubmitReportActivity extends AppCompatActivity implements View.OnCl
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-        case R.id.btnCancelSubmitReport:
+        case R.id.btnCancelSubmitWaterReport:
             super.finish();
             break;
 
