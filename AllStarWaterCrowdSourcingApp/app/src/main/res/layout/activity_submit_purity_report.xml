@@ -22,32 +22,45 @@
         android:singleLine="false"
         android:textColorLink="?android:attr/colorForeground"
         android:textSize="30sp"
-        android:layout_marginTop="19dp"
         android:layout_below="@+id/txtWaterHeader"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="47dp" />
 
+
+    <EditText
+        android:id="@+id/txtVirOrContamType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/my_border"
+        android:ems="10"
+        android:hint="Enter Virus or Contaminant Type:"
+        android:inputType="textPersonName"
+        android:singleLine="false"
+        android:textColorLink="?android:attr/colorForeground"
+        android:textSize="30sp"
+        android:layout_marginTop="24dp"
+        android:layout_below="@+id/txtWaterLocationPurity"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:id="@+id/txtWaterHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
         android:text="Create A Purity Report"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@color/cast_expanded_controller_background_color"
         android:textSize="30sp"
         android:textStyle="bold"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="26dp" />
 
     <EditText
         android:id="@+id/txtWaterConditionPurity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_centerVertical="true"
         android:background="@drawable/my_border"
         android:ems="10"
         android:hint="Enter Water Condition:"
@@ -55,37 +68,26 @@
         android:inputType="textPersonName"
         android:singleLine="false"
         android:textColorLink="?android:attr/colorForeground"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:id="@+id/txtVirusPPM"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/txtContaminantType"
-        android:layout_marginTop="14dp"
         android:background="@drawable/my_border"
         android:ems="10"
-        android:hint="Virus PPM (digit):"
+        android:hint="Virus/Contaminant PPM (digit):"
         android:inputType="textPersonName"
         android:singleLine="false"
         android:textColorLink="?android:attr/colorForeground"
-        android:textSize="30sp" />
-
-    <EditText
-        android:id="@+id/txtContaminantType"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:layout_below="@+id/txtWaterConditionPurity"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/txtWaterLocationPurity"
-        android:layout_marginTop="17dp"
-        android:background="@drawable/my_border"
-        android:ems="10"
-        android:hint="Contaminant PPM (digit):"
-        android:inputType="textPersonName"
-        android:textSize="30sp" />
+        android:layout_marginTop="28dp" />
 
 
     <Button

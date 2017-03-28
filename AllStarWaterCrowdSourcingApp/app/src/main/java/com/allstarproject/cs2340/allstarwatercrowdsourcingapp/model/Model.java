@@ -7,6 +7,8 @@ import java.util.List;
 
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
+import android.widget.EditText;
+
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.GoogleMap;
@@ -18,6 +20,12 @@ import java.io.Serializable;
  */
 
 public class Model extends FragmentActivity implements Serializable {
+
+    public EditText txtVirus;
+    public EditText txtStartYear;
+    public EditText txtStartMonth;
+    public EditText txtEndYear;
+    public EditText txtEndMonth;
 
     /**
      * map to store user objects
@@ -220,15 +228,14 @@ public class Model extends FragmentActivity implements Serializable {
     /**
      * method to add the purityReports to a list
      * @param location string location of the water
-     * @param contaminantPPM double type of the contaminantPPM
      * @param virusPPM double type of the virusPPM
      * @param waterCondition string type of the water condition
      */
-    public void addPurityReportList(String location, double contaminantPPM,
-                                    double virusPPM, String waterCondition) {
+    public void addPurityReportList(String location,
+                                    double virusPPM, String waterCondition, String virusType) {
         purityReportNumber++;
         WaterPurityReport waterPurityReport = new WaterPurityReport(location,
-                contaminantPPM, virusPPM, waterCondition, purityReportNumber,
+                virusType, virusPPM, waterCondition, purityReportNumber,
                 user.getName());
         purityReportList.add(waterPurityReport);
     }

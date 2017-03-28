@@ -22,18 +22,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".controller.LoginActivity"
-            android:windowSoftInputMode="adjustPan"/>
-        <activity android:name=".controller.MainActivity"
-            android:windowSoftInputMode="adjustPan"/>
-        <activity android:name=".controller.RegisterActivity"
-            android:windowSoftInputMode="adjustPan"/>
-        <activity android:name=".controller.EditProfileActivity"
-            android:windowSoftInputMode="adjustPan"/>
-        <activity android:name=".controller.SubmitReportActivity"
-            android:windowSoftInputMode="adjustPan"/>
-        <activity android:name=".controller.ViewWaterReportActivity"
-            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:name=".controller.LoginActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".controller.MainActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".controller.RegisterActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".controller.EditProfileActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".controller.SubmitReportActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".controller.ViewWaterReportActivity"
+            android:windowSoftInputMode="adjustPan" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -49,12 +55,16 @@
         <activity
             android:name=".controller.MapsActivity"
             android:label="@string/title_activity_maps" />
-        <activity android:name=".controller.SubmitPurityReportActivity"
-            android:windowSoftInputMode="adjustPan"/>
-        <activity android:name=".controller.ViewPurityReportActivity"
-            android:windowSoftInputMode="adjustPan"/>
-        <activity android:name=".controller.HistoricalReport"
-            android:windowSoftInputMode="adjustPan"></activity>
+        <activity
+            android:name=".controller.SubmitPurityReportActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".controller.ViewPurityReportActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".controller.HistoricalReportActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".controller.ChartActivity"></activity>
     </application>
 
 </manifest>
