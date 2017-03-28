@@ -235,7 +235,7 @@ public class Model extends FragmentActivity implements Serializable {
                                     double virusPPM, String waterCondition, String virusType) {
         purityReportNumber++;
         WaterPurityReport waterPurityReport = new WaterPurityReport(location,
-                virusType, virusPPM, waterCondition, purityReportNumber,
+                waterCondition, virusPPM, virusType, purityReportNumber,
                 user.getName());
         purityReportList.add(waterPurityReport);
     }

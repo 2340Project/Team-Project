@@ -33,8 +33,8 @@ public class WaterPurityReport implements Serializable{
      * purity report
      */
 
-    public WaterPurityReport(String location, String vType,
-                               double virusPPM, String waterCondition,
+    public WaterPurityReport(String location, String waterCondition ,
+                               double virusPPM, String vType,
                              int reportNumber, String name) {
         this.location = location;
         this.virusAndContamType = vType;

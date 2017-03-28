@@ -46,7 +46,7 @@ public class ChartActivity extends AppCompatActivity {
         List<Entry> entries = new ArrayList<>();
 
         for (Data d : data) {
-            entries.add(new Entry((float) d.x, d.y));
+            entries.add(new Entry(d.y, (float) d.x));
         }
             entries.add(new Entry(9f, 4.38f));
 

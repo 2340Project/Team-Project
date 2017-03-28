@@ -57,8 +57,8 @@ public class SubmitPurityReportActivity extends AppCompatActivity implements Vie
             model.addPurityReportList(txtWaterLocationPurity.getText().
                             toString(),
                     Double.parseDouble(txtVirusPPM.getText().toString()),
-                    txtVirOrContamType.getText().toString(),
-                    txtWaterConditionPurity.getText().toString());
+                    txtWaterConditionPurity.getText().toString()
+                    ,txtVirOrContamType.getText().toString());
             startActivity(intent2);
             break;
         default:

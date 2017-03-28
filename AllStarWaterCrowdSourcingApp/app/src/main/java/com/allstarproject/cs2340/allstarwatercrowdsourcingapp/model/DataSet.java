@@ -4,7 +4,6 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.controller.HistoricalReportActivity;
 
 /**
  * Created by Austin on 3/27/17.
@@ -31,12 +30,16 @@ public class DataSet {
             Log.d("WPR year:/",wpr.getDate().getYear() + ".");
             Log.d("Entered end year:/", Integer.parseInt(model.txtEndYear.getText().toString()) + ".");
             Log.d("Entered start year:/", model.txtStartYear + ".");
+            Log.d("Entered Type:/", model.txtVirus.getText().toString() + ".");
+            //virus type is virus or contaminant
+            Log.d("Stored Type:/", wpr.getWaterCondition() + ".");
 
 
-            if ((wpr.getDate().getMonth() >= Integer.parseInt(model.txtStartMonth.getText().toString())
+            if ((wpr.getDate().getMonth() + 1 >= Integer.parseInt(model.txtStartMonth.getText().toString())
                     && wpr.getDate().getYear() + 1900 == Integer.parseInt(model.txtStartYear.getText().toString()))
-                    || (wpr.getDate().getMonth() <= Integer.parseInt(model.txtEndMonth.getText().toString())
-                    && wpr.getDate().getYear() + 1900 == Integer.parseInt(model.txtEndYear.getText().toString()))) {
+                    && (wpr.getDate().getMonth() + 1 <= Integer.parseInt(model.txtEndMonth.getText().toString())
+                    && wpr.getDate().getYear() + 1900 == Integer.parseInt(model.txtEndYear.getText().toString()))
+                    && wpr.getWaterCondition().equals(model.txtVirus.getText().toString())){
                 dataList.add(new Data(wpr.getVirusPPM(), wpr.getDate().getMonth()));
                 Log.d("Inside if:/", " made it");
             }
