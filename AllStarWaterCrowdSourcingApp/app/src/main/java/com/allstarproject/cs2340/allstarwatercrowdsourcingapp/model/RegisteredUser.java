@@ -32,7 +32,7 @@ public class RegisteredUser implements Serializable {
         Model model = modelFacade.getModelInstance();
 
         model.addUser(username, this);
-        Log.d("Add user", "User was just added to the map");
+        //Log.d("Add user", "User was just added to the map");
     }
 
     /**

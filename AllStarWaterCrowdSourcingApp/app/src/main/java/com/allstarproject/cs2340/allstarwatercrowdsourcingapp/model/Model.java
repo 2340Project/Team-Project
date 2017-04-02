@@ -103,7 +103,7 @@ public class Model extends FragmentActivity implements Serializable {
      * @param user is current user object to be stored as value in map
      */
     public void addUser(String username, RegisteredUser user) {
-        Log.d("Verify user add model", username + " was added");
+        //Log.d("Verify user add model", username + " was added");
         users.add(user);
         map.put(username, user);
         Model.user = user;
@@ -116,6 +116,14 @@ public class Model extends FragmentActivity implements Serializable {
      */
     public static RegisteredUser getUser() {
         return user;
+    }
+
+    /**
+     * this is for testing purposes.  adds a current user to the Model
+     *
+     */
+    public void setUser() {
+        user = new RegisteredUser("aduncan37", "abcd", "austin", "aduncan37", "Manager" );
     }
 
     /**
@@ -215,6 +223,14 @@ public class Model extends FragmentActivity implements Serializable {
                 waterCondition, virusPPM, virusType, purityReportNumber,
                 user.getName());
         purityReportList.add(waterPurityReport);
+    }
+
+    /**
+     * method for Juit testing.  Returns the auto-generated purity report number
+     * @return the auto-generated purity report number
+     */
+    public int getPurityReportNumber() {
+        return purityReportNumber;
     }
     /**
      *
