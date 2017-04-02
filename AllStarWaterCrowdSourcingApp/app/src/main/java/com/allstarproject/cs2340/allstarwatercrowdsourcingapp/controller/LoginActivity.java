@@ -70,7 +70,6 @@ public class LoginActivity extends AppCompatActivity
             startActivity(intent2);
             break;
         default:
-            //this is here for checkstyle.
         }
     }
 }
