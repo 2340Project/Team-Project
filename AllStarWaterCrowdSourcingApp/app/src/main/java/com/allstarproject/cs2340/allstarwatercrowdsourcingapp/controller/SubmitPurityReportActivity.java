@@ -10,7 +10,8 @@ import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Model;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.ModelFacade;
 
-public class SubmitPurityReportActivity extends AppCompatActivity implements View.OnClickListener {
+public class SubmitPurityReportActivity extends AppCompatActivity
+        implements View.OnClickListener {
     private final ModelFacade modelFacade = ModelFacade.getModelFacade();
     private final Model model = modelFacade.getModelInstance();
     private Button btnSubmitWaterPurityReport;
@@ -56,12 +57,11 @@ public class SubmitPurityReportActivity extends AppCompatActivity implements Vie
             model.addPurityReportList(txtWaterLocationPurity.getText().
                             toString(),
                     Double.parseDouble(txtVirusPPM.getText().toString()),
-                    txtWaterConditionPurity.getText().toString()
-                    ,txtVirOrContamType.getText().toString());
+                    txtWaterConditionPurity.getText().toString(),
+                    txtVirOrContamType.getText().toString());
             startActivity(intent2);
             break;
         default:
-            //this is here for checkstlye
         }
     }
 }

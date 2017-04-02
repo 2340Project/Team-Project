@@ -25,13 +25,13 @@ public class RegisterActivity extends AppCompatActivity
     private EditText txtConfPassword;
 
     /**
-     * onCreate method to instantiate the necessary buttons and text fields
-     * for the Registration Screen.
+     * onCreate used to setup RegisterActivity on creation. Instantiates all
+     * buttons and text fields associated with the Registration screen.
      * @param savedInstanceState the data which Android saves to populate
      * data more quickly than the application starting up. It's basically
      * caching everything so load up time is quicker when going back to the
      * screen.
-     */
+     * */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,9 +53,11 @@ public class RegisterActivity extends AppCompatActivity
     }
 
     /**
-     * onClick method to handle the cancel button being clicked by returning
-     * you to Welcome
-     *
+     * This onClick takes redirects the user to the appropiate screen upon
+     * pressing a specific button. When the user presses the register button,
+     * their profile information will be stored in an instance of ModelFacade
+     * and then stored in a binary file (located in some mystery path within
+     * your file path) through saveBinary() in ModelFacade.
      * @param v the current view
      */
     @Override
@@ -138,6 +140,14 @@ public class RegisterActivity extends AppCompatActivity
                 }
             }
         default:
+            //this is here for checkstyle. Default is messed up because
+            // of fall through from prevuous branch opf the switch statement
+            //http://stackoverflow.com/questions/188461/switch-statement//
+            // -fallthrough-should-it-be-allowed
+
+
+            //I added the breaks to see if that will get rid of checkstyle
+            // but it did not go away - Yamin.
         }
     }
 }
