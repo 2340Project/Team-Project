@@ -21,7 +21,14 @@ public class SubmitPurityReportActivity extends AppCompatActivity
     private EditText txtWaterConditionPurity;
     private EditText txtVirOrContamType;
 
-
+    /**
+     * This onCreate populates all the buttons and text fields in the
+     * SubmitPurityReportActivity Screen
+     * @param savedInstanceState the data which Android saves to populate
+     * data more quickly than the application starting up. It's basically
+     * caching everything so load up time is quicker when going back to the
+     * screen.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +49,13 @@ public class SubmitPurityReportActivity extends AppCompatActivity
 
         txtVirOrContamType = (EditText) findViewById(R.id.txtVirOrContamType);
     }
-
+    /**
+     * This onClick takes redirects the user to the appropiate screen upon
+     * pressing a specific button. When the user submits a water purity
+     * report, that report is added to a water purity report list and then it
+     * takes you back to the Main Activity Screen.
+     * @param v the current view
+     */
     @Override
     public void onClick(View v) {
         switch (v.getId()) {

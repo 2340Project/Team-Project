@@ -10,7 +10,8 @@ import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Model;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.ModelFacade;
 
-public class SubmitReportActivity extends AppCompatActivity implements View.OnClickListener {
+public class SubmitReportActivity extends AppCompatActivity
+        implements View.OnClickListener {
 
     private final ModelFacade modelFacade = ModelFacade.getModelFacade();
     private final Model model = modelFacade.getModelInstance();
@@ -37,7 +38,8 @@ public class SubmitReportActivity extends AppCompatActivity implements View.OnCl
         btnSubmitWaterReport.setOnClickListener(this);
 
 
-        Button btnCancelSubmitReport = (Button) findViewById(R.id.btnCancelSubmitWaterReport);
+        Button btnCancelSubmitReport = (Button) findViewById(
+                R.id.btnCancelSubmitWaterReport);
 
         btnCancelSubmitReport.setOnClickListener(this);
     }
