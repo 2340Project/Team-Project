@@ -61,7 +61,6 @@ public class WelcomeActivity extends AppCompatActivity
             startActivity(intent2);
             break;
         default:
-            //this is here for checkstyle
         }
     }
 }
