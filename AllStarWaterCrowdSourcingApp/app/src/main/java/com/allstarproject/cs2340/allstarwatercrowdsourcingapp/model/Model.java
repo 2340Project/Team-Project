@@ -4,38 +4,36 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.List;
-
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.widget.EditText;
-
-import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.GoogleMap;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.controller.MapsActivity;
 import java.io.Serializable;
 
 /**
+ * Model class for this application
  * Created by Austin on 2/12/17.
  */
 
 public class Model extends FragmentActivity implements Serializable {
 
-    public EditText txtVirus;
-    public EditText txtStartYear;
-    public EditText txtStartMonth;
-    public EditText txtEndYear;
-    public EditText txtEndMonth;
+    public transient EditText txtVirus;
+    public transient EditText txtStartYear;
+    public transient EditText txtStartMonth;
+    public transient EditText txtEndYear;
+    public transient EditText txtEndMonth;
 
     /**
      * map to store user objects
      */
-    private Map<String, RegisteredUser> map;
+    private final Map<String, RegisteredUser> map;
 
     /**
      * userList
      */
-    private List<RegisteredUser> users;
+    private final List<RegisteredUser> users;
     /**
      * current user (could be a RegisteredUser or any subtype)
      */
@@ -43,15 +41,15 @@ public class Model extends FragmentActivity implements Serializable {
     /**
      * list containing WaterReports
      */
-    private List<Markers> reportList = new java.util.LinkedList();
+    private final List<Markers> reportList = new java.util.LinkedList<>();
     /**
      * list containing data to be printed for WaterReports
      */
-    private List<WaterResourceReport> printList;
+    private final List<WaterResourceReport> printList;
     /**
      * list containing WaterPurityReports
      */
-    private List<WaterPurityReport> purityReportList;
+    private final List<WaterPurityReport> purityReportList;
     /**
      * Report number for WaterResourceReport
      */
@@ -63,8 +61,6 @@ public class Model extends FragmentActivity implements Serializable {
     /**
      * mapsActivity instance
      */
-    private transient MapsActivity mapsActivity = MapsActivity.getMapActivity();
-
     private transient MarkerOptions markerOptions;
 
     /**
@@ -73,27 +69,12 @@ public class Model extends FragmentActivity implements Serializable {
     public Model() {
         map = new HashMap<>();
         users = new java.util.LinkedList<>();
-//        reportList = new ArrayList<>();
         printList = new ArrayList<>();
         purityReportList = new ArrayList<>();
         reportNumber = 0;
         purityReportNumber = 0;
 
     }
-    public Map<String, RegisteredUser> getUserMap() {
-        return map;
-    }
-
-
-    /**
-     * method to get instance of Singleton model object
-     * @return single instance of model
-     */
-//    public static Model getInstance() {
-//
-//        System.out.println(model + " the model instance before passed");
-//        return model;
-//    }
 
     /**
      * method used to verify password on login
@@ -102,10 +83,7 @@ public class Model extends FragmentActivity implements Serializable {
      * @return boolean if user is valid and password is valid
      */
     public boolean verify(String username, String password) {
-        boolean valid = false;
-        //System.out.print(username);
         System.out.println(map.get(username) + " password in map");
-
         if (map.containsKey(username)) {
             System.out.println("I HAVE THE USERNAME!");
         } else {
@@ -113,10 +91,9 @@ public class Model extends FragmentActivity implements Serializable {
         }
         if (map.containsKey(username) && password.equals(map.get(username).getPassword())) {
             System.out.println(username);
-            valid = true;
-            return valid;
+            return true;
         } else {
-            return valid;
+            return false;
         }
     }
 
@@ -129,7 +106,7 @@ public class Model extends FragmentActivity implements Serializable {
         Log.d("Verify user add model", username + " was added");
         users.add(user);
         map.put(username, user);
-        this.user = user;
+        Model.user = user;
     }
 
     /**
@@ -162,10 +139,10 @@ public class Model extends FragmentActivity implements Serializable {
 
         WaterResourceReport waterResourceReport = new
                 WaterResourceReport(location, waterType, waterCondition,
-                reportNumber, mapsActivity.getLatLng(), user.getName());
-        GoogleMap mMap = mapsActivity.getMap();
+                reportNumber, MapsActivity.getLatLng(), user.getName());
+        GoogleMap mMap = MapsActivity.getMap();
         Markers marker = new Markers(waterResourceReport.getLocation(), MapsActivity
-                .getMapActivity().getLatLng(), waterResourceReport.getWaterType()
+                .getLatLng(), waterResourceReport.getWaterType()
                 + ", " + waterResourceReport.getWaterCondition());
 
 
@@ -249,18 +226,15 @@ public class Model extends FragmentActivity implements Serializable {
         return reportList;
     }
 
-    public List getPrintList() { return printList; }
-
+    /**
+     * getter method to return the list of all submitted PurityReports
+     * @return the list of Submitted PurityReports
+     */
     public List getPurityReportList() { return purityReportList; }
 
-    public int getReportNumber() { return reportNumber; }
-
-    public int getPurityReportNumber() { return purityReportNumber; }
-
-    public MarkerOptions getMarkerOptions() { return markerOptions; }
-
-    public ModelFacade getUpdatedModelFacade() { return new ModelFacade(); }
-
+    /**
+     * utility method to regenerate the RegisteredUser Map object after load from binary
+     */
     public void regenMap() {
         Log.d("List size after load:", users.size() + " .");
         for (RegisteredUser u : users) {

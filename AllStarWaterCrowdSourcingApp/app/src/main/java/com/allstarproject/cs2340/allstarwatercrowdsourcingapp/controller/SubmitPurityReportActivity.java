@@ -11,15 +11,14 @@ import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Model;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.ModelFacade;
 
 public class SubmitPurityReportActivity extends AppCompatActivity implements View.OnClickListener {
-    ModelFacade modelFacade = ModelFacade.getModelFacade();
-    Model model = modelFacade.getModelInstance();
-    Button btnSubmitWaterPurityReport;
-    Button btnCancelSubmitPurityReport;
-    EditText txtWaterLocationPurity;
-    EditText txtContaminantType;
-    EditText txtVirusPPM;
-    EditText txtWaterConditionPurity;
-    EditText txtVirOrContamType;
+    private final ModelFacade modelFacade = ModelFacade.getModelFacade();
+    private final Model model = modelFacade.getModelInstance();
+    private Button btnSubmitWaterPurityReport;
+    private Button btnCancelSubmitPurityReport;
+    private EditText txtWaterLocationPurity;
+    private EditText txtVirusPPM;
+    private EditText txtWaterConditionPurity;
+    private EditText txtVirOrContamType;
 
 
     @Override

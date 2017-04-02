@@ -13,8 +13,8 @@ import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Model;
 import java.io.File;
 public class WelcomeActivity extends AppCompatActivity implements View.OnClickListener {
 
-    ModelFacade modelFacade = ModelFacade.getModelFacade();
-    Model model = modelFacade.getModelInstance();
+    private final ModelFacade modelFacade = ModelFacade.getModelFacade();
+    private final Model model = modelFacade.getModelInstance();
     /**
      * onCreate method for initial setup
      * @param savedInstanceState bundled data that contains info necessary or

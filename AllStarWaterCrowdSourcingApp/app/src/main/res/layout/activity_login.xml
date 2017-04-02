@@ -27,7 +27,7 @@
         android:ems="10"
         android:hint="Enter Username"
         android:inputType="textPersonName"
-        android:singleLine="true"
+        android:maxLines="1"
         android:textSize="30sp"
         android:layout_alignBottom="@+id/imageView"
         android:layout_alignParentLeft="true"
@@ -96,13 +96,8 @@
         android:layout_toEndOf="@+id/txtLogin"
         android:layout_toRightOf="@+id/txtLogin"
         android:cropToPadding="true"
-        app:srcCompat="@drawable/login" />
-
-    <GridView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignBottom="@+id/txtLogin"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        app:srcCompat="@drawable/login"
+        android:contentDescription= "@+id/imageView"
+        />
 
 </RelativeLayout>

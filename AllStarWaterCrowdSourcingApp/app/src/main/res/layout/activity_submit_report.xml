@@ -23,7 +23,6 @@
         android:ems="10"
         android:hint="Enter Location:"
         android:inputType="textPersonName"
-        android:singleLine="false"
         android:textColorLink="?android:attr/colorForeground"
         android:textSize="30sp"
         android:layout_alignParentRight="true"
@@ -55,7 +54,6 @@
         android:hint="Enter Water Condition:"
 
         android:inputType="textPersonName"
-        android:singleLine="false"
         android:textColorLink="?android:attr/colorForeground"
         android:textSize="30sp" />
 
