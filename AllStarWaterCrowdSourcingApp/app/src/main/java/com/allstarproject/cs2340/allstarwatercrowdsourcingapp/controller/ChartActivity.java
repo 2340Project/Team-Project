@@ -48,6 +48,12 @@ public class ChartActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * This method converts your data set into x,y coordinate entry objects
+     * which are then stored in a list of entries
+     * @param data the list which containts the data set
+     * @return a list of entries (Contains ALL x,y coordinate entries)
+     */
     private List<Entry> convertDataSetToEntry(List<Data> data) {
         List<Entry> entries = new ArrayList<>();
 

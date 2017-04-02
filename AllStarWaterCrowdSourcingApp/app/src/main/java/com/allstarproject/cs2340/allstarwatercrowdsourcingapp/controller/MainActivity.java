@@ -18,8 +18,9 @@ public class MainActivity extends AppCompatActivity
     private final Model model = modelFacade.getModelInstance();
 
     /**
-     * onCreate method to instantiate the necessary buttons and text fields
-     * for the Main Screen.
+     * onCreate method for MainActivity. Setup for Logout, Edit Profile, View
+     * Water Resource Reports, View Map, and View Historical Report buttons
+     * on the Main Activity Screen
      * @param savedInstanceState the data which Android saves to populate
      * data more quickly than the application starting up. It's basically
      * caching everything so load up time is quicker when going back to the
@@ -125,3 +126,4 @@ public class MainActivity extends AppCompatActivity
         }
     }
 }
+
