@@ -36,7 +36,8 @@ public class DataSet {
             Log.d("App:/", "Actual requested start year: " + Integer.parseInt(
                     model.txtStartYear.getText().toString()));
             Log.d("App:/", "Vir type in report: " + wpr.getVirusType());
-            Log.d("App:/", "Requested type: " + model.txtVirus.getText().toString());
+            Log.d("App:/", "Requested type: " + model.txtVirus.
+                    getText().toString());
             if ((wpr.getDate().getMonth() + 1 >= Integer.parseInt(
                     model.txtStartMonth.getText().toString())
                     && wpr.getDate().getYear() + 1900 == Integer.parseInt(
@@ -59,8 +60,8 @@ public class DataSet {
     }
 
     /**
-     *
-     * @return
+     * getter for the list of data from the data set
+     * @return data set in the form of a list.
      */
     public List<Data> getDataList() {
         return dataList;

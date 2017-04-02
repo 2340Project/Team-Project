@@ -16,21 +16,28 @@ import java.io.Serializable;
  */
 
 public class ModelFacade implements Serializable {
-    public final static String DEFAULT_BINARY_FILE_NAME = "data.bin";
-    private static final ModelFacade mf = new ModelFacade();
+    public static final String DEFAULT_BINARY_FILE_NAME = "data.bin";
+    private static final ModelFacade modelFacade = new ModelFacade();
     private Model m;
 
+    /**
+     * default constructor to instantiate an instance of model
+     */
     public ModelFacade() {
         m = new Model();
     }
 
+    /**
+     * Loads all the data from the binary file for persistence.
+     * @param file the file that stores all the data for persistence
+     */
     public void loadBinary(File file) {
         boolean success = true;
         String success1 = "true";
         try {
             /*
-              To read, we must use the ObjectInputStream since we want to read our model in with
-              a single read.
+              To read, we must use the ObjectInputStream since we want to read
+              our model in with a single read.
              */
             ObjectInputStream in = new ObjectInputStream(
                     new FileInputStream(file));
@@ -39,7 +46,8 @@ public class ModelFacade implements Serializable {
             m = (Model) in.readObject();
             in.close();
         } catch (IOException e) {
-            Log.e("UserManagementFacade", "Error reading an entry from binary file");
+            Log.e("UserManagementFacade",
+                    "Error reading an entry from binary file");
             e.printStackTrace();
             success = false;
             success1 = "false";
@@ -49,6 +57,11 @@ public class ModelFacade implements Serializable {
         Log.d("Status of load", success1);
     }
 
+    /**
+     * saves all data from recent session to the binary file for persistence
+     * @param file the same file that data is saved to and loaded from for
+     * persistence.
+     */
     public void saveBinary(File file) {
         boolean success = true;
         String success1 = "true";
@@ -89,7 +102,7 @@ public class ModelFacade implements Serializable {
      * @return the instance of ModelFacade
      */
     public static ModelFacade getModelFacade() {
-        return mf;
+        return modelFacade;
     }
 
     /**
