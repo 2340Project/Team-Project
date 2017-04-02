@@ -24,12 +24,8 @@ import java.io.Serializable;
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, Serializable {
 
     private static GoogleMap mMap;
-    private ModelFacade modelFacade;
-    private Model model;
     private final Context context = this;
     private static LatLng currentLatLng;
-
-    private static MapsActivity mapsActivity = new MapsActivity();
     /**
      * This is the onCreate which obtains the view SupportMapFragment and get
      * notified when the map is ready to be used. This also initializes the
@@ -42,13 +38,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
-
         SupportMapFragment mapFragment =
                 (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-        modelFacade = ModelFacade.getModelFacade();
-        model = modelFacade.getModelInstance();
     }
 
 
@@ -67,27 +60,23 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-
+        ModelFacade modelFacade;
+        Model model;
+        modelFacade = ModelFacade.getModelFacade();
+        model = modelFacade.getModelInstance();
         java.util.List<Markers> list =  model.getReportList();
-        //GoogleMap gm = MapsActivity.getMap();
-        LatLng latln = null;
-        java.util.List<MarkerOptions> listOfOptions = new java.util.LinkedList<>();
         if (list != null) {
             for (Markers m : list) {
                 MarkerOptions mo = new MarkerOptions();
                 mo.title(m.getTitle());
                 mo.position(m.getLatLong());
                 mo.snippet(m.getSnippet());
-
                 mMap.addMarker(mo);
-
             }
         }
 
         LatLng llATL = new LatLng(33.762909, -84.422675);
-
         mMap.moveCamera(CameraUpdateFactory.newLatLng(llATL));
-
         mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener(){
 
             @Override
@@ -98,15 +87,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 currentLatLng = latLng;
                 System.out.println(latLng + " latlng AFTER being set");
                 System.out.println(currentLatLng + " current LatLng after being set");
-
                 AlertDialog.Builder alertDialogBuilder = new
                         AlertDialog.Builder(context);
                 alertDialogBuilder.setTitle(
                         "Would you like to add a water report at this "
                                 + "location?");
-
                 MarkerOptions markerOptions = new MarkerOptions();
-
                 markerOptions.position(latLng);
                 alertDialogBuilder
                         .setMessage("")
@@ -116,7 +102,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                             public void onClick(DialogInterface dialog, int
                                     id) {
-
                                 Intent intent = new Intent(MapsActivity.this,
                                         SubmitReportActivity.class);
                                 startActivity(intent);
@@ -134,37 +119,26 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                     // create alert dialog
                     AlertDialog alertDialog = alertDialogBuilder.create();
-
                     // pan camera to position
                     CameraUpdateFactory.newLatLng(latLng);
-
                     // show it
                     alertDialog.show();
             }
         });
-
-
     }
-
     /**
-     *
+     * getter method that returns the static instance of the GoogleMap
      * @return map instance
      */
     public static GoogleMap getMap() {
         return mMap;
     }
-
     /**
-     *
+     * getter method that returns the latLng of the current click on the map
      * @return LatLng of current location
      */
     public static LatLng getLatLng() {
         System.out.println(currentLatLng + " latLng before passing it over");
         return currentLatLng;
     }
-
-    /**
-     *
-     */
-    public static MapsActivity getMapActivity() { return mapsActivity;}
 }

@@ -1,10 +1,6 @@
 package com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model;
 
 import android.util.Log;
-
-import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.controller.MapsActivity;
-import com.google.android.gms.maps.model.MarkerOptions;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -12,23 +8,23 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
-import java.util.List;
-import java.util.Map;
 
 /**
+ * Facade for the Model that allows us to load and save the necessary data using the Model object
+ * as the top level object to be saved through serialization
  * Created by Austin on 3/21/17.
  */
 
 public class ModelFacade implements Serializable {
     public final static String DEFAULT_BINARY_FILE_NAME = "data.bin";
-    private static ModelFacade mf = new ModelFacade();
+    private static final ModelFacade mf = new ModelFacade();
     private Model m;
 
     public ModelFacade() {
         m = new Model();
     }
 
-    public boolean loadBinary(File file) {
+    public void loadBinary(File file) {
         boolean success = true;
         String success1 = "true";
         try {
@@ -48,11 +44,10 @@ public class ModelFacade implements Serializable {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        Log.d("Status of load", (String) success1);
-        return success;
+        Log.d("Status of load", success1);
     }
 
-    public boolean saveBinary(File file) {
+    public void saveBinary(File file) {
         boolean success = true;
         String success1 = "true";
         try {
@@ -81,7 +76,6 @@ public class ModelFacade implements Serializable {
             success1 = "false";
         }
         Log.d("Status of save", success1);
-        return success;
     }
 
     public static ModelFacade getModelFacade() {

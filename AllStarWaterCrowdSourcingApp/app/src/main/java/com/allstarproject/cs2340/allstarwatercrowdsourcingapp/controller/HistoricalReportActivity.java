@@ -1,8 +1,5 @@
 package com.allstarproject.cs2340.allstarwatercrowdsourcingapp.controller;
 
-import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -10,25 +7,19 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Model;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.ModelFacade;
-import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.WaterPurityReport;
-
-import java.util.List;
 
 public class HistoricalReportActivity extends AppCompatActivity implements View.OnClickListener {
-    ModelFacade modelFacade = ModelFacade.getModelFacade();
-    Model model = modelFacade.getModelInstance();
+    private final ModelFacade modelFacade = ModelFacade.getModelFacade();
+    private final Model model = modelFacade.getModelInstance();
 
     private EditText txtVirus;
     private EditText txtStartYear;
     private EditText txtStartMonth;
     private EditText txtEndYear;
     private EditText txtEndMonth;
-    private List<WaterPurityReport> list = model.getPurityReportList();
-    private final Context context = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,14 +93,14 @@ public class HistoricalReportActivity extends AppCompatActivity implements View.
         }
     }
 
-    public void setTxtVirus() { model.txtVirus = txtVirus; }
+    private void setTxtVirus() { model.txtVirus = txtVirus; }
 
-    public void setTxtStartYear() { model.txtStartYear = txtStartYear; }
+    private void setTxtStartYear() { model.txtStartYear = txtStartYear; }
 
-    public void setTxtStartMonth() { model.txtStartMonth = txtStartMonth; }
+    private void setTxtStartMonth() { model.txtStartMonth = txtStartMonth; }
 
-    public void setTxtEndYear() { model.txtEndYear = txtEndYear; }
+    private void setTxtEndYear() { model.txtEndYear = txtEndYear; }
 
-    public void setTxtEndMonth() { model.txtEndMonth = txtEndMonth; }
+    private void setTxtEndMonth() { model.txtEndMonth = txtEndMonth; }
 
 }

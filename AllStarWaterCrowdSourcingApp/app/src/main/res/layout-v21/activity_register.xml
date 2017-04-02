@@ -15,7 +15,6 @@
         android:id="@+id/txtlbl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/txtPassword"
         android:layout_alignStart="@+id/txtPassword"
         android:layout_below="@+id/txtPassword"
         android:textColor="@android:color/holo_red_dark" />
@@ -27,7 +26,6 @@
         android:layout_below="@+id/txtLogin"
         android:layout_marginTop="14dp"
         android:layout_toEndOf="@+id/txtlbl"
-        android:layout_toRightOf="@+id/txtlbl"
         android:background="@drawable/my_border"
         android:ems="10"
         android:hint="Enter Last Name"
@@ -60,7 +58,6 @@
         android:popupBackground="@drawable/background"
         android:layout_marginTop="12dp"
         android:layout_below="@+id/txtConfPassword"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <Button
@@ -73,7 +70,6 @@
         android:textSize="20sp"
         android:textStyle="normal|bold"
         android:layout_above="@+id/btnCancelRegister"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <Button
@@ -85,7 +81,6 @@
         android:textSize="20sp"
         android:textStyle="normal|bold"
         android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/txtlbl"
         android:layout_toEndOf="@+id/txtlbl" />
 
     <TextView
@@ -116,7 +111,6 @@
         android:id="@+id/txtPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/txtCurrentName"
         android:layout_marginTop="13dp"
@@ -132,7 +126,6 @@
         android:id="@+id/txtCurrentName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/txtEmail"
         android:layout_marginTop="10dp"
@@ -147,7 +140,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/txtEmail"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="33dp" />
 

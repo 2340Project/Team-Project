@@ -11,18 +11,15 @@ import android.widget.Button;
 import android.content.Intent;
 import android.widget.EditText;
 import android.widget.TextView;
-
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.ModelFacade;
 
-import java.io.File;
-import android.util.Log;
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
-    EditText txtUser;
-    EditText txtPass;
-    TextView textView;
-    ModelFacade modelFacade = ModelFacade.getModelFacade();
-    Model model = modelFacade.getModelInstance();
+    private EditText txtUser;
+    private EditText txtPass;
+    private TextView textView;
+    private final ModelFacade modelFacade = ModelFacade.getModelFacade();
+    private final Model model = modelFacade.getModelInstance();
     /**
      * this is the onCreate for LoginActiviy
      * @param savedInstanceState is the Bundle to be used for creation
@@ -32,23 +29,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        ModelFacade modelFacade = ModelFacade.getModelFacade();
-//        File file = new File(this.getFilesDir(), ModelFacade.DEFAULT_BINARY_FILE_NAME);
-//        modelFacade.loadBinary(file);
-//        model.regenMap();
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         txtUser = (EditText) findViewById(R.id.txtCurrentName);
         txtPass = (EditText) findViewById(R.id.txtPassword);
         textView = (TextView) findViewById(R.id.txtlbl1);
         Button btnEnter = (Button) findViewById(R.id.btnEnter);
         btnEnter.setOnClickListener(this);
-
         Button btnCancel = (Button) findViewById(R.id.btnCancel);
         btnCancel.setOnClickListener(this);
-
-
-        //Log.d("Check user after load", model.getUser().getName().toString());
-
     }
 
     /**

@@ -13,6 +13,7 @@ import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.ModelFacade;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.RegisteredUser;
 
 /**
+ * Activity for EditProfile.  Acts as a controller controlling the UI functions
  * Created by Austin on 2/16/17.
  */
 
@@ -22,15 +23,14 @@ public class EditProfileActivity extends AppCompatActivity
      * variables to be used in this class.  Instance of model singleton,
      * instance of current user and instances of the View items to be displayed
      */
-    ModelFacade modelFacade = ModelFacade.getModelFacade();
-    Model model = modelFacade.getModelInstance();
-    RegisteredUser currentUser = model.getUser();
-    TextView txtCurrentName;
-    TextView txtCurrentEmail;
-    EditText txtEmail;
-    EditText txtName;
-    EditText txtPassword;
-    EditText txtConfPassword;
+    private final ModelFacade modelFacade = ModelFacade.getModelFacade();
+    private final RegisteredUser currentUser = Model.getUser();
+    private TextView txtCurrentName;
+    private TextView txtCurrentEmail;
+    private EditText txtEmail;
+    private EditText txtName;
+    private EditText txtPassword;
+    private EditText txtConfPassword;
 
     /**
      * onCreate method to instantiate the necessary views and listeners for this

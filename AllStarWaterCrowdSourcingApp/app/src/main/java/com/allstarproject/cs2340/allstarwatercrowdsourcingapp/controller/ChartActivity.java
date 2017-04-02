@@ -15,7 +15,7 @@ import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.DataSet;
 
 public class ChartActivity extends AppCompatActivity {
 
-    private DataSet data = new DataSet();
+    private final DataSet data = new DataSet();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

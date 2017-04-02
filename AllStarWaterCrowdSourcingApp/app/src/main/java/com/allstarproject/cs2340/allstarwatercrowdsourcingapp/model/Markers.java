@@ -5,15 +5,16 @@ import com.google.android.gms.maps.model.LatLng;
 import java.io.Serializable;
 
 /**
+ * Markers class used to create serializable Marker objects for the Google Maps object
+ * This is necessary due to Google Markers and MarkerOptions being non-serializable
  * Created by Austin on 3/26/17.
  */
 
 public class Markers implements Serializable {
-    private String title;
-    private transient LatLng latLong;
-    private String snippet;
-    private double lattitude;
-    private double longitude;
+    private final String title;
+    private final String snippet;
+    private final double lattitude;
+    private final double longitude;
     public Markers(String title, LatLng ll, String snippet) {
         this.title = title;
         this.snippet = snippet;
@@ -23,6 +24,7 @@ public class Markers implements Serializable {
     }
 
     public LatLng getLatLong() {
+        LatLng latLong;
         latLong = new LatLng(lattitude, longitude);
         return latLong;
     }

@@ -12,9 +12,8 @@ import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Model;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.ModelFacade;
 import java.io.File;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    ModelFacade modelFacade = ModelFacade.getModelFacade();
-    Model model = modelFacade.getModelInstance();
-    Button btnViewSourceReport;
+    private final ModelFacade modelFacade = ModelFacade.getModelFacade();
+    private final Model model = modelFacade.getModelInstance();
 
     /**
      * onCreate method for MainActivity. Setup for Logout button and its
@@ -41,12 +40,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button btnViewMap = (Button) findViewById(R.id.btnViewMap);
         btnViewMap.setOnClickListener(this);
         Log.d("Check model instance", model.toString());
-        Log.d("Check User instance", model.getUser().toString());
-        if (model.getUser().getIsManager() || model.getUser().getIsWorker()) {
+        Log.d("Check User instance", Model.getUser().toString());
+        if (Model.getUser().getIsManager() || Model.getUser().getIsWorker()) {
             Button btnSubmitPurityReport = (Button) findViewById(
                     R.id.btnSubmitPurityReport);
             btnSubmitPurityReport.setOnClickListener(this);
-            if(model.getUser().getIsManager()) {
+            if(Model.getUser().getIsManager()) {
                 btnHistReport.setVisibility(View.VISIBLE);
             }
         } else {
@@ -54,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     R.id.btnSubmitPurityReport);
             btnSubmitPurityReport.setVisibility(View.GONE);
         }
-        if (model.getUser().getIsManager()) {
+        if (Model.getUser().getIsManager()) {
             Button btnViewPurityReport = (Button) findViewById(
                     R.id.btnViewPurityReports);
             btnViewPurityReport.setOnClickListener(this);

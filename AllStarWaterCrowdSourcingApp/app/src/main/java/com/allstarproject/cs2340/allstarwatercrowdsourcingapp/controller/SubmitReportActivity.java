@@ -12,8 +12,8 @@ import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.ModelFacade;
 
 public class SubmitReportActivity extends AppCompatActivity implements View.OnClickListener {
 
-    ModelFacade modelFacade = ModelFacade.getModelFacade();
-    Model model = modelFacade.getModelInstance();
+    private final ModelFacade modelFacade = ModelFacade.getModelFacade();
+    private final Model model = modelFacade.getModelInstance();
     private EditText txtLocation;
     private EditText txtWaterType;
     private EditText txtWaterCondition;

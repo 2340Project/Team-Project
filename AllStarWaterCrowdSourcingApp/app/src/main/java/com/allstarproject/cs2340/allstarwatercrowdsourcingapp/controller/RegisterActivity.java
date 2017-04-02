@@ -10,20 +10,18 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
-import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Model;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.ModelFacade;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.RegisteredUser;
 
 import java.io.File;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
-    //Model model = Model.getInstance();
-    Spinner spinner;
-    EditText txtUserName;
-    EditText txtName;
-    EditText txtEmail;
-    EditText txtPassword;
-    EditText txtConfPassword;
+    private Spinner spinner;
+    private EditText txtUserName;
+    private EditText txtName;
+    private EditText txtEmail;
+    private EditText txtPassword;
+    private EditText txtConfPassword;
 
     /**
      * onCreate used to setup RegisterActivity on creation
