@@ -33,10 +33,12 @@ public class EditProfileActivity extends AppCompatActivity
     private EditText txtConfPassword;
 
     /**
-     * onCreate method to instantiate the necessary views and listeners for this
-     * Activity
-     * @param savedInstanceState A thing that android mandates to populate
-     * your instance data
+     * onCreate method to instantiate the necessary buttons and text fields
+     * for the Edit Profile Screen.
+     * @param savedInstanceState the data which Android saves to populate
+     * data more quickly than the application starting up. It's basically
+     * caching everything so load up time is quicker when going back to the
+     * screen.
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -21,7 +21,8 @@ import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Markers;
 import java.io.Serializable;
 
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, Serializable {
+public class MapsActivity extends FragmentActivity
+        implements OnMapReadyCallback, Serializable {
 
     private static GoogleMap mMap;
     private final Context context = this;
@@ -77,7 +78,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         LatLng llATL = new LatLng(33.762909, -84.422675);
         mMap.moveCamera(CameraUpdateFactory.newLatLng(llATL));
-        mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener(){
+        mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
 
             @Override
             public void onMapClick(LatLng latLng) {
@@ -86,7 +87,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 //set currLatLng
                 currentLatLng = latLng;
                 System.out.println(latLng + " latlng AFTER being set");
-                System.out.println(currentLatLng + " current LatLng after being set");
+                System.out.println(currentLatLng
+                        + " current LatLng after being set");
                 AlertDialog.Builder alertDialogBuilder = new
                         AlertDialog.Builder(context);
                 alertDialogBuilder.setTitle(
