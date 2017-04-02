@@ -11,14 +11,19 @@ import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Model;
 
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.ModelFacade;
 import java.io.File;
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity
+        implements View.OnClickListener {
+
     private final ModelFacade modelFacade = ModelFacade.getModelFacade();
     private final Model model = modelFacade.getModelInstance();
 
     /**
-     * onCreate method for MainActivity. Setup for Logout button and its
-     * listener
-     * * @param savedInstanceState Bundled data passed in for creation
+     * onCreate method to instantiate the necessary buttons and text fields
+     * for the Main Screen.
+     * @param savedInstanceState the data which Android saves to populate
+     * data more quickly than the application starting up. It's basically
+     * caching everything so load up time is quicker when going back to the
+     * screen.
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Button btnSubmitPurityReport = (Button) findViewById(
                     R.id.btnSubmitPurityReport);
             btnSubmitPurityReport.setOnClickListener(this);
-            if(Model.getUser().getIsManager()) {
+            if (Model.getUser().getIsManager()) {
                 btnHistReport.setVisibility(View.VISIBLE);
             }
         } else {
@@ -73,44 +78,50 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btnEditProf:
-                Intent intent1 = new Intent(MainActivity.this, EditProfileActivity.class);
-                startActivity(intent1);
-                break;
+        case R.id.btnEditProf:
+            Intent intent1 = new Intent(MainActivity.this,
+                    EditProfileActivity.class);
+            startActivity(intent1);
+            break;
 
-            case R.id.btnLogout:
-                File file = new File(this.getFilesDir(), ModelFacade.DEFAULT_BINARY_FILE_NAME);
-                Intent intent2 = new Intent(MainActivity.this, WelcomeActivity.class);
-                Log.d("Saving", "About to save data. . .");
-                modelFacade.saveBinary(file);
-                startActivity(intent2);
-                break;
+        case R.id.btnLogout:
+            File file = new File(this.getFilesDir(),
+                    ModelFacade.DEFAULT_BINARY_FILE_NAME);
+            Intent intent2 = new Intent(MainActivity.this,
+                    WelcomeActivity.class);
+            Log.d("Saving", "About to save data. . .");
+            modelFacade.saveBinary(file);
+            startActivity(intent2);
+            break;
 
-            case R.id.btnViewMap:
-                Intent intent5 = new Intent(MainActivity.this, MapsActivity.class);
-                startActivity(intent5);
-                break;
+        case R.id.btnViewMap:
+            Intent intent5 = new Intent(MainActivity.this, MapsActivity.class);
+            startActivity(intent5);
+            break;
 
-            case R.id.btnSubmitPurityReport:
-                Intent intent6 = new Intent(MainActivity.this, SubmitPurityReportActivity.class);
-                startActivity(intent6);
-                break;
+        case R.id.btnSubmitPurityReport:
+            Intent intent6 = new Intent(MainActivity.this,
+                    SubmitPurityReportActivity.class);
+            startActivity(intent6);
+            break;
 
-            case R.id.btnViewPurityReports:
-                Intent intent7 = new Intent(MainActivity.this, ViewPurityReportActivity.class);
-                startActivity(intent7);
-                break;
+        case R.id.btnViewPurityReports:
+            Intent intent7 = new Intent(MainActivity.this,
+                    ViewPurityReportActivity.class);
+            startActivity(intent7);
+            break;
 
-            case R.id.btnViewSourceReport:
-                Intent intent8 = new Intent(MainActivity.this, ViewWaterReportActivity.class);
-                startActivity(intent8);
-                break;
-            case R.id.btnHistReport:
-                Intent intent9 = new Intent(MainActivity.this,
-                        HistoricalReportActivity.class);
-                startActivity(intent9);
-                break;
-            default:
+        case R.id.btnViewSourceReport:
+            Intent intent8 = new Intent(MainActivity.this,
+                    ViewWaterReportActivity.class);
+            startActivity(intent8);
+            break;
+        case R.id.btnHistReport:
+            Intent intent9 = new Intent(MainActivity.this,
+                    HistoricalReportActivity.class);
+            startActivity(intent9);
+            break;
+        default:
         }
     }
 }
