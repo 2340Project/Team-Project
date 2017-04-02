@@ -84,10 +84,18 @@ public class ModelFacade implements Serializable {
         Log.d("Status of save", success1);
     }
 
+    /**
+     * gets the instance of ModelFacade
+     * @return the instance of ModelFacade
+     */
     public static ModelFacade getModelFacade() {
         return mf;
     }
 
+    /**
+     * gets the instance of Model
+     * @return the instance of model.
+     */
     public Model getModelInstance() {
         return m;
     }
