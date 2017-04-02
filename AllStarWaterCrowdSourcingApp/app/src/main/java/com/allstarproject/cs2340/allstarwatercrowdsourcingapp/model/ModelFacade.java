@@ -46,15 +46,15 @@ public class ModelFacade implements Serializable {
             m = (Model) in.readObject();
             in.close();
         } catch (IOException e) {
-            Log.e("UserManagementFacade",
-                    "Error reading an entry from binary file");
-            e.printStackTrace();
+
+            //Log.e("UserManagementFacade", "Error reading an entry from binary file");
+            //e.printStackTrace();
             success = false;
             success1 = "false";
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
         }
-        Log.d("Status of load", success1);
+        //Log.d("Status of load", success1);
     }
 
     /**
@@ -110,6 +110,8 @@ public class ModelFacade implements Serializable {
      * @return the instance of model.
      */
     public Model getModelInstance() {
+        File file = new File(ModelFacade.DEFAULT_BINARY_FILE_NAME);
+        mf.loadBinary(file);
         return m;
     }
 }

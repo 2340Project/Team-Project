@@ -14,7 +14,8 @@ import java.util.Locale;
  * Created by Austin on 3/12/17.
  */
 
-class WaterPurityReport implements Serializable {
+
+public class WaterPurityReport implements Serializable{
 
     private final int reportNumber;
     private final String location;
@@ -97,5 +98,18 @@ class WaterPurityReport implements Serializable {
                 + "Submitted by: " + "" + creator + " , " + location + ": "
                 + virusPPM + " Virus/Contaminant PPM , "  + waterCondition
                 + "\n";
+    }
+    @Override
+    public boolean equals(Object wpr) {
+        if (this.getVirusType().equals(((WaterPurityReport) wpr).getVirusType()) && this.dateAndTime
+                .equals(((WaterPurityReport) wpr).dateAndTime) && this.creator
+                .equals(((WaterPurityReport) wpr).creator)
+                && this.location.equals(((WaterPurityReport) wpr).location)
+                && this.virusPPM == (((WaterPurityReport) wpr).virusPPM)
+                && this.waterCondition.equals(((WaterPurityReport) wpr).waterCondition)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
