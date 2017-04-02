@@ -11,9 +11,9 @@ import java.util.Locale;
 
 /**
  * WaterResourceReport class
- * these objects will represent reports submitted that tell others where water is located, what
- * type of water it is, and the current status of the water (based on looks, these people are
- * not experts)
+ * these objects will represent reports submitted that tell others where water
+ * is located, what type of water it is, and the current status of the water
+ * (based on looks, these people are not experts)
  * Created by Austin on 2/26/17.
  */
 
@@ -107,8 +107,8 @@ class WaterResourceReport implements Serializable {
     @Override
     public String toString() {
 
-        return "" + reportNumber + ". " + dateAndTime + " , " + creator + " , " + location + ": " + waterType + ", "
-                + waterCondition;
+        return "" + reportNumber + ". " + dateAndTime + " , " + creator + " , "
+                + location + ": " + waterType + ", " + waterCondition;
     }
 
 }

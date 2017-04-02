@@ -15,6 +15,7 @@ public class Markers implements Serializable {
     private final String snippet;
     private final double lattitude;
     private final double longitude;
+
     public Markers(String title, LatLng ll, String snippet) {
         this.title = title;
         this.snippet = snippet;
