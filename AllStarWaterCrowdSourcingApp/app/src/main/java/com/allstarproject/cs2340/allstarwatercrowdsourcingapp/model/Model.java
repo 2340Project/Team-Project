@@ -78,8 +78,8 @@ public class Model extends FragmentActivity implements Serializable {
 
     /**
      * method used to verify password on login
-     * @param username users username from textfield
-     * @param password users password from textfield
+     * @param username users username from text field
+     * @param password users password from text field
      * @return boolean if user is valid and password is valid
      */
     public boolean verify(String username, String password) {
@@ -89,7 +89,8 @@ public class Model extends FragmentActivity implements Serializable {
         } else {
             System.out.println("I dont have it");
         }
-        if (map.containsKey(username) && password.equals(map.get(username).getPassword())) {
+        if (map.containsKey(username) && password.equals(
+                map.get(username).getPassword())) {
             System.out.println(username);
             return true;
         } else {
@@ -149,7 +150,8 @@ public class Model extends FragmentActivity implements Serializable {
                 WaterResourceReport(location, waterType, waterCondition,
                 reportNumber, MapsActivity.getLatLng(), user.getName());
         GoogleMap mMap = MapsActivity.getMap();
-        Markers marker = new Markers(waterResourceReport.getLocation(), MapsActivity
+        Markers marker = new Markers(waterResourceReport.getLocation(),
+                MapsActivity
                 .getLatLng(), waterResourceReport.getWaterType()
                 + ", " + waterResourceReport.getWaterCondition());
 
@@ -164,9 +166,7 @@ public class Model extends FragmentActivity implements Serializable {
             System.out.println(markerOptions + " actual marker option");
             System.out.println(markerOptions.getTitle() + " the title");
             System.out.println(markerOptions.getPosition() + " the position");
-        }
-        //mMap.addMarker(markerOptions.position(waterResourceReport.getLatLng()).title(waterResourceReport.getLocation()));
-        else {
+        } else {
             mMap.addMarker(markerOptions);
             System.out.println(marker + "HERE LINE 177!");
             System.out.println(reportList + "HERE LINE 178!");
@@ -215,9 +215,11 @@ public class Model extends FragmentActivity implements Serializable {
      * @param location string location of the water
      * @param virusPPM double type of the virusPPM
      * @param waterCondition string type of the water condition
+     * @param virusType string type of whether it's a contaminant or virus
      */
     public void addPurityReportList(String location,
-                                    double virusPPM, String waterCondition, String virusType) {
+                                    double virusPPM, String waterCondition,
+                                    String virusType) {
         purityReportNumber++;
         WaterPurityReport waterPurityReport = new WaterPurityReport(location,
                 waterCondition, virusPPM, virusType, purityReportNumber,
@@ -246,10 +248,13 @@ public class Model extends FragmentActivity implements Serializable {
      * getter method to return the list of all submitted PurityReports
      * @return the list of Submitted PurityReports
      */
-    public List getPurityReportList() { return purityReportList; }
+    public List getPurityReportList() {
+        return purityReportList;
+    }
 
     /**
-     * utility method to regenerate the RegisteredUser Map object after load from binary
+     * utility method to regenerate the RegisteredUser Map object after load
+     * from binary
      */
     public void regenMap() {
         Log.d("List size after load:", users.size() + " .");

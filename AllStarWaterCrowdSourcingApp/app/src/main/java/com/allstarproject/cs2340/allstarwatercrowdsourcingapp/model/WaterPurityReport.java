@@ -7,11 +7,13 @@ import java.text.SimpleDateFormat;
 import java.util.Locale;
 
 /**
- * WaterPurityReport class is used to create Water Purity Report objects created by workers and
- * managers.  These reports represent the amount of toxins in water (virus or contaminant) and
- * will be used to display a graph of the levels of toxins over a certain time period
+ * WaterPurityReport class is used to create Water Purity Report objects created
+ * by workers and managers.  These reports represent the amount of toxins in
+ * water (virus or contaminant) and will be used to display a graph of the
+ * levels of toxins over a certain time period
  * Created by Austin on 3/12/17.
  */
+
 
 public class WaterPurityReport implements Serializable{
 
@@ -30,12 +32,13 @@ public class WaterPurityReport implements Serializable{
      * @param location The location of the water source
      * @param virusPPM the amount of the virusPPM
      * @param waterCondition the water condition of the water purity report
+     * @param vType the virus type of whether its a contaminant or virus
      * @param reportNumber the number associated with the water purity report
      * @param name the name of the workers || managers who created the water
      * purity report
      */
 
-    public WaterPurityReport(String location, String waterCondition ,
+    public WaterPurityReport(String location, String waterCondition,
                                double virusPPM, String vType,
                              int reportNumber, String name) {
         this.location = location;
@@ -51,16 +54,21 @@ public class WaterPurityReport implements Serializable{
     }
 
     /**
-     * getter method to get the virus type that was submitted in this Purity Report
+     * getter method to get the virus type that was submitted in this
+     * Purity Report
      * @return a string representation of the virus type
      */
-    public String getVirusType() { return this.vType; }
+    public String getVirusType() {
+        return this.vType;
+    }
 
     /**
      * getter Method for getting the creation date of a Purity Report
      * @return the date object for which a PurityReport Instance was created
      */
-    public java.util.Date getDate() { return date; }
+    public java.util.Date getDate() {
+        return date;
+    }
 
     /**
      * getter method for the water condition of the water resource report
@@ -88,7 +96,8 @@ public class WaterPurityReport implements Serializable{
     public String toString() {
         return "" + reportNumber + ". " + dateAndTime + " , "
                 + "Submitted by: " + "" + creator + " , " + location + ": "
-                + virusPPM + " Virus/Contaminant PPM , "  + waterCondition + "\n";
+                + virusPPM + " Virus/Contaminant PPM , "  + waterCondition
+                + "\n";
     }
     @Override
     public boolean equals(Object wpr) {

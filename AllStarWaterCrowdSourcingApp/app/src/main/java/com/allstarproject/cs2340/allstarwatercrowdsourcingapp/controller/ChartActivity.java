@@ -16,7 +16,13 @@ import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.DataSet;
 public class ChartActivity extends AppCompatActivity {
 
     private final DataSet data = new DataSet();
-
+    /**
+     * onCreate method to instantiate the data set for Chart Activity
+     * @param savedInstanceState the data which Android saves to populate
+     * data more quickly than the application starting up. It's basically
+     * caching everything so load up time is quicker when going back to the
+     * screen.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,13 +48,19 @@ public class ChartActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * This method converts your data set into x,y coordinate entry objects
+     * which are then stored in a list of entries
+     * @param data the list which containts the data set
+     * @return a list of entries (Contains ALL x,y coordinate entries)
+     */
     private List<Entry> convertDataSetToEntry(List<Data> data) {
         List<Entry> entries = new ArrayList<>();
 
         for (Data d : data) {
             entries.add(new Entry(d.y, (float) d.x));
         }
-            entries.add(new Entry(9f, 4.38f));
+        entries.add(new Entry(9f, 4.38f));
 
         return entries;
     }

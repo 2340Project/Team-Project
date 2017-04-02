@@ -14,17 +14,22 @@ import android.widget.TextView;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.ModelFacade;
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
+public class LoginActivity extends AppCompatActivity
+        implements View.OnClickListener {
     private EditText txtUser;
     private EditText txtPass;
     private TextView textView;
     private final ModelFacade modelFacade = ModelFacade.getModelFacade();
     private final Model model = modelFacade.getModelInstance();
-    /**
-     * this is the onCreate for LoginActiviy
-     * @param savedInstanceState is the Bundle to be used for creation
-     */
 
+    /**
+     * onCreate method to instantiate the necessary buttons and text fields
+     * for the Login Screen.
+     * @param savedInstanceState the data which Android saves to populate
+     * data more quickly than the application starting up. It's basically
+     * caching everything so load up time is quicker when going back to the
+     * screen.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,11 +64,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             }
             break;
 
-            case R.id.btnCancel:
-                Intent intent2 = new Intent(LoginActivity.this,
-                        WelcomeActivity.class);
-                startActivity(intent2);
-                break;
+        case R.id.btnCancel:
+            Intent intent2 = new Intent(LoginActivity.this,
+                    WelcomeActivity.class);
+            startActivity(intent2);
+            break;
+        default:
         }
     }
 }
