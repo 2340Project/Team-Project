@@ -23,7 +23,7 @@ public class SubmitPurityReportActivity extends AppCompatActivity
 
     /**
      * This onCreate populates all the buttons and text fields in the
-     * SubmitPurityReportActivity Screen
+     * Submit Purity Report Screen
      * @param savedInstanceState the data which Android saves to populate
      * data more quickly than the application starting up. It's basically
      * caching everything so load up time is quicker when going back to the

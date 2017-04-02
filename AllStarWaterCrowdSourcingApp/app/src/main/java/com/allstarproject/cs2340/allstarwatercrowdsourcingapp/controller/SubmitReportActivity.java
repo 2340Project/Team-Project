@@ -20,10 +20,12 @@ public class SubmitReportActivity extends AppCompatActivity
     private EditText txtWaterCondition;
 
     /**
-     * This method creates the buttons and text fields associated with the
-     * SubmitReportActivity Screen
-     * @param savedInstanceState the things that Android needs to run and
-     * display the screen
+     * This onCreate populates all the buttons and text fields in the
+     * Submit Report Screen
+     * @param savedInstanceState the data which Android saves to populate
+     * data more quickly than the application starting up. It's basically
+     * caching everything so load up time is quicker when going back to the
+     * screen.
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,8 +48,8 @@ public class SubmitReportActivity extends AppCompatActivity
 
     /**
      * onClick method to handle the cancel button being clicked by returning
-     * you to Main Activity and the submit button submitsthe reports and takes
-     * you to the Main Activity screen.
+     * you to Main Activity and the submit button submits the reports in a
+     * water resource report list and takes you to the Main Activity screen.
      * @param v the current view
      */
     @Override

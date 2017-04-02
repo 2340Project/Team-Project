@@ -11,11 +11,13 @@ import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Model;
 
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.ModelFacade;
 
-public class ViewPurityReportActivity extends AppCompatActivity implements View.OnClickListener {
+public class ViewPurityReportActivity extends AppCompatActivity
+        implements View.OnClickListener {
     private final ModelFacade modelFacade = ModelFacade.getModelFacade();
     private final Model model = modelFacade.getModelInstance();
     private TextView purityReps;
     private Button btnCancelPurity;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
