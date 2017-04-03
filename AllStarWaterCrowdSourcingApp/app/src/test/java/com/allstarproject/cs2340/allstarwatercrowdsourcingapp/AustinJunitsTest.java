@@ -18,7 +18,7 @@ import static org.junit.Assert.*;
  *
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
-public class TestAddToPurityReportList {
+public class AustinJunitsTest {
     ModelFacade modelFacade = ModelFacade.getModelFacade();
     Model model = modelFacade.getModelInstance();
     List<WaterPurityReport> list = new ArrayList<WaterPurityReport>(10);
@@ -36,6 +36,7 @@ public class TestAddToPurityReportList {
         list.add(new WaterPurityReport("atlanta", "good", 0.784, "ebola", model.getPurityReportNumber() + 1, model.getUser().getName()));
         model.addPurityReportList("atlanta", 0.784, "good", "ebola");
     }
+
     @Test
     public void testAddPurityReportList() {
         assertEquals(list.size(), model.getPurityReportList().size());
@@ -46,5 +47,27 @@ public class TestAddToPurityReportList {
             fromModel = (WaterPurityReport) model.getPurityReportList().get(i);
             assertEquals(fromList, fromModel);
         }
+    }
+
+    /**Austin's J-Unit; Achieves branch coverage by testing true path and false paths
+     *   in the true path, username and password are valid and contained in userMap thus the method
+     *   will return true.
+     * In the false case, the userName and Password are invalid/not in the Map, and the method
+     *  returns false.
+     **/
+    @Test
+    public void testVerify() {
+        boolean testStored = false;
+        boolean testInvalid = false;
+        boolean testInvalidPassword = false;
+        boolean testInvalidUserName = false;
+        testStored = model.verify(model.getUser().getUserName(), model.getUser().getPassword());
+        assertTrue(testStored);
+        testInvalid = model.verify("Austin", "asdfghjkl;!@#$%");
+        assertFalse(testInvalid);
+        testInvalidPassword = model.verify(model.getUser().getUserName(), "INVALID");
+        assertFalse(testInvalidPassword);
+        testInvalidUserName = model.verify("INVALID", model.getUser().getPassword());
+        assertFalse(testInvalidUserName);
     }
 }
