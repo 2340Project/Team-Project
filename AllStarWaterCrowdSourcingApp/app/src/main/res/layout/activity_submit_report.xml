@@ -23,7 +23,6 @@
         android:ems="10"
         android:hint="Enter Location:"
         android:inputType="textPersonName"
-        android:singleLine="false"
         android:textColorLink="?android:attr/colorForeground"
         android:textSize="30sp"
         android:layout_alignParentRight="true"
@@ -55,7 +54,6 @@
         android:hint="Enter Water Condition:"
 
         android:inputType="textPersonName"
-        android:singleLine="false"
         android:textColorLink="?android:attr/colorForeground"
         android:textSize="30sp" />
 
@@ -76,26 +74,26 @@
 
 
     <Button
-        android:id="@+id/btnCancelSubmitReport"
+        android:id="@+id/btnCancelSubmitWaterReport"
         style="@android:style/Widget.Button.Inset"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/cast_mini_controller_icon_height"
-        android:layout_below="@+id/txtWaterCondition"
-        android:layout_marginTop="29dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/btnSubmitWaterReport"
         android:text="Cancel"
         android:textSize="20sp"
-        android:textStyle="normal|bold"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:textStyle="normal|bold" />
 
     <Button
         android:id="@+id/btnSubmitWaterReport"
         style="@android:style/Widget.Button.Inset"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/cast_mini_controller_icon_height"
+        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/btnCancelSubmitReport"
+        android:layout_below="@+id/txtWaterCondition"
+        android:layout_marginTop="39dp"
         android:soundEffectsEnabled="?attr/windowActionBar"
         android:text="Submit"
         android:textSize="20sp"

@@ -9,30 +9,36 @@ import android.widget.TextView;
 import android.widget.Button;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Model;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
+import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.ModelFacade;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.RegisteredUser;
 
 /**
+ * Activity for EditProfile.  Acts as a controller controlling the UI functions
  * Created by Austin on 2/16/17.
  */
 
-public class EditProfileActivity extends AppCompatActivity implements View.OnClickListener {
+public class EditProfileActivity extends AppCompatActivity
+        implements View.OnClickListener {
     /**
      * variables to be used in this class.  Instance of model singleton,
      * instance of current user and instances of the View items to be displayed
      */
-    Model model = Model.getInstance();
-    RegisteredUser currentUser = model.getUser();
-    TextView txtCurrentName;
-    TextView txtCurrentEmail;
-    EditText txtEmail;
-    EditText txtName;
-    EditText txtPassword;
-    EditText txtConfPassword;
+    private final ModelFacade modelFacade = ModelFacade.getModelFacade();
+    private final RegisteredUser currentUser = Model.getUser();
+    private TextView txtCurrentName;
+    private TextView txtCurrentEmail;
+    private EditText txtEmail;
+    private EditText txtName;
+    private EditText txtPassword;
+    private EditText txtConfPassword;
 
     /**
-     * onCreate method to instantiate the necessary views and listeners for this
-     * Activity
-     * @param savedInstanceState
+     * onCreate method to instantiate the necessary buttons and text fields
+     * for the Edit Profile Screen.
+     * @param savedInstanceState the data which Android saves to populate
+     * data more quickly than the application starting up. It's basically
+     * caching everything so load up time is quicker when going back to the
+     * screen.
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +46,7 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
         setContentView(R.layout.activity_edit_profile);
         txtCurrentEmail = (TextView) findViewById(R.id.txtCurrentEmail);
         txtCurrentName = (TextView) findViewById(R.id.txtCurrentName);
-        txtCurrentEmail.setText("Current Email: " + currentUser.getEmail() );
+        txtCurrentEmail.setText("Current Email: " + currentUser.getEmail());
         txtCurrentName.setText("Current Name: " + currentUser.getName());
 
         txtEmail = (EditText) findViewById(R.id.txtEmail);
@@ -64,32 +70,35 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btnCancelEdit:
-                Intent intent = new Intent(EditProfileActivity.this, MainActivity.class);
-                startActivity(intent);
+        case R.id.btnCancelEdit:
+            Intent intent = new Intent(EditProfileActivity.this,
+                    MainActivity.class);
+            startActivity(intent);
             break;
-            case R.id.btnSubmitEdit:
-                //get the user instance
-                //set new user data
-                Intent intent1 = new Intent(EditProfileActivity.this, EditProfileActivity.class);
-                if (txtConfPassword.getText().toString().equals(txtPassword.getText().toString())) {
-                    if (!(txtEmail.getText().toString().equals(""))) {
-                        currentUser.setEmail(txtEmail.getText().toString());
-                    }
-                    if (!(txtName.getText().toString().equals(""))) {
-                        currentUser.setName(txtName.getText().toString());
-                    }
-                    if (!(txtPassword.getText().toString().equals(""))) {
-                        currentUser.setPassword(txtPassword.getText().toString());
-                    }
-                    startActivity(intent1);
-                } else {
-                    TextView textView = (TextView) findViewById(R.id.txtlbl);
-                    textView.setText("Passwords do not match");
+        case R.id.btnSubmitEdit:
+            //get the user instance
+            //set new user data
+            Intent intent1 = new Intent(EditProfileActivity.this,
+                    EditProfileActivity.class);
+            if (txtConfPassword.getText().toString().equals(
+                    txtPassword.getText().toString())) {
+                if (!(txtEmail.getText().toString().equals(""))) {
+                    currentUser.setEmail(txtEmail.getText().toString());
                 }
-
+                if (!(txtName.getText().toString().equals(""))) {
+                    currentUser.setName(txtName.getText().toString());
+                }
+                if (!(txtPassword.getText().toString().equals(""))) {
+                    currentUser.setPassword(txtPassword.getText().toString());
+                }
+                startActivity(intent1);
+            } else {
+                TextView textView = (TextView) findViewById(R.id.txtlbl);
+                textView.setText("Passwords do not match");
+            }
             break;
+        default:
+            //this default case is here so checkstyle doesn't bitch.
         }
     }
-
 }

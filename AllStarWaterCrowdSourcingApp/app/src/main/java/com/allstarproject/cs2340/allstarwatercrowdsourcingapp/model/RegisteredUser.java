@@ -1,11 +1,17 @@
 package com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model;
 
+import java.io.Serializable;
+import android.util.Log;
 /**
+ * RegisteredUser class
+ * RegisteredUser objects are objects representing anyone who has registered in
+ * the application Their account type (Manager/Worker/etc) will be specified
+ * by which boolean flag is flipped to true for them
  * Created by Austin on 2/12/17.
  */
 
-public class RegisteredUser {
-    Model model = Model.getInstance();
+public class RegisteredUser implements Serializable {
+    private final ModelFacade modelFacade = ModelFacade.getModelFacade();
     private String name;
     private String userName;
     private String password;
@@ -20,12 +26,13 @@ public class RegisteredUser {
      * @param username users chosen username
      * @param password users chosen password
      */
-    public RegisteredUser(String username, String password) {
+    private RegisteredUser(String username, String password) {
         this.userName = username;
         this.password = password;
+        Model model = modelFacade.getModelInstance();
 
         model.addUser(username, this);
-
+        //Log.d("Add user", "User was just added to the map");
     }
 
     /**
@@ -36,9 +43,9 @@ public class RegisteredUser {
      * @param email the User's email
      * @param acctType string containing the selected acct type
      */
-    public RegisteredUser(String username
-            , String password, String name
-            , String email,  String acctType) {
+    public RegisteredUser(String username,
+                          String password, String name,
+                          String email,  String acctType) {
         this(username, password);
         this.name = name;
         this.email = email;
@@ -67,14 +74,6 @@ public class RegisteredUser {
      */
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    /**
-     * setter method for changing the users username
-     * @param username new username to set for user
-     */
-    public void setUserName(String username) {
-        this.userName = username;
     }
 
     /**
@@ -117,16 +116,10 @@ public class RegisteredUser {
         return password;
     }
 
-    /**
-     *
-     * @return true/ false for is user
-     */
-    public boolean getIsUser() {
-        return isUser;
-    }
 
     /**
-     *
+     * getter method to return the boolean result of the type of User the
+     * current RegisteredUser is
      * @return return true/false for is worker
      */
     public boolean getIsWorker() {
@@ -134,18 +127,12 @@ public class RegisteredUser {
     }
 
     /**
-     *
+     * getter method to return the boolean result of the type of User the
+     * current RegisteredUser is
      * @return return true/false for is manager
      */
     public boolean getIsManager() {
         return isManager;
     }
 
-    /**
-     *
-     * @return true or false for if is admin
-     */
-    public boolean getIsAdmin() {
-        return isAdmin;
-    }
 }

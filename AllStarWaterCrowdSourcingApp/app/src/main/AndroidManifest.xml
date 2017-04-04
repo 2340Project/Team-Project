@@ -14,7 +14,9 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+    >
+        <activity android:name=".model.Model"/>
         <activity android:name=".controller.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,12 +24,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".controller.LoginActivity" />
-        <activity android:name=".controller.MainActivity" />
-        <activity android:name=".controller.RegisterActivity" />
-        <activity android:name=".controller.EditProfileActivity" />
-        <activity android:name=".controller.SubmitReportActivity" />
-        <activity android:name=".controller.ViewWaterReportActivity" />
+        <activity
+            android:name=".controller.LoginActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".controller.MainActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".controller.RegisterActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".controller.EditProfileActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".controller.SubmitReportActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".controller.ViewWaterReportActivity"
+            android:windowSoftInputMode="adjustPan" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -41,10 +55,17 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".controller.MapsActivity"
-            android:label="@string/title_activity_maps" />
-        <activity android:name=".controller.SubmitPurityReportActivity" />
-        <activity android:name=".controller.ViewPurityReportActivity"></activity>
+            android:name=".controller.MapsActivity" />
+        <activity
+            android:name=".controller.SubmitPurityReportActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".controller.ViewPurityReportActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".controller.HistoricalReportActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".controller.ChartActivity"></activity>
     </application>
 
 </manifest>

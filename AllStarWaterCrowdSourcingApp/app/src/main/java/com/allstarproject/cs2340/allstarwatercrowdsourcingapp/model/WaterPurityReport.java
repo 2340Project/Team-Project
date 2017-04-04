@@ -1,59 +1,73 @@
 package com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model;
 
 
+import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Locale;
 
 /**
+ * WaterPurityReport class is used to create Water Purity Report objects created
+ * by workers and managers.  These reports represent the amount of toxins in
+ * water (virus or contaminant) and will be used to display a graph of the
+ * levels of toxins over a certain time period
  * Created by Austin on 3/12/17.
  */
 
-public class WaterPurityReport {
 
-    private int reportNumber;
-    private static String location;
-    private double virusPPM;
-    private double contaminantPPM;
-    private String waterCondition;
-    private DateFormat dateFormat;
-    private java.util.Date date;
-    private String dateAndTime;
-    private String creator;
+public class WaterPurityReport implements Serializable{
+
+    private final int reportNumber;
+    private final String location;
+    private final double virusPPM;
+    private final String waterCondition;
+    private final java.util.Date date;
+    private final String dateAndTime;
+    private final String creator;
+    private final String vType;
 
 
     /**
      * Constructor to instantiate the fields for the water resource report
      * @param location The location of the water source
-     * @param waterCondition the condition of the water source
+     * @param virusPPM the amount of the virusPPM
+     * @param waterCondition the water condition of the water purity report
+     * @param vType the virus type of whether its a contaminant or virus
+     * @param reportNumber the number associated with the water purity report
+     * @param name the name of the workers || managers who created the water
+     * purity report
      */
 
-    public WaterPurityReport(String location, double contaminantPPM,
-                               double virusPPM, String waterCondition, int reportNumber, String name) {
+    public WaterPurityReport(String location, String waterCondition,
+                               double virusPPM, String vType,
+                             int reportNumber, String name) {
         this.location = location;
-        this.contaminantPPM = contaminantPPM;
-        this. virusPPM = virusPPM;
+        this.virusPPM = virusPPM;
+        this.vType = vType;
         this.waterCondition = waterCondition;
         this.reportNumber = reportNumber;
-        dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        DateFormat dateFormat;
+        dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US);
         date = new java.util.Date();
         dateAndTime = dateFormat.format(date);
         creator = name;
     }
 
     /**
-     * getter method for the user's input of the water resource report
-     * @return a String of the location of the water resource report
+     * getter method to get the virus type that was submitted in this
+     * Purity Report
+     * @return a string representation of the virus type
      */
-    public static String getLocation() {
-        return location;
+    public String getVirusType() {
+        return this.vType;
     }
 
     /**
-     * setter method for the location of the water report that the user
-     * inputted
+     * getter Method for getting the creation date of a Purity Report
+     * @return the date object for which a PurityReport Instance was created
      */
-    public void setLocation(String location) {
-        this.location = location;
+    public java.util.Date getDate() {
+        return date;
     }
 
     /**
@@ -65,43 +79,13 @@ public class WaterPurityReport {
     }
 
     /**
-     * setter method for the locations water condition
+     * A getter for the virusPPM
+     * @return the amount of the virus PPM corresponding to a particular
+     * water purity report
      */
-    public void setWaterCondition(String waterCondition) {
-        this.waterCondition = waterCondition;
-    }
-
-    /**
-     * getter method for the water resource report number
-     * @return an int of the locations report number
-     */
-    public int getReportNumber() {
-        return reportNumber;
-    }
-
-    /**
-     * setter method for the water resource report number
-     */
-    public void setReportNumber(int reportNumber) {
-        this.reportNumber = reportNumber;
-    }
-
     public double getVirusPPM() {
         return virusPPM;
     }
-
-    public void setVirusPPM(double virusPPM) {
-        this.virusPPM = virusPPM;
-    }
-
-    public double getContaminantPPM() {
-        return contaminantPPM;
-    }
-
-    public void setContaminantPPM(double contaminantPPM) {
-        this.contaminantPPM = contaminantPPM;
-    }
-
 
     /**
      * This represents a String representation of all attributes per report
@@ -110,7 +94,22 @@ public class WaterPurityReport {
      */
     @Override
     public String toString() {
-        return "" + reportNumber + ". " + dateAndTime + " , " + "Submitted by: " + creator + " , " + location + ": " + virusPPM + " Virus PPM , " + contaminantPPM + " Contaminant PPM , "
-                + waterCondition + "\n";
+        return "" + reportNumber + ". " + dateAndTime + " , "
+                + "Submitted by: " + "" + creator + " , " + location + ": "
+                + virusPPM + " Virus/Contaminant PPM , "  + waterCondition
+                + "\n";
+    }
+    @Override
+    public boolean equals(Object wpr) {
+        if (this.getVirusType().equals(((WaterPurityReport) wpr).getVirusType()) && this.dateAndTime
+                .equals(((WaterPurityReport) wpr).dateAndTime) && this.creator
+                .equals(((WaterPurityReport) wpr).creator)
+                && this.location.equals(((WaterPurityReport) wpr).location)
+                && this.virusPPM == (((WaterPurityReport) wpr).virusPPM)
+                && this.waterCondition.equals(((WaterPurityReport) wpr).waterCondition)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

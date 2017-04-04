@@ -1,96 +1,100 @@
 package com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model;
 
-//import android.support.annotation.NonNull;
-//import android.support.v4.app.Fragment;
-//import android.support.v4.app.FragmentActivity;
-//import android.support.v4.app.FragmentManager;
-
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.ListIterator;
 import java.util.Map;
 import java.util.List;
-import java.util.ArrayList;
-import android.app.FragmentManager;
 import android.support.v4.app.FragmentActivity;
-
-
-import com.google.android.gms.maps.MapFragment;
+import android.util.Log;
+import android.widget.EditText;
 import com.google.android.gms.maps.model.MarkerOptions;
-
-
-import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.controller.SubmitReportActivity;
-import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.GoogleMap;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.controller.MapsActivity;
-import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
-
+import java.io.Serializable;
 
 /**
+ * Model class for this application
  * Created by Austin on 2/12/17.
  */
 
-public class Model extends FragmentActivity {
+public class Model extends FragmentActivity implements Serializable {
 
-    //GoogleMap mMap = MapsActivity.getmMap();
+    public transient EditText txtVirus;
+    public transient EditText txtStartYear;
+    public transient EditText txtStartMonth;
+    public transient EditText txtEndYear;
+    public transient EditText txtEndMonth;
 
     /**
-     * instance of singleton Model
+     * map to store user objects
      */
-    private static final Model model = new Model();
+    private final Map<String, RegisteredUser> map;
+
     /**
-     * map to store user object in current run of app
+     * userList
      */
-    private static Map<String, RegisteredUser> map;
+    private final List<RegisteredUser> users;
     /**
      * current user (could be a RegisteredUser or any subtype)
      */
-    private RegisteredUser user;
-    private static List<MarkerOptions> reportList;
-    private static List<WaterResourceReport> printList;
-    private static List<WaterPurityReport> purityReportList;
+    private static transient RegisteredUser user;
+    /**
+     * list containing WaterReports
+     */
+    private final List<Markers> reportList = new java.util.LinkedList<>();
+    /**
+     * list containing data to be printed for WaterReports
+     */
+    private final List<WaterResourceReport> printList;
+    /**
+     * list containing WaterPurityReports
+     */
+    private final List<WaterPurityReport> purityReportList;
+    /**
+     * Report number for WaterResourceReport
+     */
     private int reportNumber;
+    /**
+     * report number for WaterPurityReport
+     */
     private int purityReportNumber;
-
-
+    /**
+     * mapsActivity instance
+     */
+    private transient MarkerOptions markerOptions;
 
     /**
      * Singleton constructor
      */
-    private Model() {
-        map = new HashMap<String, RegisteredUser>();
-        //map.put("user", "pass");
-        reportList = new ArrayList<MarkerOptions>();
-        printList = new ArrayList<WaterResourceReport>();
-        purityReportList = new ArrayList<WaterPurityReport>();
+    public Model() {
+        map = new HashMap<>();
+        users = new java.util.LinkedList<>();
+        printList = new ArrayList<>();
+        purityReportList = new ArrayList<>();
         reportNumber = 0;
-    }
+        purityReportNumber = 0;
 
-
-    /**
-     * method to get instance of Singleton model object
-     * @return single instance of model
-     */
-    public static Model getInstance() {
-        return model;
     }
 
     /**
      * method used to verify password on login
-     * @param username users username from textfield
-     * @param password users password from textfield
+     * @param username users username from text field
+     * @param password users password from text field
      * @return boolean if user is valid and password is valid
      */
-    public static boolean verify(String username, String password) {
-        boolean valid = false;
+    public boolean verify(String username, String password) {
         System.out.println(map.get(username) + " password in map");
-        if (map.containsKey(username) && password.equals(map.get(username).getPassword())) {
-            valid = true;
-            return valid;
+        if (map.containsKey(username)) {
+            System.out.println("I HAVE THE USERNAME!");
         } else {
-            return valid;
+            System.out.println("I dont have it");
+        }
+        if (map.containsKey(username) && password.equals(
+                map.get(username).getPassword())) {
+            System.out.println(username);
+            return true;
+        } else {
+            return false;
         }
     }
 
@@ -100,15 +104,27 @@ public class Model extends FragmentActivity {
      * @param user is current user object to be stored as value in map
      */
     public void addUser(String username, RegisteredUser user) {
+        //Log.d("Verify user add model", username + " was added");
+        users.add(user);
         map.put(username, user);
-        this.user = user;
+        Model.user = user;
     }
+
+    /**
     /**
      * getter method for current user instance
      * @return RegisteredUser current user
      */
-    public RegisteredUser getUser() {
+    public static RegisteredUser getUser() {
         return user;
+    }
+
+    /**
+     * this is for testing purposes.  adds a current user to the Model
+     *
+     */
+    public void setUser() {
+        user = new RegisteredUser("aduncan37", "abcd", "austin", "aduncan37", "Manager" );
     }
 
     /**
@@ -126,29 +142,42 @@ public class Model extends FragmentActivity {
      * @param waterType the type of the water source
      * @param waterCondition the conition of the water source
      */
-    public void addReport(String location, String waterType, String waterCondition) {
+    public void addReport(String location, String waterType,
+                          String waterCondition) {
         reportNumber++;
+
         WaterResourceReport waterResourceReport = new
                 WaterResourceReport(location, waterType, waterCondition,
                 reportNumber, MapsActivity.getLatLng(), user.getName());
-      // MarkerOptions markerOptions = new MarkerOptions();
-
         GoogleMap mMap = MapsActivity.getMap();
+        Markers marker = new Markers(waterResourceReport.getLocation(),
+                MapsActivity
+                .getLatLng(), waterResourceReport.getWaterType()
+                + ", " + waterResourceReport.getWaterCondition());
 
-        //System.out.println(waterResourceReport.getLatLng());
-        //System.out.println(waterResourceReport.getLocation());
-        MarkerOptions markerOptions = new MarkerOptions();
-        markerOptions.position(waterResourceReport.getLatLng());
 
-        markerOptions.title(waterResourceReport.getLocation());
+        System.out.println(marker + "HERE LINE 163!");
+        markerOptions = new MarkerOptions();
+        markerOptions.position(marker.getLatLong());
 
-        //mMap.addMarker(markerOptions.position(waterResourceReport.getLatLng()).title(waterResourceReport.getLocation()));
-        markerOptions.snippet(waterResourceReport.getWaterType()+ ", " + waterResourceReport.getWaterCondition());
-        mMap.addMarker(markerOptions);
-        reportList.add(markerOptions);
-
+        markerOptions.title(marker.getTitle());
+        markerOptions.snippet(marker.getSnippet());
+        if (markerOptions == null) {
+            System.out.println(markerOptions + " actual marker option");
+            System.out.println(markerOptions.getTitle() + " the title");
+            System.out.println(markerOptions.getPosition() + " the position");
+        } else {
+            mMap.addMarker(markerOptions);
+            System.out.println(marker + "HERE LINE 177!");
+            System.out.println(reportList + "HERE LINE 178!");
+            reportList.add(marker);
+        }
     }
 
+    /**
+     * this method prints the water resource reports
+     * @return a string representation of the water resource reports
+     */
     public String printReports() {
         String total = "";
         for (WaterResourceReport report : printList) {
@@ -156,7 +185,10 @@ public class Model extends FragmentActivity {
         }
         return total;
     }
-
+    /**
+     * this method prints the water purity reports
+     * @return a string representation of the water purity reports
+     */
     public String printPurityReports() {
         String total = "";
         for (WaterPurityReport report : purityReportList) {
@@ -171,16 +203,36 @@ public class Model extends FragmentActivity {
      * @param waterType string type of the water
      * @param waterCondition string condition of water
      */
-    public void addReportList(String location, String waterType, String waterCondition) {
-        WaterResourceReport waterResourceReport = new WaterResourceReport(location, waterType, waterCondition, reportNumber, user.getName());
+    public void addReportList(String location, String waterType,
+                              String waterCondition) {
+        WaterResourceReport waterResourceReport = new WaterResourceReport(
+                location, waterType, waterCondition, reportNumber,
+                user.getName());
         printList.add(waterResourceReport);
     }
-
-    public void addPurityReportList(String location, double contaminantPPM,
-                                    double virusPPM, String waterCondition) {
+    /**
+     * method to add the purityReports to a list
+     * @param location string location of the water
+     * @param virusPPM double type of the virusPPM
+     * @param waterCondition string type of the water condition
+     * @param virusType string type of whether it's a contaminant or virus
+     */
+    public void addPurityReportList(String location,
+                                    double virusPPM, String waterCondition,
+                                    String virusType) {
         purityReportNumber++;
-        WaterPurityReport waterPurityReport = new WaterPurityReport(location, contaminantPPM, virusPPM, waterCondition, purityReportNumber, user.getName());
+        WaterPurityReport waterPurityReport = new WaterPurityReport(location,
+                waterCondition, virusPPM, virusType, purityReportNumber,
+                user.getName());
         purityReportList.add(waterPurityReport);
+    }
+
+    /**
+     * method for Juit testing.  Returns the auto-generated purity report number
+     * @return the auto-generated purity report number
+     */
+    public int getPurityReportNumber() {
+        return purityReportNumber;
     }
     /**
      *
@@ -188,7 +240,28 @@ public class Model extends FragmentActivity {
      * to be added to the map.  This is used to repopulate the map
      * after closing and returning
      */
-    public static List getReportList() {
+    public List getReportList() {
         return reportList;
     }
+
+    /**
+     * getter method to return the list of all submitted PurityReports
+     * @return the list of Submitted PurityReports
+     */
+    public List getPurityReportList() {
+        return purityReportList;
+    }
+
+    /**
+     * utility method to regenerate the RegisteredUser Map object after load
+     * from binary
+     */
+    public void regenMap() {
+        Log.d("List size after load:", users.size() + " .");
+        for (RegisteredUser u : users) {
+            map.put(u.getUserName(), u);
+        }
+        Log.d("Regen map:", map.size() + " is the size");
+    }
+
 }

@@ -8,22 +8,24 @@ import android.widget.EditText;
 
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Model;
+import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.ModelFacade;
 
+public class SubmitReportActivity extends AppCompatActivity
+        implements View.OnClickListener {
 
-
-public class SubmitReportActivity extends AppCompatActivity implements View.OnClickListener {
-
-
-    Model model = Model.getInstance();
-    EditText txtLocation;
-    EditText txtWaterType;
-    EditText txtWaterCondition;
+    private final ModelFacade modelFacade = ModelFacade.getModelFacade();
+    private final Model model = modelFacade.getModelInstance();
+    private EditText txtLocation;
+    private EditText txtWaterType;
+    private EditText txtWaterCondition;
 
     /**
-     * This method creates the buttons and text fields associated with the
-     * SubmitReportActivity Screen
-     * @param savedInstanceState the things that Android needs to run and
-     * display the screen
+     * This onCreate populates all the buttons and text fields in the
+     * Submit Report Screen
+     * @param savedInstanceState the data which Android saves to populate
+     * data more quickly than the application starting up. It's basically
+     * caching everything so load up time is quicker when going back to the
+     * screen.
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,33 +35,42 @@ public class SubmitReportActivity extends AppCompatActivity implements View.OnCl
         txtWaterType = (EditText) findViewById(R.id.txtWaterType);
         txtWaterCondition = (EditText) findViewById(R.id.txtWaterCondition);
 
-        Button btnSubmitWaterReport = (Button) findViewById(R.id.btnSubmitWaterReport);
+        Button btnSubmitWaterReport = (Button) findViewById(
+                R.id.btnSubmitWaterReport);
         btnSubmitWaterReport.setOnClickListener(this);
-        Button btnCancelSubmitReport = (Button) findViewById(R.id.btnCancelSubmitReport);
+
+
+        Button btnCancelSubmitReport = (Button) findViewById(
+                R.id.btnCancelSubmitWaterReport);
+
         btnCancelSubmitReport.setOnClickListener(this);
     }
 
     /**
      * onClick method to handle the cancel button being clicked by returning
-     * you to Main Activity and the submit button submitsthe reports and takes
-     * you to the Main Activity screen.
+     * you to Main Activity and the submit button submits the reports in a
+     * water resource report list and takes you to the Main Activity screen.
      * @param v the current view
      */
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btnCancelSubmitReport:
-                super.finish();
-                break;
+        case R.id.btnCancelSubmitWaterReport:
+            super.finish();
+            break;
 
-            case R.id.btnSubmitWaterReport:
+        case R.id.btnSubmitWaterReport:
 
-                model.addReport(txtLocation.getText().toString(), txtWaterType.getText().toString(),
-                        txtWaterCondition.getText().toString());
-                model.addReportList(txtLocation.getText().toString(), txtWaterType.getText().toString(),
-                        txtWaterCondition.getText().toString());
-                super.finish();
-                break;
+            model.addReport(txtLocation.getText().toString(),
+                    txtWaterType.getText().toString(),
+                    txtWaterCondition.getText().toString());
+            model.addReportList(txtLocation.getText().toString(),
+                    txtWaterType.getText().toString(),
+                    txtWaterCondition.getText().toString());
+            super.finish();
+            break;
+        default:
+            //this is here for checkstyle
         }
     }
 }
