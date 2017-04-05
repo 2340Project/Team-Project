@@ -26,7 +26,7 @@ public class RegisteredUser implements Serializable {
      * @param username users chosen username
      * @param password users chosen password
      */
-    private RegisteredUser(String username, String password) {
+    public RegisteredUser(String username, String password) {
         this.userName = username;
         this.password = password;
         Model model = modelFacade.getModelInstance();
@@ -133,6 +133,15 @@ public class RegisteredUser implements Serializable {
      */
     public boolean getIsManager() {
         return isManager;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this.userName.equals(((RegisteredUser) o).userName)) {
+            return true;
+        }
+        return false;
+
     }
 
 }
