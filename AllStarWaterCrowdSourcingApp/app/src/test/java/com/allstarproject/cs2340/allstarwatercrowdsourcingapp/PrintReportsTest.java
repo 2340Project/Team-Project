@@ -2,7 +2,6 @@ package com.allstarproject.cs2340.allstarwatercrowdsourcingapp;
 
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Model;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.ModelFacade;
-import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.WaterResourceReport;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -42,6 +41,6 @@ public class PrintReportsTest {
     }
 }
 
-
+//waterResourceReport toString returns-
 //return "" + reportNumber + ". " + dateAndTime + " , " + creator + " , "
-       // + location + ": " + waterType + ", " + waterCondition;
+//        + location + ": " + waterType + ", " + waterCondition;
