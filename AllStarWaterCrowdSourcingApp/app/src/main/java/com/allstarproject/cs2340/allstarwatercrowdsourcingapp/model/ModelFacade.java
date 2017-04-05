@@ -111,7 +111,7 @@ public class ModelFacade implements Serializable {
      */
     public Model getModelInstance() {
         File file = new File(ModelFacade.DEFAULT_BINARY_FILE_NAME);
-        mf.loadBinary(file);
+        modelFacade.loadBinary(file);
         return m;
     }
 }

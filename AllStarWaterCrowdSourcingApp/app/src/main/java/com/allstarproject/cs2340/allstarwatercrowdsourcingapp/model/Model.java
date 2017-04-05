@@ -217,9 +217,8 @@ public class Model extends FragmentActivity implements Serializable {
      * @param waterCondition string type of the water condition
      * @param virusType string type of whether it's a contaminant or virus
      */
-    public void addPurityReportList(String location,
-                                    double virusPPM, String waterCondition,
-                                    String virusType) {
+    public void addPurityReportList(String location, double virusPPM,
+                                    String waterCondition, String virusType) {
         purityReportNumber++;
         WaterPurityReport waterPurityReport = new WaterPurityReport(location,
                 waterCondition, virusPPM, virusType, purityReportNumber,
