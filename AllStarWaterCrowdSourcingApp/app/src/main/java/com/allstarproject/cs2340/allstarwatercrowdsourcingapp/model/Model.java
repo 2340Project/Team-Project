@@ -231,6 +231,7 @@ public class Model extends FragmentActivity implements Serializable {
                 waterCondition, virusPPM, virusType, purityReportNumber,
                 user.getName());
         purityReportList.add(waterPurityReport);
+        lastDateAndTime = waterPurityReport.getDateAndTime();
     }
 
     /**
@@ -279,4 +280,5 @@ public class Model extends FragmentActivity implements Serializable {
     public String getLastDateAndTime() {
         return lastDateAndTime;
     }
+
 }

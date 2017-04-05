@@ -101,15 +101,25 @@ public class WaterPurityReport implements Serializable{
     }
     @Override
     public boolean equals(Object wpr) {
-        if (this.getVirusType().equals(((WaterPurityReport) wpr).getVirusType()) && this.dateAndTime
+        if (this.getVirusType().equals(((WaterPurityReport) wpr)
+                .getVirusType()) && this.dateAndTime
                 .equals(((WaterPurityReport) wpr).dateAndTime) && this.creator
                 .equals(((WaterPurityReport) wpr).creator)
                 && this.location.equals(((WaterPurityReport) wpr).location)
                 && this.virusPPM == (((WaterPurityReport) wpr).virusPPM)
-                && this.waterCondition.equals(((WaterPurityReport) wpr).waterCondition)) {
+                && this.waterCondition.equals(((WaterPurityReport)
+                wpr).waterCondition)) {
             return true;
         } else {
             return false;
         }
+    }
+
+    /**
+     * Method to get the date and time for this report. *Only for testing*
+     * @return the water purity reports date and time
+     */
+    public String getDateAndTime() {
+        return dateAndTime;
     }
 }

@@ -16,6 +16,11 @@ public class PrintPurityReportsTest {
     @Before
     public void setUp() {
         model.setUser();
+
+    }
+    @Test
+    public void hasAllPurityReports() {
+        assertEquals(list, model.printPurityReports());
         model.addPurityReportList("Atlanta", 2.256, "Bio-Hazards",
                 "Contaminant");
         model.addPurityReportList("Washington D.C.", 3.123, "Erosion",
@@ -40,9 +45,5 @@ public class PrintPurityReportsTest {
                 + ": " + 4.0123 + " Virus/Contaminant PPM , "
                 + "Pesticides" + "\n");
 
-    }
-    @Test
-    public void hasAllPurityReports() {
-        assertEquals(list, model.printPurityReports());
     }
 }
