@@ -17,7 +17,7 @@ import java.util.Locale;
  * Created by Austin on 2/26/17.
  */
 
-class WaterResourceReport implements Serializable {
+public class WaterResourceReport implements Serializable {
     private int reportNumber;
     private String location;
     private String waterType;
@@ -111,4 +111,8 @@ class WaterResourceReport implements Serializable {
                 + location + ": " + waterType + ", " + waterCondition;
     }
 
+    // for testing only
+    public String getDateAndTime() {
+        return dateAndTime;
+    }
 }

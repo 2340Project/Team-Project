@@ -63,6 +63,9 @@ public class Model extends FragmentActivity implements Serializable {
      */
     private transient MarkerOptions markerOptions;
 
+    // for testing only
+    private String lastDateAndTime = "";
+
     /**
      * Singleton constructor
      */
@@ -206,9 +209,12 @@ public class Model extends FragmentActivity implements Serializable {
     public void addReportList(String location, String waterType,
                               String waterCondition) {
         WaterResourceReport waterResourceReport = new WaterResourceReport(
-                location, waterType, waterCondition, reportNumber,
+                location, waterType, waterCondition, ++reportNumber,
                 user.getName());
         printList.add(waterResourceReport);
+
+        // for testing only
+        lastDateAndTime = waterResourceReport.getDateAndTime();
     }
     /**
      * method to add the purityReports to a list
@@ -263,4 +269,8 @@ public class Model extends FragmentActivity implements Serializable {
         Log.d("Regen map:", map.size() + " is the size");
     }
 
+    // for testing only
+    public String getLastDateAndTime() {
+        return lastDateAndTime;
+    }
 }
