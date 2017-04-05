@@ -8,7 +8,8 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- * A JUnit test written for the printReports() method in Model.java
+ * A JUnit test written for the printReports() method in Model. Ensures that
+ * the method returns a correctly formatted string to display the reports.
  *
  * Created by Brian on 4/2/2017.
  */
@@ -17,7 +18,6 @@ public class PrintReportsTest {
     private ModelFacade modelFacade = ModelFacade.getModelFacade();
     private Model model = modelFacade.getModelInstance();
     private String expectedList;
-
 
     @Before
     public void setup() {

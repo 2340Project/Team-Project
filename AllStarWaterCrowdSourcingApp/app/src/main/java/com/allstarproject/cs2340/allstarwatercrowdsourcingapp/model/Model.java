@@ -175,6 +175,8 @@ public class Model extends FragmentActivity implements Serializable {
             System.out.println(reportList + "HERE LINE 178!");
             reportList.add(marker);
         }
+
+        printList.add(waterResourceReport);
     }
 
     /**
@@ -201,7 +203,8 @@ public class Model extends FragmentActivity implements Serializable {
     }
 
     /**
-     * method to add the resourceReports to a list
+     * Old method to add the reports to a list. *only kept for testing*
+     *
      * @param location string location of the water
      * @param waterType string type of the water
      * @param waterCondition string condition of water
@@ -212,8 +215,6 @@ public class Model extends FragmentActivity implements Serializable {
                 location, waterType, waterCondition, ++reportNumber,
                 user.getName());
         printList.add(waterResourceReport);
-
-        // for testing only
         lastDateAndTime = waterResourceReport.getDateAndTime();
     }
     /**
@@ -269,7 +270,12 @@ public class Model extends FragmentActivity implements Serializable {
         Log.d("Regen map:", map.size() + " is the size");
     }
 
-    // for testing only
+    /**
+     * Method to get the date and time for the last report created.
+     * *Only for testing*
+     *
+     * @return the date and time of the last report added
+     */
     public String getLastDateAndTime() {
         return lastDateAndTime;
     }

@@ -53,7 +53,8 @@ public class WaterResourceReport implements Serializable {
         this.latLng = latLng;
     }
     /**
-     * Constructor to instantiate the fields for the water resource report
+     * Old constructor without the map data. *Only kept for testing*
+     *
      * @param location The location of the water source
      * @param waterType the type of the water source
      * @param waterCondition the condition of the water source
@@ -111,7 +112,11 @@ public class WaterResourceReport implements Serializable {
                 + location + ": " + waterType + ", " + waterCondition;
     }
 
-    // for testing only
+    /**
+     * Method to get the date and time for this report. *Only for testing*
+     *
+     * @return the reports date and time
+     */
     public String getDateAndTime() {
         return dateAndTime;
     }
