@@ -1,5 +1,6 @@
 package com.allstarproject.cs2340.allstarwatercrowdsourcingapp.controller;
 
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,13 +10,15 @@ import android.content.Intent;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.ModelFacade;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Model;
-
 import java.io.File;
+
 public class WelcomeActivity extends AppCompatActivity
         implements View.OnClickListener {
 
     private final ModelFacade modelFacade = ModelFacade.getModelFacade();
     private final Model model = modelFacade.getModelInstance();
+
+
     /**
      * onCreate method to instantiate the necessary buttons and text fields
      * for the Welcome Screen.
@@ -32,13 +35,34 @@ public class WelcomeActivity extends AppCompatActivity
                 ModelFacade.DEFAULT_BINARY_FILE_NAME);
         modelFacade.loadBinary(file);
         model.regenMap();
+
+
+        final MediaPlayer loginMediaPlayer = MediaPlayer.create(
+                WelcomeActivity.this, R.raw.fart);
         Button btnAction = (Button) findViewById(R.id.btnLogin);
-        btnAction.setOnClickListener(this);
 
+        btnAction.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                loginMediaPlayer.start();
+                Intent intent1 = new Intent(WelcomeActivity.this,
+                        LoginActivity.class);
+                startActivity(intent1);
+            }
+        });
+
+        final MediaPlayer registerMediaPlayer = MediaPlayer.create(
+                WelcomeActivity.this, R.raw.yourturn);
         Button btnRegister = (Button) findViewById(R.id.btnCancelRegister);
-        btnRegister.setOnClickListener(this);
-
-
+        btnRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                registerMediaPlayer.start();
+                Intent intent2 = new Intent(WelcomeActivity.this,
+                        RegisterActivity.class);
+                startActivity(intent2);
+            }
+        });
     }
 
     /**
@@ -46,14 +70,14 @@ public class WelcomeActivity extends AppCompatActivity
      * clicked from WelcomeActivity
      * @param view current view
      */
+
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
         case R.id.btnLogin:
-            Intent intent = new Intent(WelcomeActivity.this,
+            Intent intent1 = new Intent(WelcomeActivity.this,
                     LoginActivity.class);
-
-            startActivity(intent);
+            startActivity(intent1);
             break;
         case R.id.btnCancelRegister:
             Intent intent2 = new Intent(WelcomeActivity.this,
