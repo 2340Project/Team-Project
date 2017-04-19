@@ -35,7 +35,22 @@ public class MainActivity extends AppCompatActivity
         final MediaPlayer waterfallPlayer = MediaPlayer.create(MainActivity.this, R.raw.waterfall);
         waterfallPlayer.start();
         Button btnLogout = (Button) findViewById(R.id.btnLogout);
-        btnLogout.setOnClickListener(this);
+
+        final MediaPlayer goodByePlayer = MediaPlayer.create(MainActivity.this, R.raw.goodbye);
+        final File dir = this.getFilesDir();
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goodByePlayer.start();
+                File file = new File(dir,
+                        ModelFacade.DEFAULT_BINARY_FILE_NAME);
+                Intent intent2 = new Intent(MainActivity.this,
+                        WelcomeActivity.class);
+                Log.d("Saving", "About to save data. . .");
+                modelFacade.saveBinary(file);
+                startActivity(intent2);
+            }
+        });
 
         Button btnEditProf = (Button) findViewById(R.id.btnEditProf);
         btnEditProf.setOnClickListener(this);
@@ -89,15 +104,7 @@ public class MainActivity extends AppCompatActivity
             startActivity(intent1);
             break;
 
-        case R.id.btnLogout:
-            File file = new File(this.getFilesDir(),
-                    ModelFacade.DEFAULT_BINARY_FILE_NAME);
-            Intent intent2 = new Intent(MainActivity.this,
-                    WelcomeActivity.class);
-            Log.d("Saving", "About to save data. . .");
-            modelFacade.saveBinary(file);
-            startActivity(intent2);
-            break;
+
 
         case R.id.btnViewMap:
             Intent intent5 = new Intent(MainActivity.this, MapsActivity.class);
