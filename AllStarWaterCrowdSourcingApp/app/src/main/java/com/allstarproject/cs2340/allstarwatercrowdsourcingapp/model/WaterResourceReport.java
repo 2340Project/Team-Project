@@ -17,7 +17,7 @@ import java.util.Locale;
  * Created by Austin on 2/26/17.
  */
 
-class WaterResourceReport implements Serializable {
+public class WaterResourceReport implements Serializable {
     private int reportNumber;
     private String location;
     private String waterType;
@@ -53,7 +53,8 @@ class WaterResourceReport implements Serializable {
         this.latLng = latLng;
     }
     /**
-     * Constructor to instantiate the fields for the water resource report
+     * Old constructor without the map data. *Only kept for testing*
+     *
      * @param location The location of the water source
      * @param waterType the type of the water source
      * @param waterCondition the condition of the water source
@@ -111,4 +112,12 @@ class WaterResourceReport implements Serializable {
                 + location + ": " + waterType + ", " + waterCondition;
     }
 
+    /**
+     * Method to get the date and time for this report. *Only for testing*
+     *
+     * @return the reports date and time
+     */
+    public String getDateAndTime() {
+        return dateAndTime;
+    }
 }

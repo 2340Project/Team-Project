@@ -60,11 +60,7 @@ public class SubmitReportActivity extends AppCompatActivity
             break;
 
         case R.id.btnSubmitWaterReport:
-
             model.addReport(txtLocation.getText().toString(),
-                    txtWaterType.getText().toString(),
-                    txtWaterCondition.getText().toString());
-            model.addReportList(txtLocation.getText().toString(),
                     txtWaterType.getText().toString(),
                     txtWaterCondition.getText().toString());
             super.finish();

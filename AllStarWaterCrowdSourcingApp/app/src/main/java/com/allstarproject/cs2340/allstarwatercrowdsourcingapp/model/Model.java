@@ -64,6 +64,9 @@ public class Model extends FragmentActivity implements Serializable {
      */
     private transient MarkerOptions markerOptions;
 
+    // for testing only
+    private String lastDateAndTime = "";
+
     /**
      * Singleton constructor
      */
@@ -173,6 +176,8 @@ public class Model extends FragmentActivity implements Serializable {
             System.out.println(reportList + "HERE LINE 178!");
             reportList.add(marker);
         }
+
+        printList.add(waterResourceReport);
     }
 
     /**
@@ -199,7 +204,8 @@ public class Model extends FragmentActivity implements Serializable {
     }
 
     /**
-     * method to add the resourceReports to a list
+     * Old method to add the reports to a list. *only kept for testing*
+     *
      * @param location string location of the water
      * @param waterType string type of the water
      * @param waterCondition string condition of water
@@ -207,9 +213,10 @@ public class Model extends FragmentActivity implements Serializable {
     public void addReportList(String location, String waterType,
                               String waterCondition) {
         WaterResourceReport waterResourceReport = new WaterResourceReport(
-                location, waterType, waterCondition, reportNumber,
+                location, waterType, waterCondition, ++reportNumber,
                 user.getName());
         printList.add(waterResourceReport);
+        lastDateAndTime = waterResourceReport.getDateAndTime();
     }
     /**
      * method to add the purityReports to a list
@@ -225,6 +232,7 @@ public class Model extends FragmentActivity implements Serializable {
                 waterCondition, virusPPM, virusType, purityReportNumber,
                 user.getName());
         purityReportList.add(waterPurityReport);
+        lastDateAndTime = waterPurityReport.getDateAndTime();
     }
 
     /**
@@ -278,6 +286,16 @@ public class Model extends FragmentActivity implements Serializable {
      */
     public Map<String, RegisteredUser> getUserMap() {
         return map;
+    }
+
+    /**
+     * Method to get the date and time for the last report created.
+     * *Only for testing*
+     *
+     * @return the date and time of the last report added
+     */
+    public String getLastDateAndTime() {
+        return lastDateAndTime;
     }
 
 }
