@@ -36,10 +36,10 @@ public class WelcomeActivity extends AppCompatActivity
         modelFacade.loadBinary(file);
         model.regenMap();
 
+        Button btnAction = (Button) findViewById(R.id.btnLogin);
 
         final MediaPlayer loginMediaPlayer = MediaPlayer.create(
-                WelcomeActivity.this, R.raw.fart);
-        Button btnAction = (Button) findViewById(R.id.btnLogin);
+                WelcomeActivity.this, R.raw.successful);
 
         btnAction.setOnClickListener(new View.OnClickListener() {
             @Override

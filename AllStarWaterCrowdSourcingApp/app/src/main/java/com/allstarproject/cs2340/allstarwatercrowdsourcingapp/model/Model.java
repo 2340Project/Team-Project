@@ -2,6 +2,7 @@ package com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Map;
 import java.util.List;
 import android.support.v4.app.FragmentActivity;
@@ -33,7 +34,7 @@ public class Model extends FragmentActivity implements Serializable {
     /**
      * userList
      */
-    private final List<RegisteredUser> users;
+    public List<RegisteredUser> users;
     /**
      * current user (could be a RegisteredUser or any subtype)
      */
@@ -242,10 +243,10 @@ public class Model extends FragmentActivity implements Serializable {
         return purityReportNumber;
     }
     /**
-     *
-     * @return a List that contains the markerOption objects
-     * to be added to the map.  This is used to repopulate the map
+     *  This is used to repopulate the map
      * after closing and returning
+     * @return a List that contains the markerOption objects
+     * to be added to the map.
      */
     public List getReportList() {
         return reportList;
@@ -264,11 +265,27 @@ public class Model extends FragmentActivity implements Serializable {
      * from binary
      */
     public void regenMap() {
-        Log.d("List size after load:", users.size() + " .");
+        //Log.d("List size after load:", users.size() + " .");
         for (RegisteredUser u : users) {
             map.put(u.getUserName(), u);
         }
-        Log.d("Regen map:", map.size() + " is the size");
+        //Log.d("Regen map:", map.size() + " is the size");
+    }
+
+    /**
+     * method for setting users list for testing
+     * @param list dummy list of Users for testing
+     */
+    public void setUserList(LinkedList<RegisteredUser> list) {
+        users = list;
+    }
+
+    /**
+     * getter method for testing
+     * @return map which contains users
+     */
+    public Map<String, RegisteredUser> getUserMap() {
+        return map;
     }
 
     /**
