@@ -1,4 +1,5 @@
-# Team-Project
-Crowd sourced water application for Object oriented Design course.
+# CS 2340 - Objects & Design
+## Team All-Star
+We implemented AGILE workflow methodologies to design and develop a crowdsourced native mobile application for Android. This application enables users anywhere in the world to find clean drinking water and report water purity test results. We designed the application through various diagrams and tasks such as a domain model, context diagram, sequence diagram, robustness diagram, architecture and user-interface prototypes, UML diagram, user stories, etc. We followed code review and project management best practices through various checklists and evaluations (e.g., heuristic evaluation) as we developed the application. <br/>
 
-This is an Android application implemented with Java.  This semester the course was based around Sustain-Serve-Learn so we implemented an application to allow users anywhere in the world to submit the location of water and the current state of that water.
+This is the actual project master branch. Deployable Code only and DON'T DELETE!
